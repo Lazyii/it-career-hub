@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#fff;
+}
+
+.hero{
+    background:linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #d8ecff 100%
+    );
+    padding:40px 20px;
+}
+
+.hero-content{
+    max-width:1200px;
+    margin:auto;
+}
+
+.hero h1{
+    color:#2764d8;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.search-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.search-box input{
+    flex:1;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.filters{
+    display:flex;
+    gap:10px;
+}
+
+.filters select{
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+.job-card{
+    border:1px solid #4f8df7;
+    border-radius:8px;
+    padding:20px;
+    margin-bottom:20px;
+
+    display:flex;
+    gap:20px;
+}
+
+.company-logo{
+    width:80px;
+    height:80px;
+    background:#ddd;
+    border-radius:4px;
+}
+
+.job-info h3{
+    color:#2764d8;
+    margin-bottom:5px;
+}
+
+.company{
+    color:#555;
+}
+
+.location{
+    color:#777;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.salary{
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.tags{
+    display:flex;
+    gap:10px;
+}
+
+.tag{
+    background:#dceaff;
+    color:#2764d8;
+    padding:5px 10px;
+    border-radius:5px;
+    font-size:13px;
+}
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:20px;
+}
+
+.pagination span{
+    width:10px;
+    height:10px;
+    background:#ccc;
+    border-radius:50%;
+}
+
+.pagination .active{
+    background:#2764d8;
+}
+
+footer{
+    margin-top:50px;
+    background:#d8ecff;
+    padding:40px;
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+    gap:30px;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    margin:6px 0;
+}

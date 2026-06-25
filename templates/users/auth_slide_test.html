@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập / Đăng ký | IT Career Hub</title>
+
+    <link rel="stylesheet" href="../../static/css/auth_slide.css">
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-container" id="authContainer">
+
+            <!-- FORM ĐĂNG KÝ -->
+            <div class="form-container sign-up-container">
+                <form method="post" action="#">
+                    {% csrf_token %}
+
+                    <h1>Tạo tài khoản</h1>
+                    <p class="subtitle">Đăng ký để sử dụng IT Career Hub</p>
+
+                    <div class="role-box">
+                        <select name="role" required>
+                            <option value="" disabled selected>Bạn là</option>
+                            <option value="candidate">Ứng viên</option>
+                            <option value="recruiter">Nhà tuyển dụng</option>
+                        </select>
+                    </div>
+
+                    <input type="text" name="full_name" placeholder="Họ và tên">
+                    <input type="text" name="username" placeholder="Tên đăng nhập" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="text" name="phone" placeholder="Số điện thoại">
+                    <input type="password" name="password1" placeholder="Mật khẩu" required>
+                    <input type="password" name="password2" placeholder="Nhập lại mật khẩu" required>
+
+                    <button type="submit">Đăng ký</button>
+                </form>
+            </div>
+
+            <!-- FORM ĐĂNG NHẬP -->
+            <div class="form-container sign-in-container">
+                <form method="post" action="#">
+
+                    <h1>Đăng nhập</h1>
+                    <p class="subtitle">Chào mừng bạn quay lại</p>
+
+                    <input type="text" name="username" placeholder="Tên đăng nhập" required>
+                    <input type="password" name="password" placeholder="Mật khẩu" required>
+
+                    <a href="#" class="forgot-link">Quên mật khẩu?</a>
+
+                    <button type="submit">Đăng nhập</button>
+                </form>
+            </div>
+
+            <!-- PHẦN OVERLAY TRƯỢT -->
+            <div class="overlay-container">
+                <div class="overlay">
+
+                    <div class="overlay-panel overlay-left">
+                        <h1>Chào mừng trở lại!</h1>
+                        <p>
+                            Nếu bạn đã có tài khoản, hãy đăng nhập để tiếp tục tìm việc
+                            hoặc quản lý tin tuyển dụng.
+                        </p>
+                        <button class="ghost" id="signInBtn" type="button">
+                            Đăng nhập
+                        </button>
+                    </div>
+
+                    <div class="overlay-panel overlay-right">
+                        <h1>Xin chào!</h1>
+                        <p>
+                            Tạo tài khoản Ứng viên hoặc Nhà tuyển dụng để bắt đầu sử dụng
+                            IT Career Hub.
+                        </p>
+                        <button class="ghost" id="signUpBtn" type="button">
+                            Đăng ký
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../static/js/auth_slide.js"></script>
+</body>
+</html>

@@ -1,178 +1,431 @@
-{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Trang chủ - IT Career Hub{% endblock %}
+<!DOCTYPE html>
 
-{% block content %}
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Career Hub</title>
 
-<section class="hero-section">
-    <div class="container">
-        <div class="row align-items-center min-vh-75">
-            <div class="col-lg-6">
-                <span class="badge bg-light text-primary mb-3">
-                    Nền tảng việc làm ngành IT
-                </span>
+```
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-                <h1 class="hero-title">
-                    Tìm công việc IT phù hợp với bạn
-                </h1>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-                <p class="hero-description">
-                    IT Career Hub giúp ứng viên tìm kiếm việc làm IT, ứng tuyển trực tuyến 
-                    và giúp nhà tuyển dụng quản lý tin tuyển dụng dễ dàng.
-                </p>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+```
 
-                <div class="d-flex flex-wrap gap-3 mt-4">
-                    <a href="#" class="btn btn-light btn-lg">
-                        <i class="bi bi-search me-1"></i>
-                        Tìm việc ngay
-                    </a>
+</head>
 
-                    <a href="#" class="btn btn-outline-light btn-lg">
-                        <i class="bi bi-building me-1"></i>
-                        Đăng tin tuyển dụng
-                    </a>
-                </div>
-            </div>
+<body>
 
-            <div class="col-lg-6 mt-5 mt-lg-0">
-                <div class="hero-card">
-                    <div class="job-preview-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h5 class="mb-1">Frontend Developer</h5>
-                                <p class="text-muted mb-2">ABC Technology</p>
-                            </div>
+<main class="page-wrapper">
 
-                            <span class="badge bg-success">Đang tuyển</span>
-                        </div>
+```
+<!-- HEADER -->
+<header class="header">
 
-                        <div class="mb-3">
-                            <span class="skill-tag">HTML</span>
-                            <span class="skill-tag">CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">Bootstrap</span>
-                        </div>
-
-                        <div class="d-flex justify-content-between text-muted small">
-                            <span><i class="bi bi-geo-alt"></i> Hà Nội</span>
-                            <span><i class="bi bi-cash"></i> Thỏa thuận</span>
-                        </div>
-                    </div>
-
-                    <div class="job-preview-card mt-3">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h5 class="mb-1">Django Developer</h5>
-                                <p class="text-muted mb-2">IT Career Company</p>
-                            </div>
-
-                            <span class="badge bg-primary">Remote</span>
-                        </div>
-
-                        <div class="mb-3">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                        </div>
-
-                        <div class="d-flex justify-content-between text-muted small">
-                            <span><i class="bi bi-geo-alt"></i> TP.HCM</span>
-                            <span><i class="bi bi-cash"></i> 15 - 25 triệu</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="logo">
+        IT CAREER HUB
     </div>
+
+    <nav class="navbar">
+        <a href="#">
+            Công việc
+            <i class="fa-solid fa-angle-down"></i>
+        </a>
+
+        <a href="#">
+            Công ty
+            <i class="fa-solid fa-angle-down"></i>
+        </a>
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="{% url 'users:login' %}"
+           class="btn btn-login">
+            Đăng nhập
+        </a>
+
+        <a href="{% url 'users:register' %}"
+           class="btn btn-register">
+            Đăng ký
+        </a>
+    </div>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+    <p class="hero-subtitle">
+        Nền tảng tìm việc làm IT uy tín nhất tại Việt Nam
+    </p>
+
+    <h1>
+        Tìm công việc IT <br>
+        phù hợp với bạn
+    </h1>
+
+    <p class="hero-desc">
+        Hơn 2000 công việc ở 2000 công ty công nghệ - cập nhật mỗi ngày
+    </p>
+
+    <!-- SEARCH FORM -->
+    <form class="search-box" id="jobSearchForm">
+
+        <div class="search-item location">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <input
+                type="search"
+                id="location"
+                name="location"
+                placeholder="Địa điểm">
+
+        </div>
+
+        <div class="search-item keyword">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="search"
+                id="keyword"
+                name="keyword"
+                placeholder="Công việc cần tìm">
+
+        </div>
+
+        <button type="submit"
+                class="search-btn">
+            Tìm kiếm
+        </button>
+
+    </form>
+
+    <div class="suggestions">
+
+        <span>Gợi ý cho bạn :</span>
+
+        <button type="button">Java</button>
+        <button type="button">Python</button>
+        <button type="button">C#</button>
+
+    </div>
+
 </section>
 
-<section class="section-padding">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="section-title">Tính năng chính</h2>
-            <p class="section-description">
-                Website hỗ trợ đầy đủ luồng ứng tuyển cơ bản cho Candidate và Recruiter.
+<!-- FEATURED JOBS -->
+<section class="section">
+
+    <div class="section-header">
+        <h2>Việc làm nổi bật</h2>
+        <a href="#">Xem tất cả &gt;</a>
+    </div>
+
+    <div class="job-grid">
+
+        <div class="job-card">
+
+            <div class="company-logo">
+                T
+            </div>
+
+            <h3>Senior ReactJS Developer</h3>
+
+            <p class="company-name">
+                Tiki Corporation
             </p>
+
+            <div class="tags">
+                <span>Ha Noi</span>
+                <span>Hybrid</span>
+                <span>Senior</span>
+            </div>
+
+            <p class="salary">
+                Lương: 2.000 - 3.000 USD
+            </p>
+
+            <div class="job-footer">
+                <span>2 ngày trước</span>
+
+                <a href="#"
+                   class="apply-btn">
+                    Ứng tuyển
+                </a>
+            </div>
+
         </div>
 
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="bi bi-search"></i>
-                    </div>
+        <div class="job-card">
 
-                    <h5>Tìm kiếm việc làm</h5>
-
-                    <p>
-                        Ứng viên có thể xem danh sách việc làm, tìm kiếm và lọc theo nhu cầu.
-                    </p>
-                </div>
+            <div class="company-logo">
+                V
             </div>
 
-            <div class="col-md-4">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="bi bi-file-earmark-arrow-up"></i>
-                    </div>
+            <h3>Backend Developer</h3>
 
-                    <h5>Ứng tuyển trực tuyến</h5>
+            <p class="company-name">
+                Viettel
+            </p>
 
-                    <p>
-                        Candidate có thể upload CV và gửi đơn ứng tuyển trực tiếp trên hệ thống.
-                    </p>
-                </div>
+            <div class="tags">
+                <span>Ha Noi</span>
+                <span>Onsite</span>
+                <span>Middle</span>
             </div>
 
-            <div class="col-md-4">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="bi bi-kanban"></i>
-                    </div>
+            <p class="salary">
+                Lương: 1.500 - 2.500 USD
+            </p>
 
-                    <h5>Quản lý tuyển dụng</h5>
+            <div class="job-footer">
+                <span>1 ngày trước</span>
 
-                    <p>
-                        Recruiter có thể đăng tin, xem ứng viên và cập nhật trạng thái ứng tuyển.
-                    </p>
-                </div>
+                <a href="#"
+                   class="apply-btn">
+                    Ứng tuyển
+                </a>
             </div>
+
         </div>
+
+        <div class="job-card">
+
+            <div class="company-logo">
+                F
+            </div>
+
+            <h3>QA Tester</h3>
+
+            <p class="company-name">
+                FPT Software
+            </p>
+
+            <div class="tags">
+                <span>Da Nang</span>
+                <span>Hybrid</span>
+                <span>Junior</span>
+            </div>
+
+            <p class="salary">
+                Lương: 800 - 1.500 USD
+            </p>
+
+            <div class="job-footer">
+                <span>3 ngày trước</span>
+
+                <a href="#"
+                   class="apply-btn">
+                    Ứng tuyển
+                </a>
+            </div>
+
+        </div>
+
     </div>
+
 </section>
 
-<section class="section-padding bg-light-custom">
-    <div class="container">
-        <div class="row g-4 text-center">
-            <div class="col-md-3 col-6">
-                <div class="stat-box">
-                    <h3>50+</h3>
-                    <p>Việc làm mẫu</p>
-                </div>
-            </div>
+<!-- COMPANIES -->
+<section class="section">
 
-            <div class="col-md-3 col-6">
-                <div class="stat-box">
-                    <h3>10+</h3>
-                    <p>Công ty</p>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-                <div class="stat-box">
-                    <h3>2</h3>
-                    <p>Vai trò người dùng</p>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-6">
-                <div class="stat-box">
-                    <h3>100%</h3>
-                    <p>Django Template</p>
-                </div>
-            </div>
-        </div>
+    <div class="section-header">
+        <h2>Công ty đang tuyển dụng</h2>
+        <a href="#">Xem tất cả &gt;</a>
     </div>
+
+    <div class="company-grid">
+
+        <div class="company-card">
+            <div class="company-logo small">V</div>
+            <h3>VNG</h3>
+            <p>12 việc làm</p>
+        </div>
+
+        <div class="company-card">
+            <div class="company-logo small">V</div>
+            <h3>Viettel</h3>
+            <p>3 việc làm</p>
+        </div>
+
+        <div class="company-card">
+            <div class="company-logo small">V</div>
+            <h3>Vinaphone</h3>
+            <p>3 việc làm</p>
+        </div>
+
+    </div>
+
 </section>
 
-{% endblock %}
+<!-- CATEGORY -->
+<section class="section">
+
+    <div class="section-header">
+        <h2>Khám phá các lĩnh vực</h2>
+        <a href="#">Xem tất cả &gt;</a>
+    </div>
+
+    <div class="category-grid">
+
+        <a href="#">Testing</a>
+        <a href="#">Frontend</a>
+        <a href="#">Backend</a>
+        <a href="#">Full Stack</a>
+        <a href="#">DevOps</a>
+        <a href="#">Mobile</a>
+        <a href="#">Data</a>
+        <a href="#">AI</a>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta-list">
+
+    <div class="cta-card">
+
+        <div>
+            <h3>Bạn là ứng viên?</h3>
+            <p>Tìm việc miễn phí với hơn 2000 công việc đang chờ bạn</p>
+        </div>
+
+        <a href="#"
+           class="cta-btn">
+            Tạo CV
+        </a>
+
+    </div>
+
+    <div class="cta-card">
+
+        <div>
+            <h3>Bạn là nhà tuyển dụng?</h3>
+            <p>Đăng tin miễn phí - tiếp cận hơn 200 ứng viên</p>
+        </div>
+
+        <a href="#"
+           class="cta-btn">
+            Đăng tin
+        </a>
+
+    </div>
+
+</section>
+
+<!-- REVIEW -->
+<section class="section review-section">
+
+    <h2>Trải nghiệm từ những người đi trước</h2>
+
+    <div class="review-grid">
+
+        <div class="review-card">
+
+            <div class="avatar">M</div>
+
+            <div>
+                <h4>Mike'll make it</h4>
+                <p>Middle Frontend Developer</p>
+            </div>
+
+        </div>
+
+        <div class="review-card">
+
+            <div class="avatar">A</div>
+
+            <div>
+                <h4>Anna Nguyen</h4>
+                <p>Manual Tester</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="slider-dots">
+
+        <span class="arrow-dot">
+            <i class="fa-solid fa-arrow-left"></i>
+        </span>
+
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+
+        <span class="arrow-dot">
+            <i class="fa-solid fa-arrow-right"></i>
+        </span>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-col brand-footer">
+
+        <h3>IT CAREER HUB</h3>
+
+        <p>
+            Nền tảng tuyển dụng IT uy tín tại Việt Nam.
+        </p>
+
+        <span>
+            © 2026 IT Career Hub
+        </span>
+
+    </div>
+
+    <div class="footer-col">
+
+        <h4>Ứng viên</h4>
+
+        <a href="#">Tìm việc làm</a>
+        <a href="#">Hồ sơ của tôi</a>
+        <a href="#">Đơn ứng tuyển</a>
+        <a href="#">Việc đã lưu</a>
+
+    </div>
+
+    <div class="footer-col">
+
+        <h4>Nhà tuyển dụng</h4>
+
+        <a href="#">Đăng tin tuyển dụng</a>
+        <a href="#">Quản lý tin đăng</a>
+        <a href="#">Xem ứng viên</a>
+
+    </div>
+
+    <div class="footer-col">
+
+        <h4>Về chúng tôi</h4>
+
+        <a href="#">Giới thiệu</a>
+        <a href="#">Blog</a>
+        <a href="#">Liên hệ</a>
+        <a href="#">Điều khoản</a>
+
+    </div>
+
+</footer>
+```
+
+</main>
+
+<script src="{% static 'js/home.js' %}"></script>
+
+</body>
+</html>

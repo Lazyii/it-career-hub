@@ -1,0 +1,1106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IT Career Hub | Trang chủ</title>
+
+    <meta name="description"
+        content="IT Career Hub - Nền tảng tìm kiếm việc làm dành cho lập trình viên và doanh nghiệp CNTT.">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="{% static 'css/home.css' %}">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<!-- =========================
+        HEADER
+========================== -->
+
+<header class="header">
+
+    <div class="container">
+
+        <!-- Logo -->
+
+        <a href="{% url 'home' %}" class="logo">
+
+            IT CAREER HUB
+
+        </a>
+
+        <!-- Menu -->
+
+        <nav class="navbar">
+
+            <ul>
+
+                <li>
+
+                    <a href="#">
+
+                        Công việc
+
+                        <i class="fa-solid fa-angle-down"></i>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Công ty
+
+                        <i class="fa-solid fa-angle-down"></i>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <!-- Right Menu -->
+
+        <div class="header-right">
+
+            <!-- Notification -->
+
+            <button
+                class="icon-btn notification-btn"
+                id="notificationBtn">
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span class="notify-dot"></span>
+
+            </button>
+
+            <!-- Message -->
+
+            <button
+                class="icon-btn message-btn">
+
+                <i class="fa-regular fa-message"></i>
+
+            </button>
+
+            <!-- Profile -->
+
+            <div class="profile-dropdown">
+
+                <button
+                    class="profile-btn"
+                    id="profileBtn">
+
+                    <img
+                        src="{% static 'images/avatar.png' %}"
+                        alt="avatar">
+
+                    <i class="fa-solid fa-angle-down"></i>
+
+                </button>
+
+                <!-- Dropdown -->
+
+                <div
+                    class="dropdown-menu"
+                    id="profileMenu">
+
+                    <div class="profile-info">
+
+                        <img
+                            src="{% static 'images/avatar.png' %}"
+                            alt="avatar">
+
+                        <div>
+
+                            <h4>
+
+                                {{ request.user.get_full_name|default:request.user.username }}
+
+                            </h4>
+
+                            <p>
+
+                                {{ request.user.email }}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <a href="#">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        Tổng quan
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        Hồ sơ
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                        CV của tôi
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-solid fa-bookmark"></i>
+
+                        Việc đã lưu
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        Cài đặt
+
+                    </a>
+
+                    <hr>
+
+                    <a href="#"
+                       class="logout">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        Đăng xuất
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- =========================
+        HERO
+========================== -->
+
+<section class="hero">
+        <div class="container">
+
+        <div class="hero-content">
+
+            <p class="hero-subtitle">
+                Nền tảng tìm việc làm IT uy tín tại Việt Nam
+            </p>
+
+            <h1 class="hero-title">
+                Tìm công việc IT <br>
+                phù hợp với bạn
+            </h1>
+
+            <p class="hero-description">
+                Hơn <strong>20.000+</strong> công việc từ
+                <strong>2.000+</strong> doanh nghiệp công nghệ,
+                được cập nhật mỗi ngày.
+            </p>
+
+            <!-- =====================
+                    SEARCH
+            ====================== -->
+
+            <form class="search-form"
+                  action="#"
+                  method="GET">
+
+                <!-- Địa điểm -->
+
+                <div class="search-group">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <input
+                        type="text"
+                        name="location"
+                        placeholder="Địa điểm">
+
+                </div>
+
+                <!-- Công việc -->
+
+                <div class="search-group">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="keywordInput"
+                        name="keyword"
+                        placeholder="Công việc cần tìm">
+
+                </div>
+
+                <!-- Button -->
+
+                <button
+                    type="submit"
+                    class="search-btn">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Tìm kiếm
+
+                </button>
+
+            </form>
+
+            <!-- =====================
+                SEARCH SUGGESTION
+            ====================== -->
+
+            <div class="search-suggestion">
+
+                <span>
+                    Gợi ý cho bạn
+                </span>
+
+                <button
+                    class="suggestion-item"
+                    type="button">
+
+                    Java
+
+                </button>
+
+                <button
+                    class="suggestion-item"
+                    type="button">
+
+                    Python
+
+                </button>
+
+                <button
+                    class="suggestion-item"
+                    type="button">
+
+                    C#
+
+                </button>
+
+                <button
+                    class="suggestion-item"
+                    type="button">
+
+                    ReactJS
+
+                </button>
+
+                <button
+                    class="suggestion-item"
+                    type="button">
+
+                    NodeJS
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+        FEATURED JOB
+========================== -->
+
+<section class="featured-job">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2>
+                Việc làm nổi bật
+            </h2>
+
+            <a href="#">
+
+                Xem tất cả
+
+                <i class="fa-solid fa-angle-right"></i>
+
+            </a>
+
+        </div>
+
+        <div class="job-list">
+            {% for job in featured_jobs %}
+
+<article class="job-card">
+
+    <!-- Logo công ty -->
+
+    <div class="job-top">
+
+        <div class="company-logo">
+
+            {% if job.company.logo %}
+
+                <img src="{{ job.company.logo.url }}"
+                     alt="{{ job.company.name }}">
+
+            {% else %}
+
+                <img src="{% static 'images/company-default.png' %}"
+                     alt="Company">
+
+            {% endif %}
+
+        </div>
+
+        <button
+            type="button"
+            class="bookmark-btn">
+
+            <i class="fa-regular fa-bookmark"></i>
+
+        </button>
+
+    </div>
+
+    <!-- Nội dung -->
+
+    <div class="job-content">
+
+        <h3>
+
+            <a href="#">
+
+                {{ job.title }}
+
+            </a>
+
+        </h3>
+
+        <p class="company-name">
+
+            {{ job.company.name }}
+
+        </p>
+
+        <div class="job-meta">
+
+            <span>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                {{ job.location }}
+
+            </span>
+
+            <span>
+
+                <i class="fa-solid fa-money-bill-wave"></i>
+
+                {{ job.salary_display }}
+
+            </span>
+
+        </div>
+
+        <!-- Skills -->
+
+        <div class="skill-list">
+
+            {% for skill in job.skills.all %}
+
+                <span>
+
+                    {{ skill.name }}
+
+                </span>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <div class="job-footer">
+
+        <span class="job-date">
+
+            {{ job.created_at|timesince }} trước
+
+        </span>
+
+        <a href="#"
+           class="apply-btn">
+
+            Ứng tuyển
+
+        </a>
+
+    </div>
+
+</article>
+
+{% empty %}
+
+<div class="empty-job">
+
+    <img src="{% static 'images/empty-job.svg' %}"
+         alt="No Job">
+
+    <h3>
+
+        Hiện chưa có công việc nào
+
+    </h3>
+
+    <p>
+
+        Hãy quay lại sau.
+
+    </p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div class="section-button">
+
+    <a href="#"
+       class="view-more-btn">
+
+        Xem thêm việc làm
+
+    </a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================
+        TOP COMPANY
+=========================== -->
+
+<section class="top-company">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2>
+
+                Công ty nổi bật
+
+            </h2>
+
+            <a href="#">
+
+                Xem tất cả
+
+                <i class="fa-solid fa-angle-right"></i>
+
+            </a>
+
+        </div>
+
+        <div class="company-list">
+            {% for company in featured_companies %}
+
+<article class="company-card">
+
+    <div class="company-cover">
+
+        {% if company.logo %}
+
+            <img src="{{ company.logo.url }}"
+                 alt="{{ company.name }}">
+
+        {% else %}
+
+            <img src="{% static 'images/company-default.png' %}"
+                 alt="Company">
+
+        {% endif %}
+
+    </div>
+
+    <div class="company-body">
+
+        <h3>
+
+            {{ company.name }}
+
+        </h3>
+
+        <p>
+
+            {{ company.address }}
+
+        </p>
+
+        <span>
+
+            {{ company.total_jobs }} việc làm đang tuyển
+
+        </span>
+
+    </div>
+
+    <a href="#"
+       class="company-btn">
+
+        Xem công ty
+
+    </a>
+
+</article>
+
+{% empty %}
+
+<div class="empty-company">
+
+    <h3>
+
+        Chưa có công ty nào.
+
+    </h3>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div class="section-button">
+
+    <a href="#"
+       class="view-more-btn">
+
+        Xem tất cả công ty
+
+    </a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================
+        JOB CATEGORY
+==================================== -->
+
+<section class="job-category">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2>
+
+                Khám phá theo lĩnh vực
+
+            </h2>
+
+            <a href="#">
+
+                Xem tất cả
+
+                <i class="fa-solid fa-angle-right"></i>
+
+            </a>
+
+        </div>
+
+        <div class="category-grid">
+
+            <a href="#" class="category-card">
+
+                <i class="fa-solid fa-code"></i>
+
+                <span>Frontend</span>
+
+            </a>
+
+            <a href="#" class="category-card">
+
+                <i class="fa-solid fa-server"></i>
+
+                <span>Backend</span>
+
+            </a>
+
+            <a href="#" class="category-card">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                <span>Fullstack</span>
+
+            </a>
+
+            <a href="#" class="category-card">
+
+                <i class="fa-solid fa-bug"></i>
+
+                <span>Tester</span>
+
+            </a>
+
+            <a href="#" class="category-card">
+
+                <i class="fa-solid fa-mobile-screen-button"></i>
+
+                <span>Mobile</span>
+
+            </a>
+
+            <a href="#" class="category-card">
+
+                <i class="fa-solid fa-cloud"></i>
+
+                <span>Cloud</span>
+
+            </a>
+
+            <a href="#" class="category-card">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>Security</span>
+
+            </a>
+
+            <a href="#" class="category-card">
+
+                <i class="fa-solid fa-database"></i>
+
+                <span>Data</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================
+        CAREER BANNER
+==================================== -->
+
+<section class="career-banner">
+
+    <div class="container">
+
+        <div class="career-grid">
+
+            <!-- CV -->
+
+            <div class="career-card">
+
+                <div class="career-content">
+
+                    <h2>
+
+                        Hồ sơ của bạn
+
+                    </h2>
+
+                    <p>
+
+                        Cập nhật CV để tăng khả năng được nhà tuyển dụng tìm thấy.
+
+                    </p>
+
+                    <a href="#"
+                       class="career-btn">
+
+                        Cập nhật CV
+
+                    </a>
+
+                </div>
+
+                <div class="career-image">
+
+                    <img src="{% static 'images/cv-banner.png' %}"
+                         alt="CV">
+
+                </div>
+
+            </div>
+
+            <!-- Saved -->
+
+            <div class="career-card">
+
+                <div class="career-content">
+
+                    <h2>
+
+                        Việc làm đã lưu
+
+                    </h2>
+
+                    <p>
+
+                        Theo dõi những công việc bạn quan tâm và ứng tuyển bất cứ lúc nào.
+
+                    </p>
+
+                    <a href="#"
+                       class="career-btn">
+
+                        Xem ngay
+
+                    </a>
+
+                </div>
+
+                <div class="career-image">
+
+                    <img src="{% static 'images/bookmark-banner.png' %}"
+                         alt="Saved">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================
+        REVIEW SECTION
+==================================== -->
+
+<section class="review-section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2>
+
+                Trải nghiệm từ những người đi trước
+
+            </h2>
+
+        </div>
+
+        <div class="review-slider">
+            ```html
+{% for review in reviews %}
+
+<article class="review-card">
+
+    <div class="review-header">
+
+        <img src="{{ review.avatar.url|default:'/static/images/avatar-default.png' }}"
+             alt="{{ review.name }}">
+
+        <div>
+
+            <h3>
+
+                {{ review.name }}
+
+            </h3>
+
+            <span>
+
+                {{ review.position }}
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="review-rating">
+
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+
+    </div>
+
+    <p>
+
+        {{ review.content }}
+
+    </p>
+
+</article>
+
+{% empty %}
+
+<article class="review-card">
+
+    <div class="review-header">
+
+        <img src="{% static 'images/avatar-default.png' %}"
+             alt="Avatar">
+
+        <div>
+
+            <h3>
+
+                IT Career Hub
+
+            </h3>
+
+            <span>
+
+                Candidate
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <p>
+
+        Hiện chưa có đánh giá nào.
+
+    </p>
+
+</article>
+
+{% endfor %}
+
+</div>
+
+<!-- Slider -->
+
+<div class="slider-control">
+
+    <button class="slider-btn prev">
+
+        <i class="fa-solid fa-angle-left"></i>
+
+    </button>
+
+    <button class="slider-btn next">
+
+        <i class="fa-solid fa-angle-right"></i>
+
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+                FOOTER
+=========================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <!-- Logo -->
+
+            <div class="footer-about">
+
+                <h2>
+
+                    IT CAREER HUB
+
+                </h2>
+
+                <p>
+
+                    Nền tảng tuyển dụng và tìm kiếm việc làm
+                    dành riêng cho ngành Công nghệ thông tin.
+
+                </p>
+
+                <div class="footer-social">
+
+                    <a href="#">
+
+                        <i class="fab fa-facebook-f"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fab fa-linkedin-in"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fab fa-github"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fab fa-youtube"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Candidate -->
+
+            <div class="footer-column">
+
+                <h3>
+
+                    Ứng viên
+
+                </h3>
+
+                <a href="#">Tìm việc làm</a>
+
+                <a href="#">Hồ sơ của tôi</a>
+
+                <a href="#">Việc đã lưu</a>
+
+                <a href="#">Đơn ứng tuyển</a>
+
+            </div>
+
+            <!-- Recruiter -->
+
+            <div class="footer-column">
+
+                <h3>
+
+                    Nhà tuyển dụng
+
+                </h3>
+
+                <a href="#">Đăng tin tuyển dụng</a>
+
+                <a href="#">Quản lý tin đăng</a>
+
+                <a href="#">Quản lý ứng viên</a>
+
+            </div>
+
+            <!-- Support -->
+
+            <div class="footer-column">
+
+                <h3>
+
+                    Hỗ trợ
+
+                </h3>
+
+                <a href="#">Giới thiệu</a>
+
+                <a href="#">Điều khoản</a>
+
+                <a href="#">Chính sách bảo mật</a>
+
+                <a href="#">Liên hệ</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 IT Career Hub. All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- ==========================================
+            BACK TO TOP
+=========================================== -->
+
+<button
+    id="backToTop"
+    class="back-to-top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- ==========================================
+            JAVASCRIPT
+=========================================== -->
+
+<script src="{% static 'js/home.js' %}"></script>
+
+</div>
+
+</body>
+
+</html>
+```
