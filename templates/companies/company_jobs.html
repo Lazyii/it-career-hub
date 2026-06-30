@@ -1,0 +1,400 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Company Jobs | IT Career Hub
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/company_jobs.css' %}">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="company-page">
+
+    <!-- ================= COMPANY HEADER ================= -->
+
+    <section class="company-header">
+
+        <div class="company-header-top">
+
+            <!-- Left -->
+
+            <div class="company-info">
+
+                <div class="company-logo">
+
+                    <img
+                        src="{% static 'img/company-default.png' %}"
+                        alt="Company Logo">
+
+                </div>
+
+                <div class="company-detail">
+
+                    <h1>Tiki</h1>
+
+                    <div class="company-location">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <span>Hà Nội</span>
+
+                    </div>
+
+                    <button class="favorite-btn">
+
+                        Quan tâm
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Right -->
+
+            <div class="company-contact">
+
+                <div class="contact-row">
+
+                    <span class="contact-title">
+
+                        Trang web:
+
+                    </span>
+
+                    <a href="#">
+
+                        http://abcdjf...má/cjkof
+
+                    </a>
+
+                </div>
+
+                <div class="contact-row">
+
+                    <span class="contact-title">
+
+                    </span>
+
+                    <a href="#">
+
+                        facebook.com/tiki.job.com
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Follow Button -->
+
+        <div class="follow-wrapper">
+
+            <button class="follow-btn">
+
+                Theo dõi
+
+            </button>
+
+        </div>
+
+    </section>
+        <!-- ================= COMPANY OVERVIEW ================= -->
+
+    <section class="company-overview">
+
+        <h2>Tổng quan</h2>
+
+        <div class="overview-grid">
+
+            <div class="overview-item">
+
+                <h4>Lĩnh vực công ty:</h4>
+
+                <p>Thương mại điện tử</p>
+
+            </div>
+
+            <div class="overview-item">
+
+                <h4>Nhân viên:</h4>
+
+                <p>5.000+ nhân viên</p>
+
+            </div>
+
+            <div class="overview-item">
+
+                <h4>Quốc gia:</h4>
+
+                <p>Việt Nam</p>
+
+            </div>
+
+            <div class="overview-item">
+
+                <h4>Đánh giá:</h4>
+
+                <p>4.8 / 5</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COMPANY TABS ================= -->
+
+    <section class="company-tabs">
+
+        <a href="#" class="tab-item">
+
+            Giới thiệu công ty
+
+        </a>
+
+        <a href="#" class="tab-item active">
+
+            Công việc đang tuyển dụng
+
+        </a>
+
+        <a href="#" class="tab-item">
+
+            Đánh giá
+
+        </a>
+
+    </section>
+
+
+    <!-- ================= JOB LIST ================= -->
+
+    <section class="job-list">
+                <!-- ================= JOB CARD 1 ================= -->
+
+        <div class="job-card">
+
+            <div class="job-logo">
+
+                <img
+                    src="{% static 'img/company-default.png' %}"
+                    alt="Company Logo">
+
+            </div>
+
+            <div class="job-content">
+
+                <h3>Senior ReactJS Developer</h3>
+
+                <h4>Tiki Coporation</h4>
+
+                <div class="job-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>Hà Nội</span>
+
+                </div>
+
+                <p class="salary">
+
+                    Lương: 2,000 - 3000 USD
+
+                </p>
+
+                <p class="deadline">
+
+                    Mở tuyển dụng: 18/06/2026 -
+                    Đóng tuyển dụng: 18/07/2026
+
+                </p>
+
+                <div class="job-tags">
+
+                    <span>ReactJS</span>
+
+                    <span>Python</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= JOB CARD 2 ================= -->
+
+        <div class="job-card">
+
+            <div class="job-logo">
+
+                <img
+                    src="{% static 'img/company-default.png' %}"
+                    alt="Company Logo">
+
+            </div>
+
+            <div class="job-content">
+
+                <h3>Senior ReactJS Developer</h3>
+
+                <h4>Tiki Coporation</h4>
+
+                <div class="job-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>Hà Nội</span>
+
+                </div>
+
+                <p class="salary">
+
+                    Lương: 2,000 - 3000 USD
+
+                </p>
+
+                <p class="deadline">
+
+                    Mở tuyển dụng: 18/06/2026 -
+                    Đóng tuyển dụng: 18/07/2026
+
+                </p>
+
+                <div class="job-tags">
+
+                    <span>ReactJS</span>
+
+                    <span>Python</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= JOB CARD 3 ================= -->
+
+        <div class="job-card">
+
+            <div class="job-logo">
+
+                <img
+                    src="{% static 'img/company-default.png' %}"
+                    alt="Company Logo">
+
+            </div>
+
+            <div class="job-content">
+
+                <h3>Senior ReactJS Developer</h3>
+
+                <h4>Tiki Coporation</h4>
+
+                <div class="job-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>Hà Nội</span>
+
+                </div>
+
+                <p class="salary">
+
+                    Lương: 2,000 - 3000 USD
+
+                </p>
+
+                <p class="deadline">
+
+                    Mở tuyển dụng: 18/06/2026 -
+                    Đóng tuyển dụng: 18/07/2026
+
+                </p>
+
+                <div class="job-tags">
+
+                    <span>ReactJS</span>
+
+                    <span>Python</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= JOB CARD 4 ================= -->
+
+        <div class="job-card">
+
+            <div class="job-logo">
+
+                <img
+                    src="{% static 'img/company-default.png' %}"
+                    alt="Company Logo">
+
+            </div>
+
+            <div class="job-content">
+
+                <h3>Senior ReactJS Developer</h3>
+
+                <h4>Tiki Coporation</h4>
+
+                <div class="job-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>Hà Nội</span>
+
+                </div>
+
+                <p class="salary">
+
+                    Lương: 2,000 - 3000 USD
+
+                </p>
+
+                <p class="deadline">
+
+                    Mở tuyển dụng: 18/06/2026 -
+                    Đóng tuyển dụng: 18/07/2026
+
+                </p>
+
+                <div class="job-tags">
+
+                    <span>ReactJS</span>
+
+                    <span>Python</span>
+
+                </div>
+
+            </div>
+
+        </div>
+            </section>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="{% static 'js/company_jobs.js' %}"></script>
+
+{% endblock %}

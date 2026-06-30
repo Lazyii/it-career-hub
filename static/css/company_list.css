@@ -1,0 +1,715 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",sans-serif;
+    background:#f5f7fb;
+    color:#222;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* ===========================
+        COLOR
+=========================== */
+
+:root{
+
+    --primary:#0D6EFD;
+
+    --secondary:#6c757d;
+
+    --bg:#f5f7fb;
+
+    --white:#ffffff;
+
+    --border:#e5e7eb;
+
+    --shadow:0 5px 18px rgba(0,0,0,.08);
+
+    --radius:18px;
+
+}
+
+/* ===========================
+        HERO
+=========================== */
+
+.company-hero{
+
+    background:linear-gradient(135deg,#0D6EFD,#4F8DFF);
+
+    color:#fff;
+
+    padding:70px 0 50px;
+
+}
+
+.hero-container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+.company-hero h1{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.company-hero p{
+
+    font-size:18px;
+
+    margin-bottom:35px;
+
+}
+
+/* ===========================
+      SEARCH BAR
+=========================== */
+
+.search-area{
+
+    display:flex;
+
+    gap:20px;
+
+    margin-bottom:35px;
+
+    flex-wrap:wrap;
+
+}
+
+.location-box,
+
+.keyword-box{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    flex:1;
+
+    min-width:280px;
+
+    height:58px;
+
+    padding:0 20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.location-box i,
+
+.keyword-box i{
+
+    color:var(--primary);
+
+    font-size:18px;
+
+    margin-right:12px;
+
+}
+
+.location-box select,
+
+.keyword-box input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    font-size:16px;
+
+}
+
+.keyword-box input::placeholder{
+
+    color:#999;
+
+}
+
+/* ===========================
+        FILTER
+=========================== */
+
+.filter-wrapper{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.filter-wrapper h3{
+
+    margin-bottom:18px;
+
+    font-size:22px;
+
+}
+
+.filter-group{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.filter-group select{
+
+    flex:1;
+
+    min-width:240px;
+
+    height:50px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    padding:0 15px;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+}
+
+/* ===========================
+     COMPANY SECTION
+=========================== */
+
+.company-section{
+
+    padding:60px 0;
+
+}
+
+.company-container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+/* ===========================
+        COMPANY CARD
+=========================== */
+
+.company-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    background:var(--white);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+    border:1px solid transparent;
+
+}
+
+.company-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:var(--primary);
+
+    box-shadow:0 12px 28px rgba(0,0,0,.12);
+
+}
+
+/* ===========================
+        LOGO
+=========================== */
+
+.company-logo{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+}
+
+.company-logo img{
+
+    width:80%;
+
+    height:80%;
+
+    object-fit:contain;
+
+}
+
+/* ===========================
+        CONTENT
+=========================== */
+
+.company-content{
+
+    flex:1;
+
+}
+
+.company-content h2{
+
+    font-size:24px;
+
+    margin-bottom:12px;
+
+    color:#222;
+
+    transition:.3s;
+
+}
+
+.company-card:hover h2{
+
+    color:var(--primary);
+
+}
+
+.company-content h2 a{
+
+    color:inherit;
+
+}
+
+.company-address{
+
+    color:#777;
+
+    margin-bottom:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:15px;
+
+}
+
+.company-address i{
+
+    color:var(--primary);
+
+}
+
+/* ===========================
+      JOB COUNT
+=========================== */
+
+.job-count{
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+    font-size:16px;
+
+}
+
+/* ===========================
+        TAGS
+=========================== */
+
+.company-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.company-tags span{
+
+    background:#EEF5FF;
+
+    color:var(--primary);
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.company-tags span:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/* ===========================
+        FOOTER
+=========================== */
+
+.footer{
+
+    background:#0f172a;
+
+    color:#fff;
+
+    padding:60px 0 30px;
+
+    margin-top:60px;
+
+}
+
+.footer-container{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:40px;
+
+}
+
+.footer-column h3,
+
+.footer-column h4{
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+}
+
+.footer-column p{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+
+}
+
+.footer-column small{
+
+    color:#94a3b8;
+
+}
+
+.footer-column ul{
+
+    list-style:none;
+
+}
+
+.footer-column ul li{
+
+    margin-bottom:12px;
+
+}
+
+.footer-column ul li a{
+
+    color:#cbd5e1;
+
+    transition:.3s;
+
+}
+
+.footer-column ul li a:hover{
+
+    color:#ffffff;
+
+    padding-left:5px;
+
+}
+
+/* ===========================
+      INPUT EFFECT
+=========================== */
+
+.location-box,
+
+.keyword-box,
+
+.filter-group select{
+
+    transition:.3s;
+
+}
+
+.location-box:focus-within,
+
+.keyword-box:focus-within{
+
+    border:2px solid var(--primary);
+
+    box-shadow:0 0 0 4px rgba(13,110,253,.15);
+
+}
+
+.filter-group select:focus{
+
+    outline:none;
+
+    border-color:var(--primary);
+
+}
+
+/* ===========================
+        ANIMATION
+=========================== */
+
+.company-card{
+
+    animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+        TABLET
+=========================== */
+
+@media(max-width:992px){
+
+    .company-card{
+
+        padding:20px;
+
+    }
+
+    .company-logo{
+
+        width:90px;
+
+        height:90px;
+
+    }
+
+    .company-content h2{
+
+        font-size:20px;
+
+    }
+
+    .footer-container{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}
+
+/* ===========================
+        MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+    .company-hero{
+
+        padding:50px 0;
+
+    }
+
+    .company-hero h1{
+
+        font-size:30px;
+
+    }
+
+    .company-hero p{
+
+        font-size:16px;
+
+    }
+
+    .search-area{
+
+        flex-direction:column;
+
+    }
+
+    .filter-group{
+
+        flex-direction:column;
+
+    }
+
+    .company-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        text-align:left;
+
+    }
+
+    .company-logo{
+
+        width:80px;
+
+        height:80px;
+
+    }
+
+    .company-tags{
+
+        margin-top:10px;
+
+    }
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+    }
+
+}
+
+/* ===========================
+      SMALL MOBILE
+=========================== */
+
+@media(max-width:480px){
+
+    .hero-container,
+
+    .company-container,
+
+    .footer-container{
+
+        width:94%;
+
+    }
+
+    .company-content h2{
+
+        font-size:18px;
+
+    }
+
+    .company-tags span{
+
+        font-size:12px;
+
+        padding:6px 14px;
+
+    }
+
+    .job-count{
+
+        font-size:15px;
+
+    }
+
+}

@@ -1,280 +1,339 @@
-/* ==========================================
-            HOME.JS
-========================================== */
+/*==================================================
+=            CANDIDATE HOME JAVASCRIPT
+==================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================
-            PROFILE DROPDOWN
-    ====================================== */
+    initCategoryHover();
 
-    const profileBtn = document.getElementById("profileBtn");
-    const profileMenu = document.getElementById("profileMenu");
+    initJobButtons();
 
-    if (profileBtn && profileMenu) {
+    initReviewButtons();
 
-        profileBtn.addEventListener("click", (e) => {
+    initSlider();
 
-            e.stopPropagation();
+    initSearch();
 
-            profileMenu.classList.toggle("active");
-
-        });
-
-        document.addEventListener("click", (e) => {
-
-            if (!profileMenu.contains(e.target)) {
-
-                profileMenu.classList.remove("active");
-
-            }
-
-        });
-
-    }
-
-    /* =====================================
-            STICKY HEADER
-    ====================================== */
-
-    const header = document.querySelector(".header");
-
-    window.addEventListener("scroll", () => {
-
-        if (window.scrollY > 50) {
-
-            header.style.boxShadow = "0 10px 25px rgba(0,0,0,.08)";
-
-            header.style.background = "#ffffff";
-
-        } else {
-
-            header.style.boxShadow = "0 2px 8px rgba(0,0,0,.05)";
-
-        }
-
-    });
-
-    /* =====================================
-            BACK TO TOP
-    ====================================== */
-
-    const backBtn = document.getElementById("backToTop");
-
-    if (backBtn) {
-
-        window.addEventListener("scroll", () => {
-
-            if (window.scrollY > 400) {
-
-                backBtn.classList.add("show");
-
-            } else {
-
-                backBtn.classList.remove("show");
-
-            }
-
-        });
-
-        backBtn.addEventListener("click", () => {
-
-            window.scrollTo({
-
-                top: 0,
-
-                behavior: "smooth"
-
-            });
-
-        });
-
-    }
-
-    /* =====================================
-        SEARCH SUGGESTION
-    ====================================== */
-
-    const keywordInput = document.getElementById("keywordInput");
-
-    const suggestionButtons = document.querySelectorAll(".suggestion-item");
-
-    suggestionButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            if (keywordInput) {
-
-                keywordInput.value = button.innerText;
-
-                keywordInput.focus();
-
-            }
-
-        });
-
-    });
+    initSmoothScroll();
 
 });
 
-/* ==========================================
-        BOOKMARK BUTTON
-========================================== */
 
-const bookmarkButtons = document.querySelectorAll(".bookmark-btn");
 
-bookmarkButtons.forEach((button) => {
+/*==================================================
+=            CATEGORY EFFECT
+==================================================*/
 
-    button.addEventListener("click", function () {
+function initCategoryHover(){
 
-        const icon = this.querySelector("i");
+    const categories=document.querySelectorAll(".category-item");
 
-        if (icon.classList.contains("fa-regular")) {
+    categories.forEach(item=>{
 
-            icon.classList.remove("fa-regular");
-            icon.classList.add("fa-solid");
+        item.addEventListener("mouseenter",()=>{
 
-            this.style.background = "#2563eb";
-            this.style.color = "#ffffff";
+            item.style.transform="translateY(-6px) scale(1.03)";
 
-        } else {
+        });
 
-            icon.classList.remove("fa-solid");
-            icon.classList.add("fa-regular");
+        item.addEventListener("mouseleave",()=>{
 
-            this.style.background = "";
-            this.style.color = "";
+            item.style.transform="translateY(0) scale(1)";
 
-        }
-
-    });
-
-});
-
-/* ==========================================
-        NOTIFICATION
-========================================== */
-
-const notificationBtn = document.getElementById("notificationBtn");
-
-if (notificationBtn) {
-
-    notificationBtn.addEventListener("click", () => {
-
-        const dot = notificationBtn.querySelector(".notify-dot");
-
-        if (dot) {
-
-            dot.style.display = "none";
-
-        }
-
-        alert("Bạn hiện không có thông báo mới.");
+        });
 
     });
 
 }
 
-/* ==========================================
-        ACTIVE NAVIGATION
-========================================== */
 
-const navLinks = document.querySelectorAll(".navbar a");
 
-navLinks.forEach((link) => {
 
-    link.addEventListener("click", function () {
 
-        navLinks.forEach(item => {
+/*==================================================
+=              APPLY BUTTON
+==================================================*/
 
-            item.classList.remove("active");
+function initJobButtons(){
+
+    const buttons=document.querySelectorAll(".job-footer button");
+
+    buttons.forEach(btn=>{
+
+        btn.addEventListener("click",()=>{
+
+            btn.innerHTML="Đã ứng tuyển";
+
+            btn.disabled=true;
+
+            btn.style.background="#30C48D";
+
+            btn.style.cursor="default";
 
         });
-
-        this.classList.add("active");
-
-    });
-
-});
-
-/* ==========================================
-        SEARCH VALIDATION
-========================================== */
-
-const searchForm = document.querySelector(".search-form");
-
-if (searchForm) {
-
-    searchForm.addEventListener("submit", function (e) {
-
-        const keyword = document
-            .getElementById("keywordInput")
-            .value
-            .trim();
-
-        if (keyword.length === 0) {
-
-            e.preventDefault();
-
-            alert("Vui lòng nhập công việc cần tìm.");
-
-        }
 
     });
 
 }
 
-/* ==========================================
-        APPLY BUTTON
-========================================== */
 
-const applyButtons = document.querySelectorAll(".apply-btn");
 
-applyButtons.forEach((button) => {
 
-    button.addEventListener("click", function (e) {
+
+/*==================================================
+=              REVIEW BUTTON
+==================================================*/
+
+function initReviewButtons(){
+
+    const likeBtns=document.querySelectorAll(".like-btn");
+
+    const dislikeBtns=document.querySelectorAll(".dislike-btn");
+
+
+
+    likeBtns.forEach(btn=>{
+
+        btn.addEventListener("click",()=>{
+
+            btn.classList.toggle("active");
+
+        });
+
+    });
+
+
+
+    dislikeBtns.forEach(btn=>{
+
+        btn.addEventListener("click",()=>{
+
+            btn.classList.toggle("active");
+
+        });
+
+    });
+
+}
+
+
+
+
+
+/*==================================================
+=              TESTIMONIAL SLIDER
+==================================================*/
+
+function initSlider(){
+
+    const cards=document.querySelectorAll(".testimonial-card");
+
+    const dots=document.querySelectorAll(".dot");
+
+
+
+    if(cards.length===0) return;
+
+
+
+    let index=0;
+
+
+
+    function showSlide(i){
+
+        cards.forEach(card=>{
+
+            card.style.display="none";
+
+        });
+
+
+
+        dots.forEach(dot=>{
+
+            dot.classList.remove("active");
+
+        });
+
+
+
+        cards[i].style.display="block";
+
+
+
+        if(cards.length>1){
+
+            cards[(i+1)%cards.length].style.display="block";
+
+        }
+
+
+
+        if(dots[i]){
+
+            dots[i].classList.add("active");
+
+        }
+
+    }
+
+
+
+    showSlide(index);
+
+
+
+    const arrows=document.querySelectorAll(".slider-arrow");
+
+
+
+    if(arrows.length===2){
+
+        arrows[0].addEventListener("click",()=>{
+
+            index--;
+
+            if(index<0){
+
+                index=cards.length-1;
+
+            }
+
+            showSlide(index);
+
+        });
+
+
+
+        arrows[1].addEventListener("click",()=>{
+
+            index++;
+
+            if(index>=cards.length){
+
+                index=0;
+
+            }
+
+            showSlide(index);
+
+        });
+
+    }
+
+
+
+    setInterval(()=>{
+
+        index++;
+
+        if(index>=cards.length){
+
+            index=0;
+
+        }
+
+        showSlide(index);
+
+    },5000);
+
+}
+
+
+
+
+
+/*==================================================
+=             HERO SEARCH
+==================================================*/
+
+function initSearch(){
+
+    const form=document.querySelector(".hero-search");
+
+
+
+    if(!form) return;
+
+
+
+    form.addEventListener("submit",(e)=>{
 
         e.preventDefault();
 
-        this.innerHTML = "Đã ứng tuyển";
 
-        this.style.background = "#10b981";
 
-        this.style.pointerEvents = "none";
+        const keyword=form.querySelector(
+            "input[name='keyword']"
+        ).value;
 
-    });
 
-});
 
-/* ==========================================
-        REVIEW SLIDER
-========================================== */
+        const location=form.querySelector(
+            "input[name='location']"
+        ).value;
 
-const reviewSlider = document.querySelector(".review-slider");
-const prevBtn = document.querySelector(".slider-btn.prev");
-const nextBtn = document.querySelector(".slider-btn.next");
 
-if (reviewSlider && prevBtn && nextBtn) {
 
-    nextBtn.addEventListener("click", () => {
+        console.log({
 
-        reviewSlider.scrollBy({
+            keyword,
 
-            left: 380,
-
-            behavior: "smooth"
+            location
 
         });
 
+
+
+        /*
+        Django sau này
+
+        window.location.href=
+
+        `/jobs/?keyword=${keyword}&location=${location}`;
+
+        */
+
     });
 
-    prevBtn.addEventListener("click", () => {
+}
 
-        reviewSlider.scrollBy({
 
-            left: -380,
 
-            behavior: "smooth"
+
+
+/*==================================================
+=          SMOOTH SCROLL
+==================================================*/
+
+function initSmoothScroll(){
+
+    document.querySelectorAll("a[href^='#']").forEach(anchor=>{
+
+        anchor.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+
+
+            const target=document.querySelector(
+
+                this.getAttribute("href")
+
+            );
+
+
+
+            if(target){
+
+                target.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+            }
 
         });
 
@@ -282,363 +341,181 @@ if (reviewSlider && prevBtn && nextBtn) {
 
 }
 
-/* ==========================================
-        SCROLL REVEAL
-========================================== */
 
-const revealElements = document.querySelectorAll(
 
-    ".job-card, .company-card, .category-card, .career-card, .review-card"
 
-);
 
-const observer = new IntersectionObserver((entries) => {
+/*==================================================
+=             HEADER SHADOW
+==================================================*/
 
-    entries.forEach((entry) => {
+window.addEventListener("scroll",()=>{
 
-        if (entry.isIntersecting) {
+    const navbar=document.querySelector(".navbar");
 
-            entry.target.style.opacity = "1";
 
-            entry.target.style.transform = "translateY(0)";
+
+    if(!navbar) return;
+
+
+
+    if(window.scrollY>40){
+
+        navbar.style.boxShadow="0 6px 20px rgba(0,0,0,.08)";
+
+    }else{
+
+        navbar.style.boxShadow="none";
+
+    }
+
+});
+
+
+
+
+
+/*==================================================
+=           FADE ANIMATION
+==================================================*/
+
+const observer=new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
 
         }
 
     });
 
-}, {
+},
 
-    threshold: 0.15
+{
 
-});
+    threshold:.2
 
-revealElements.forEach((item) => {
+}
 
-    item.style.opacity = "0";
+);
 
-    item.style.transform = "translateY(40px)";
 
-    item.style.transition = ".6s ease";
+
+document.querySelectorAll(
+
+".job-card,.company-card,.category-item,.testimonial-card"
+
+).forEach(item=>{
 
     observer.observe(item);
 
 });
 
-/* ==========================================
-        NUMBER COUNTER
-========================================== */
 
-const counters = document.querySelectorAll("[data-counter]");
 
-const counterObserver = new IntersectionObserver((entries) => {
 
-    entries.forEach((entry) => {
 
-        if (!entry.isIntersecting) return;
+/*==================================================
+=             BACK TO TOP
+==================================================*/
 
-        const counter = entry.target;
+const backTop=document.createElement("button");
 
-        const target = parseInt(counter.dataset.counter);
+backTop.innerHTML="↑";
 
-        let current = 0;
+backTop.className="back-top";
 
-        const step = Math.ceil(target / 100);
+document.body.appendChild(backTop);
 
-        const timer = setInterval(() => {
 
-            current += step;
 
-            if (current >= target) {
+backTop.style.position="fixed";
 
-                current = target;
+backTop.style.right="25px";
 
-                clearInterval(timer);
+backTop.style.bottom="25px";
 
-            }
+backTop.style.width="45px";
 
-            counter.innerText = current.toLocaleString();
+backTop.style.height="45px";
 
-        }, 20);
+backTop.style.borderRadius="50%";
 
-        counterObserver.unobserve(counter);
+backTop.style.border="none";
+
+backTop.style.background="#5476F1";
+
+backTop.style.color="#fff";
+
+backTop.style.cursor="pointer";
+
+backTop.style.display="none";
+
+backTop.style.zIndex="999";
+
+
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>350){
+
+        backTop.style.display="block";
+
+    }else{
+
+        backTop.style.display="none";
+
+    }
+
+});
+
+
+
+backTop.addEventListener("click",()=>{
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
 
     });
 
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById(
+        "candidateProfileToggle"
+    );
 
-counters.forEach((counter) => {
+    const menu = document.getElementById(
+        "candidateProfileMenu"
+    );
 
-    counterObserver.observe(counter);
+    if (!toggle || !menu) {
+        return;
+    }
 
-});
-
-/* ==========================================
-        SMOOTH SCROLL
-========================================== */
-
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-
-    anchor.addEventListener("click", function (e) {
-
-        const target = document.querySelector(
-
-            this.getAttribute("href")
-
-        );
-
-        if (!target) return;
-
-        e.preventDefault();
-
-        target.scrollIntoView({
-
-            behavior: "smooth",
-
-            block: "start"
-
-        });
-
+    toggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+        menu.classList.toggle("show");
     });
 
-});
-
-/* ==========================================
-        IMAGE FADE IN
-========================================== */
-
-const images = document.querySelectorAll("img");
-
-images.forEach((img) => {
-
-    img.addEventListener("load", () => {
-
-        img.style.opacity = "1";
-
+    menu.addEventListener("click", (event) => {
+        event.stopPropagation();
     });
 
-    img.style.opacity = "0";
-
-    img.style.transition = ".5s";
-
-});
-
-/* ==========================================
-        WINDOW LOADED
-========================================== */
-
-window.addEventListener("load", () => {
-
-    document.body.classList.add("loaded");
-
-});
-
-/* ==========================================
-        MOBILE MENU (Future Support)
-========================================== */
-
-const menuToggle = document.querySelector(".menu-toggle");
-const navbar = document.querySelector(".navbar");
-
-if (menuToggle && navbar) {
-
-    menuToggle.addEventListener("click", () => {
-
-        navbar.classList.toggle("show");
-
-        menuToggle.classList.toggle("active");
-
+    document.addEventListener("click", () => {
+        menu.classList.remove("show");
     });
 
-}
-
-/* ==========================================
-        DEBOUNCE FUNCTION
-========================================== */
-
-function debounce(callback, delay = 100) {
-
-    let timeout;
-
-    return (...args) => {
-
-        clearTimeout(timeout);
-
-        timeout = setTimeout(() => {
-
-            callback(...args);
-
-        }, delay);
-
-    };
-
-}
-
-/* ==========================================
-        WINDOW RESIZE
-========================================== */
-
-window.addEventListener(
-
-    "resize",
-
-    debounce(() => {
-
-        if (window.innerWidth > 992) {
-
-            if (navbar) {
-
-                navbar.classList.remove("show");
-
-            }
-
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            menu.classList.remove("show");
         }
-
-    })
-
-);
-
-/* ==========================================
-        HEADER SHADOW
-========================================== */
-
-const updateHeader = () => {
-
-    const header = document.querySelector(".header");
-
-    if (!header) return;
-
-    if (window.scrollY > 30) {
-
-        header.classList.add("scrolled");
-
-    } else {
-
-        header.classList.remove("scrolled");
-
-    }
-
-};
-
-window.addEventListener("scroll", debounce(updateHeader));
-
-updateHeader();
-
-/* ==========================================
-        PREVENT DOUBLE CLICK
-========================================== */
-
-document.querySelectorAll("button").forEach((button) => {
-
-    button.addEventListener("dblclick", (e) => {
-
-        e.preventDefault();
-
     });
-
 });
 
-/* ==========================================
-        ACTIVE BUTTON EFFECT
-========================================== */
-
-document.querySelectorAll(".career-btn, .view-more-btn").forEach((button) => {
-
-    button.addEventListener("mousedown", () => {
-
-        button.style.transform = "scale(.96)";
-
-    });
-
-    button.addEventListener("mouseup", () => {
-
-        button.style.transform = "";
-
-    });
-
-    button.addEventListener("mouseleave", () => {
-
-        button.style.transform = "";
-
-    });
-
-});
-
-/* ==========================================
-        PAGE LOADER
-========================================== */
-
-window.addEventListener("load", () => {
-
-    const loader = document.querySelector(".page-loader");
-
-    if (loader) {
-
-        loader.style.opacity = "0";
-
-        setTimeout(() => {
-
-            loader.remove();
-
-        }, 500);
-
-    }
-
-});
-
-/* ==========================================
-        CURRENT YEAR
-========================================== */
-
-const year = document.querySelector("#currentYear");
-
-if (year) {
-
-    year.textContent = new Date().getFullYear();
-
-}
-
-/* ==========================================
-        KEYBOARD SHORTCUT
-========================================== */
-
-document.addEventListener("keydown", (event) => {
-
-    if (event.key === "/") {
-
-        const input = document.getElementById("keywordInput");
-
-        if (input) {
-
-            event.preventDefault();
-
-            input.focus();
-
-        }
-
-    }
-
-});
-
-/* ==========================================
-        CONSOLE MESSAGE
-========================================== */
-
-console.log(
-
-    "%cIT Career Hub",
-
-    "color:#2563eb;font-size:20px;font-weight:bold;"
-
-);
-
-console.log(
-
-    "%cFrontend loaded successfully.",
-
-    "color:#10b981;font-size:14px;"
-
-);
-
-/* ==========================================
-        END OF FILE
-========================================== */

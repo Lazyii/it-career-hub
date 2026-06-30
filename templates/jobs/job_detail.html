@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ job.title }}</title>
+</head>
+<body>
+    <h1>{{ job.title }}</h1>
+    <p><strong>Công ty:</strong> {{ job.company.name }}</p>
+    <p><strong>Địa điểm:</strong> {{ job.location }}</p>
+    <p><strong>Mô tả:</strong> {{ job.description }}</p>
+    <p><strong>Yêu cầu:</strong> {{ job.requirements }}</p>
+    <a href="{% url 'jobs:apply' slug=job.slug %}">Ứng tuyển</a>
+</body>
+</html>
+
+

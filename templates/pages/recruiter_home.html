@@ -4,46 +4,12 @@
 {% block title %}Trang chủ Nhà tuyển dụng | IT Career Hub{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/recruiter_home.css' %}">
+<link rel="stylesheet"
+      href="{% static 'css/recruiter_home.css' %}?v=2">
 {% endblock %}
-
+{% block navbar %}{% endblock %}
+{% block footer %}{% endblock %}
 {% block content %}
-
-<!-- ========================= -->
-<!-- Floating Action Menu -->
-<!-- ========================= -->
-
-<div class="floating-menu">
-
-    <button id="floatingToggle" class="floating-btn">
-        ☰
-    </button>
-
-    <div class="floating-dropdown" id="floatingDropdown">
-
-        <a href="#">
-            💬
-            Tin nhắn
-        </a>
-
-        <a href="#">
-            📢
-            Thông báo
-        </a>
-
-        <a href="#">
-            ❓
-            Trợ giúp
-        </a>
-
-        <a href="#">
-            ✉
-            Góp ý
-        </a>
-
-    </div>
-
-</div>
 
 <!-- ========================= -->
 <!-- Header -->
@@ -60,38 +26,6 @@
             </a>
 
         </div>
-
-        <nav class="navbar">
-
-            <ul>
-
-                <li>
-
-                    <a href="{% url 'core:home' %}" class="active">
-                        Công việc
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="{% url 'jobs:my_jobs' %}">
-                        Công ty
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="#">
-                        Ứng viên
-                    </a>
-
-                </li>
-
-            </ul>
-
-        </nav>
 
         <div class="header-right">
 
@@ -111,46 +45,56 @@
 
                 <button class="profile-btn">
 
-                    {% if user.recruiter_profile.avatar %}
-
-                        <img
-                            src="{{ user.recruiter_profile.avatar.url }}"
-                            alt="Avatar">
-
+                    {% if user.avatar %}
+                        <img src="{{ user.avatar.url }}" alt="Avatar">
                     {% else %}
-
-                        <img
-                            src="{% static 'images/default-avatar.png' %}"
-                            alt="Avatar">
-
+                        <span class="avatar-placeholder"></span>
                     {% endif %}
-
                 </button>
 
                 <div class="dropdown-content">
+                    <div class="account-summary">
+                        <span class="account-avatar"></span>
+
+                        <div>
+                            <strong>
+                                {{ user.get_full_name|default:user.username }}
+                            </strong>
+                            <small>{{ user.email }}</small>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'core:recruiter_dashboard' %}">
+                        <i class="fa-solid fa-table-columns"></i>
+                        Tổng quan
+                    </a>
 
                     <a href="#">
+                        <i class="fa-solid fa-user"></i>
                         Hồ sơ
                     </a>
 
-                    <a href="{% url 'jobs:my_jobs' %}">
-                        Tin đã đăng
+                    <a href="{% url 'core:recruiter_company_profile' %}">
+                        <i class="fa-solid fa-building"></i>
+                        Hồ sơ công ty
                     </a>
 
-                    <a href="#">
+                    <a href="{% url 'jobs:create' %}">
+                        <i class="fa-regular fa-file-lines"></i>
+                        Đăng tin tuyển dụng
+                    </a>
+
+                    <a href="{% url 'users:settings' %}">
+                        <i class="fa-solid fa-gear"></i>
                         Cài đặt
                     </a>
 
-                    <hr>
-
                     <a href="{% url 'users:logout' %}">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         Đăng xuất
                     </a>
-
                 </div>
-
-            </div>
-
+            </div>  
         </div>
 
     </div>
@@ -162,97 +106,52 @@
 <!-- ========================= -->
 
 <section class="hero">
-
     <div class="container">
 
-        <p class="hero-subtitle">
+    <p class="hero-subtitle">
+        Nền tảng tìm việc làm IT tốt nhất tại Việt Nam
+    </p>
 
-            Nền tảng tuyển dụng IT uy tín tại Việt Nam
+    <h1>
+        Cầu nối giữa ứng<br>
+        viên và công ty
+    </h1>
 
-        </p>
+    <p class="hero-description">
+        Hơn {{ total_jobs }} công việc ở {{ total_companies }}
+        công ty công nghệ – cập nhật mỗi ngày
+    </p>
 
-        <h1>
+    <form action="{% url 'jobs:list' %}"
+          method="get"
+          class="search-box">
 
-            Cầu nối giữa <br>
+        <div class="search-input location-input">
+            <i class="fa-solid fa-location-dot"></i>
 
-            <span>ứng viên</span>
-
-            và
-
-            <span>công ty</span>
-
-        </h1>
-
-        <p class="hero-description">
-
-            Hơn
-
-            <strong>{{ total_jobs }}</strong>
-
-            công việc,
-
-            <strong>{{ total_companies }}</strong>
-
-            công ty đang tuyển dụng,
-
-            <strong>{{ total_candidates }}</strong>
-
-            ứng viên chất lượng.
-
-        </p>
-
-        <!-- Search Box -->
-
-        <form
-            action="{% url 'jobs:list' %}"
-            method="GET"
-            class="search-box">
-
-            <div class="search-input">
-
-                <input
-                    type="text"
-                    name="keyword"
-                    placeholder="Từ khóa">
-
-            </div>
-
-            <div class="search-input">
-
-                <input
-                    type="text"
-                    name="location"
-                    placeholder="Địa điểm">
-
-            </div>
-
-            <button type="submit">
-
-                Tìm kiếm
-
-            </button>
-
-        </form>
-
-        <!-- Popular Skills -->
-
-        <div class="popular-skills">
-
-            <span>Đề cử kỹ năng:</span>
-
-            <a href="?skill=Java">Java</a>
-
-            <a href="?skill=JavaScript">JavaScript</a>
-
-            <a href="?skill=Python">Python</a>
-
-            <a href="?skill=CSharp">C#</a>
-
-            <a href="?skill=React">React</a>
-
+            <input type="text"
+                   name="location"
+                   placeholder="Địa điểm">
         </div>
 
+        <div class="search-input keyword-input">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="text"
+                   name="keyword"
+                   placeholder="Ứng viên cần tìm theo vị trí">
+        </div>
+
+    </form>
+
+    <div class="popular-skills">
+        <span>Gợi ý cho bạn:</span>
+        <a href="?skill=Java">Java</a>
+        <a href="?skill=Python">Python</a>
+        <a href="?skill=CSharp">C#</a>
     </div>
+
+</div>
 
 </section>
 
@@ -369,7 +268,7 @@
             href="{% url 'jobs:detail' job.slug %}"
             class="btn-view">
 
-            Chi tiết
+            Xem tin
 
         </a>
 
@@ -536,101 +435,63 @@
 <!-- ========================= -->
 
 <section class="statistics">
-
     <div class="container">
 
         <div class="section-title">
+            <h2>Thống kê nhanh</h2>
+        </div>
 
-            <h2>
+        <div class="stats-grid">
 
-                Thống kê nhanh
-
-            </h2>
-                        <div class="stats-grid">
-
-                <div class="stat-card">
-
-                    <h3>{{ total_jobs }}</h3>
-
-                    <p>Tin tuyển dụng</p>
-
-                </div>
-
-                <div class="stat-card">
-
-                    <h3>{{ total_candidates }}</h3>
-
-                    <p>Ứng viên</p>
-
-                </div>
-
-                <div class="stat-card">
-
-                    <h3>{{ total_companies }}</h3>
-
-                    <p>Công ty</p>
-
-                </div>
-
-                <div class="stat-card">
-
-                    <h3>{{ total_applications }}</h3>
-
-                    <p>Lượt ứng tuyển</p>
-
-                </div>
-
+            <div class="stat-card">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>{{ total_jobs }}</h3>
+                <p>Tin đang hoạt động</p>
             </div>
 
+            <div class="stat-card">
+                <i class="fa-solid fa-user-group"></i>
+                <h3>{{ total_candidates }}</h3>
+                <p>Tổng ứng viên hiện tại</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-eye"></i>
+                <h3>{{ total_views|default:0 }}</h3>
+                <p>Lượt xem tin</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>{{ expired_jobs|default:0 }}</h3>
+                <p>Tin sắp hết hạn</p>
+            </div>
+
+        </div>
     </div>
-
 </section>
-
 
 <!-- ========================= -->
 <!-- CTA -->
 <!-- ========================= -->
 
 <section class="cta">
-
     <div class="container">
-
-        <h2>
-
-            Bắt đầu tuyển dụng ngay hôm nay
-
-        </h2>
-
-        <p>
-
-            Đăng tin tuyển dụng và tiếp cận hàng nghìn ứng viên IT chất lượng.
-
-        </p>
-
         <div class="cta-buttons">
 
-            <a
-                href="{% url 'jobs:create' %}"
-                class="btn-primary">
-
-                Đăng tin tuyển dụng
-
+            <a href="{% url 'jobs:create' %}"
+               class="btn-primary">
+                Đăng tin tuyển dụng mới
             </a>
 
-            <a
-                href="{% url 'jobs:my_jobs' %}"
-                class="btn-outline">
-
-                Quản lý tin tuyển dụng
-
+            <a href="#"
+               class="btn-outline">
+                Xem tất cả các ứng viên
             </a>
 
         </div>
-
     </div>
-
 </section>
-
 
 <!-- ========================= -->
 <!-- Testimonials -->
@@ -644,7 +505,7 @@
 
             <h2>
 
-                Trải nghiệm từ nhà tuyển dụng
+                Trải nghiệm từ những người đi trước
 
             </h2>
 
@@ -749,7 +610,7 @@
 
                 <h4>
 
-                    Nhà tuyển dụng
+                    Ứng viên
 
                 </h4>
 
@@ -779,7 +640,7 @@
 
                 <h4>
 
-                    Ứng viên
+                    Nhà tuyển dụng
 
                 </h4>
 
@@ -809,7 +670,7 @@
 
                 <h4>
 
-                    Liên hệ
+                    Về chúng tôi
 
                 </h4>
 
@@ -829,7 +690,7 @@
 
         <div class="copyright">
 
-            © 2026 IT Career Hub. All Rights Reserved.
+            © 2026 IT Career Hub.
 
         </div>
 
@@ -844,53 +705,4 @@
 <script src="{% static 'js/recruiter_home.js' %}"></script>
 
 <script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const profileBtn = document.querySelector(".profile-btn");
-    const dropdown = document.querySelector(".dropdown-content");
-
-    if(profileBtn){
-
-        profileBtn.addEventListener("click", function(e){
-
-            e.stopPropagation();
-
-            dropdown.classList.toggle("show");
-
-        });
-
-        document.addEventListener("click", function(){
-
-            dropdown.classList.remove("show");
-
-        });
-
-    }
-
-    const floatingBtn = document.getElementById("floatingToggle");
-    const floatingMenu = document.getElementById("floatingDropdown");
-
-    if(floatingBtn){
-
-        floatingBtn.addEventListener("click", function(e){
-
-            e.stopPropagation();
-
-            floatingMenu.classList.toggle("active");
-
-        });
-
-        document.addEventListener("click", function(){
-
-            floatingMenu.classList.remove("active");
-
-        });
-
-    }
-
-});
-
-</script>
-
 {% endblock %}

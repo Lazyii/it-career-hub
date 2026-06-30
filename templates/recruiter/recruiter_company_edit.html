@@ -1,0 +1,601 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sửa hồ sơ công ty{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{% static 'css/recruiter/recruiter_company_edit.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="company-edit-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="company-edit-card">
+
+        <div class="top-bar">
+
+            <div class="brand">
+                IT CAREER HUB
+            </div>
+
+            <div class="top-right">
+
+                <button class="notification-btn">
+                    <i class="fa-regular fa-bell"></i>
+                </button>
+
+                <label class="switch">
+
+                    <input type="checkbox">
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+        <!-- ================= TITLE ================= -->
+
+        <h1 class="page-title">
+            Hồ sơ công ty
+        </h1>
+
+        <!-- ================= COMPANY INFO ================= -->
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <div class="company-info">
+
+                <!-- LEFT -->
+
+                <div class="logo-area">
+
+                    <div class="logo-preview">
+
+                        {% if company.logo %}
+                        <img id="logoPreview"
+                             src="{{ company.logo.url }}"
+                             alt="Logo">
+                        {% else %}
+                        <img id="logoPreview"
+                             src="{% static 'img/company-placeholder.png' %}"
+                             alt="">
+                        {% endif %}
+
+                    </div>
+
+                    <label class="upload-btn">
+
+                        Chèn ảnh
+
+                        <input
+                                type="file"
+                                id="logoInput"
+                                name="logo"
+                                accept="image/*"
+                                hidden>
+
+                    </label>
+
+                </div>
+
+                <!-- RIGHT -->
+
+                <div class="company-fields">
+
+                    <div class="field-group">
+
+                        <label>
+                            Tên công ty
+                        </label>
+
+                        <input
+                                type="text"
+                                name="name"
+                                value="{{ company.name }}"
+                                required>
+
+                    </div>
+
+                    <div class="double-row">
+
+                        <div class="field-group">
+
+                            <label>
+                                Địa điểm công ty
+                            </label>
+
+                            <input
+                                    type="text"
+                                    name="address"
+                                    value="{{ company.address }}">
+
+                        </div>
+
+                        <div class="field-group">
+
+                            <label>
+                                Trang web công ty
+                            </label>
+
+                            <input
+                                    type="url"
+                                    name="website"
+                                    value="{{ company.website }}">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= OVERVIEW ================= -->
+
+            <div class="overview-section">
+
+                <h2>
+                    Tổng quan
+                </h2>
+
+                <div class="overview-grid">
+
+                    <div class="field-group">
+
+                        <label>
+                            Lĩnh vực công ty
+                        </label>
+
+                        <input
+                                type="text"
+                                name="industry"
+                                value="{{ company.industry }}">
+
+                    </div>
+
+                    <div class="field-group">
+
+                        <label>
+                            Nhân viên
+                        </label>
+
+                        <input
+                                type="text"
+                                name="company_size"
+                                value="{{ company.company_size }}">
+
+                    </div>
+
+                    <div class="field-group">
+
+                        <label>
+                            Quốc gia
+                        </label>
+
+                        <input
+                                type="text"
+                                name="country"
+                                value="{{ company.country }}">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= TABS ================= -->
+
+            <div class="tab-wrapper">
+
+                <button
+                        type="button"
+                        class="tab-btn active"
+                        data-tab="intro">
+
+                    Giới thiệu công ty
+
+                </button>
+
+                <button
+                        type="button"
+                        class="tab-btn"
+                        data-tab="jobs">
+
+                    Công việc đang tuyển dụng
+
+                </button>
+
+            </div>
+
+            <!-- Tab Content bắt đầu ở Phần 2 -->
+                         <!-- ================= TAB : INTRO ================= -->
+
+            <div class="tab-content active"
+                 id="intro">
+
+                <!-- Company Gallery -->
+
+                <div class="company-gallery">
+
+                    <div class="gallery-image">
+
+                        <img id="galleryPreview"
+                             src="{% static 'img/company-banner-placeholder.png' %}"
+                             alt="Company Image">
+
+                    </div>
+
+                    <input type="file"
+                           id="galleryInput"
+                           name="gallery_images"
+                           accept="image/*"
+                           multiple
+                           hidden>
+
+                    <div class="gallery-dots">
+
+                        <span class="dot active"></span>
+
+                        <span class="dot"></span>
+
+                        <span class="dot"></span>
+
+                        <span class="dot"></span>
+
+                        <span class="dot"></span>
+
+                        <span class="dot"></span>
+
+                    </div>
+
+                </div>
+
+                <!-- ================= COMPANY DESCRIPTION ================= -->
+
+                <section class="content-card">
+
+                    <h2>
+
+                        Giới thiệu công ty
+
+                    </h2>
+
+                    <textarea
+                            name="description"
+                            rows="18"
+                            placeholder="Nhập giới thiệu công ty...">{{ company.description }}</textarea>
+
+                </section>
+
+                <!-- ================= SPECIALTIES ================= -->
+
+                <section class="content-card">
+
+                    <div class="section-header">
+
+                        <h2>
+
+                            Chuyên môn
+
+                        </h2>
+
+                    </div>
+
+                    <div class="speciality-toolbar">
+
+                        <div class="search-box">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input
+                                    type="text"
+                                    id="specialitySearch"
+                                    placeholder="Tìm danh mục">
+
+                        </div>
+
+                        <button
+                                type="button"
+                                class="outline-btn"
+                                id="addSpeciality">
+
+                            + Thêm chuyên mục
+
+                        </button>
+
+                    </div>
+
+                    <div
+                            class="speciality-list"
+                            id="specialityList">
+
+                        {% if specialities %}
+
+                            {% for speciality in specialities %}
+
+                                <div class="speciality-item">
+
+                                    <span>
+
+                                        {{ speciality.name }}
+
+                                    </span>
+
+                                    <button
+                                            type="button"
+                                            class="remove-speciality">
+
+                                        <i class="fa-solid fa-xmark"></i>
+
+                                    </button>
+
+                                </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="empty-speciality">
+
+                                Chưa có chuyên môn nào.
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </section>
+
+                <!-- Phần 3 bắt đầu từ đây -->
+                                 <!-- ================= AWARDS ================= -->
+
+                <section class="content-card">
+
+                    <h2>
+                        Giải thưởng / Giấy chứng nhận
+                    </h2>
+
+                    <div class="award-list">
+
+                        {% if awards %}
+
+                            {% for award in awards %}
+
+                            <div class="award-item">
+
+                                <input
+                                    type="text"
+                                    name="award_{{ forloop.counter }}"
+                                    value="{{ award.title }}"
+                                    placeholder="Tên giải thưởng">
+
+                            </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="award-item">
+
+                                <input
+                                    type="text"
+                                    name="award_1"
+                                    placeholder="Tên giải thưởng">
+
+                            </div>
+
+                            <div class="award-item">
+
+                                <input
+                                    type="text"
+                                    name="award_2"
+                                    placeholder="Tên giấy chứng nhận">
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </section>
+
+                <!-- ================= BENEFITS ================= -->
+
+                <section class="content-card">
+
+                    <h2>
+                        Cty chúng tôi có gì?
+                    </h2>
+
+                    <textarea
+                        name="benefits"
+                        rows="12"
+                        placeholder="Mô tả môi trường làm việc, phúc lợi, văn hóa công ty...">{{ company.benefits }}</textarea>
+
+                </section>
+
+            </div>
+
+            <!-- ================= TAB : JOBS ================= -->
+
+            <div
+                class="tab-content"
+                id="jobs">
+
+                <section class="content-card">
+
+                    <div class="section-header">
+
+                        <h2>
+                            Công việc đang tuyển dụng
+                        </h2>
+
+                        <a href="{% url 'recruiter_job_create' %}"
+                           class="primary-btn">
+
+                            + Đăng tuyển
+
+                        </a>
+
+                    </div>
+
+                    <div class="job-table">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Vị trí</th>
+
+                                    <th>Địa điểm</th>
+
+                                    <th>Hạn nộp</th>
+
+                                    <th>Trạng thái</th>
+
+                                    <th></th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                            {% if jobs %}
+
+                                {% for job in jobs %}
+
+                                <tr>
+
+                                    <td>
+
+                                        {{ job.title }}
+
+                                    </td>
+
+                                    <td>
+
+                                        {{ job.location }}
+
+                                    </td>
+
+                                    <td>
+
+                                        {{ job.deadline }}
+
+                                    </td>
+
+                                    <td>
+
+                                        <span class="status-badge">
+
+                                            {{ job.get_status_display }}
+
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+
+                                        <a href="{% url 'recruiter_job_edit' job.id %}"
+                                           class="table-action">
+
+                                            Sửa
+
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                                {% endfor %}
+
+                            {% else %}
+
+                                <tr>
+
+                                    <td colspan="5"
+                                        class="empty-table">
+
+                                        Chưa có tin tuyển dụng.
+
+                                    </td>
+
+                                </tr>
+
+                            {% endif %}
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- ================= FOOTER ================= -->
+
+            <div class="page-footer">
+
+                <div class="footer-left">
+
+                    <button
+                        type="reset"
+                        class="secondary-btn">
+
+                        Hủy
+
+                    </button>
+
+                </div>
+
+                <div class="footer-right">
+
+                    <button
+                        type="submit"
+                        class="primary-btn">
+
+                        Lưu thay đổi
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="outline-btn">
+
+                        Tiếp theo
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="{% static 'js/recruiter/recruiter_company_edit.js' %}"></script>
+
+{% endblock %}

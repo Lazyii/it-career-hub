@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IT Career Hub | Tạo CV</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../static/css/create_cv.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <a href="#">IT CAREER HUB</a>
+        </div>
+
+        <nav class="navbar">
+
+            <ul>
+
+                <li class="dropdown">
+                    <a href="#">
+                        Công việc
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">
+                        Công ty
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <div class="header-right">
+
+            <button class="icon-btn">
+                <i class="fa-solid fa-bell"></i>
+            </button>
+
+            <button class="icon-btn">
+                <i class="fa-regular fa-message"></i>
+            </button>
+
+            <div class="profile-menu">
+
+                <img src="../../static/img/default-avatar.png"
+                    alt="Avatar">
+
+                <i class="fa-solid fa-angle-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="create-cv-page">
+
+        <!-- TITLE -->
+
+        <section class="page-title">
+
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <h1>Tạo CV</h1>
+
+        </section>
+
+        <!-- STEP -->
+
+        <section class="step-wrapper">
+
+            <div class="step-item active">
+
+                <span class="step-title">
+                    Điền thông tin
+                </span>
+
+                <div class="step-circle">
+                    1
+                </div>
+
+            </div>
+
+            <div class="step-line"></div>
+
+            <div class="step-item">
+
+                <span class="step-title">
+                    Kiểm tra & Xuất
+                </span>
+
+                <div class="step-circle">
+                    2
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FORM -->
+
+        <section class="cv-form-section">
+
+            <form
+                id="createCVForm"
+                class="cv-form"
+                enctype="multipart/form-data"
+                method="post">
+
+                <!-- ================= PROFILE ================= -->
+
+                <div class="profile-upload">
+
+                    <div class="avatar-preview">
+
+                        <img
+                            id="avatarPreview"
+                            src="../../static/img/default-avatar.png"
+                            alt="Avatar">
+
+                    </div>
+
+                    <input
+                        type="file"
+                        id="avatarInput"
+                        accept="image/*"
+                        hidden>
+
+                    <button
+                        type="button"
+                        id="changeAvatarBtn"
+                        class="change-avatar-btn">
+
+                        Chỉnh ảnh
+
+                    </button>
+
+                </div>
+                <!-- ================= THÔNG TIN CÁ NHÂN ================= -->
+
+<div class="form-row">
+
+    <div class="form-group">
+
+        <label for="fullName">
+            Họ và tên:
+        </label>
+
+        <input
+            type="text"
+            id="fullName"
+            name="full_name"
+            placeholder="">
+
+    </div>
+
+    <div class="form-group">
+
+        <label for="phone">
+            Số điện thoại:
+        </label>
+
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="">
+
+    </div>
+
+</div>
+
+<div class="form-row">
+
+    <div class="form-group">
+
+        <label for="email">
+            Email:
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="">
+
+    </div>
+
+    <div class="form-group">
+
+        <label for="github">
+            Link Github
+        </label>
+
+        <input
+            type="url"
+            id="github"
+            name="github"
+            placeholder="https://github.com/...">
+
+    </div>
+
+</div>
+
+<!-- ================= GIỚI THIỆU ================= -->
+
+<div class="form-group full-width">
+
+    <label for="about">
+
+        Giới thiệu bản thân:
+
+    </label>
+
+    <textarea
+        id="about"
+        name="about"
+        rows="6"></textarea>
+
+</div>
+
+<!-- ================= KINH NGHIỆM ================= -->
+
+<div class="form-section">
+
+    <h2>
+        Kinh nghiệm làm việc:
+    </h2>
+
+    <div class="experience-card">
+
+        <div class="form-row">
+
+            <div class="form-group flex-grow">
+
+                <label for="jobTitle">
+
+                    Công việc đã làm
+
+                </label>
+
+                <input
+                    type="text"
+                    id="jobTitle"
+                    name="job_title">
+
+            </div>
+
+            <div class="form-group year">
+
+                <label for="jobFrom">
+
+                    Từ năm
+
+                </label>
+
+                <input
+                    type="text"
+                    id="jobFrom"
+                    name="job_from">
+
+            </div>
+
+            <div class="form-group year">
+
+                <label for="jobTo">
+
+                    Đến năm
+
+                </label>
+
+                <input
+                    type="text"
+                    id="jobTo"
+                    name="job_to">
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="company">
+
+                Tên công ty
+
+            </label>
+
+            <input
+                type="text"
+                id="company"
+                name="company">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="jobDescription">
+
+                Mô tả
+
+            </label>
+
+            <textarea
+                id="jobDescription"
+                name="job_description"
+                rows="4"></textarea>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= HỌC VẤN ================= -->
+
+<div class="form-section">
+
+    <h2>
+
+        Học vấn
+
+    </h2>
+
+    <div class="education-card">
+
+        <div class="form-row">
+
+            <div class="form-group flex-grow">
+
+                <label for="major">
+
+                    Tên ngành
+
+                </label>
+
+                <input
+                    type="text"
+                    id="major"
+                    name="major">
+
+            </div>
+
+            <div class="form-group year">
+
+                <label for="eduFrom">
+
+                    Từ năm
+
+                </label>
+
+                <input
+                    type="text"
+                    id="eduFrom"
+                    name="edu_from">
+
+            </div>
+
+            <div class="form-group year">
+
+                <label for="eduTo">
+
+                    Đến năm
+
+                </label>
+
+                <input
+                    type="text"
+                    id="eduTo"
+                    name="edu_to">
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="school">
+
+                Tên trường
+
+            </label>
+
+            <input
+                type="text"
+                id="school"
+                name="school">
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= KỸ NĂNG ================= -->
+
+<div class="form-section">
+
+    <h2>Kỹ năng</h2>
+
+    <div class="form-group">
+
+        <textarea
+            id="skills"
+            name="skills"
+            rows="4"
+            placeholder="Ví dụ: HTML, CSS, JavaScript, Python, Django..."></textarea>
+
+    </div>
+
+</div>
+
+<!-- ================= CHỨNG CHỈ ================= -->
+
+<div class="form-section">
+
+    <h2>Chứng chỉ</h2>
+
+    <div class="certificate-card">
+
+        <div class="form-group">
+
+            <label for="certificateName">
+
+                Tên chứng chỉ
+
+            </label>
+
+            <input
+                type="text"
+                id="certificateName"
+                name="certificate_name">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="certificateFile">
+
+                File chứng chỉ
+
+            </label>
+
+            <input
+                type="file"
+                id="certificateFile"
+                name="certificate_file"
+                accept=".pdf,.png,.jpg,.jpeg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= CV PDF ================= -->
+
+<div class="form-section">
+
+    <h2>
+
+        CV (nếu có)
+
+    </h2>
+
+    <label
+        class="cv-upload-box"
+        for="cvUpload">
+
+        <input
+            type="file"
+            id="cvUpload"
+            name="cv_file"
+            accept=".pdf"
+            hidden>
+
+        <div class="upload-content">
+
+            <i class="fa-regular fa-file-lines"></i>
+
+            <p>Upload dưới dạng PDF</p>
+
+            <span id="cvFileName">
+                Chưa chọn file
+            </span>
+
+        </div>
+
+    </label>
+
+</div>
+
+<!-- ================= BUTTON ================= -->
+
+<div class="button-group">
+
+    <button
+        type="button"
+        class="draft-btn"
+        id="saveDraftBtn">
+
+        Lưu nháp
+
+    </button>
+
+    <button
+        type="submit"
+        class="submit-btn"
+        id="previewBtn">
+
+        Kiểm tra/xuất file
+
+    </button>
+
+</div>
+
+            </form>
+
+        </section>
+
+    </main>
+        <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Cột 1 -->
+
+            <div class="footer-column">
+
+                <h2>
+                    IT CAREER HUB
+                </h2>
+
+                <p>
+                    Nền tảng tuyển dụng IT
+                    <br>
+                    xịn nhất Việt Nam.
+                </p>
+
+                <p class="copyright">
+                    © 2025 IT Career Hub
+                </p>
+
+            </div>
+
+            <!-- Cột 2 -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Ứng viên
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#">
+                            Tìm việc làm
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Hồ sơ của tôi
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Đơn ứng tuyển
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Việc đã lưu
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Cột 3 -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Nhà tuyển dụng
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#">
+                            Đăng tin tuyển dụng
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Quản lý tin đăng
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Xem ứng viên
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Cột 4 -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Về chúng tôi
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#">
+                            Giới thiệu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Blog
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Liên hệ
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Điều khoản
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="../../static/js/create_cv.js"></script>
+
+</body>
+
+</html>

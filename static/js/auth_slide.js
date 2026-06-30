@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-```
 const authContainer =
     document.getElementById("authContainer");
 
@@ -86,6 +85,5 @@ if (registerForm) {
     );
 
 }
-```
 
 });

@@ -8,15 +8,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
 <title>IT Career Hub | Đăng nhập & Đăng ký</title>
 
-<link rel="stylesheet"
-      href="{% static 'css/auth.css' %}">
+<!-- <link rel="stylesheet"
+      href="{% static 'css/auth_slide.css' %}"-->
+<link rel="stylesheet" href="{% static 'css/auth_slide.css' %}">
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-```
 
 </head>
 
@@ -24,7 +23,6 @@
 
 <main class="auth-wrapper">
 
-```
 <section class="auth-container"
          id="authContainer">
 
@@ -38,8 +36,7 @@
               action="{% url 'users:register' %}">
 
             {% csrf_token %}
-
-            <h1>TẠO TÀI KHOẢN</h1>
+                     <h1>TẠO TÀI KHOẢN</h1>
 
             <p class="subtitle">
                 Đăng ký để sử dụng IT Career Hub
@@ -215,11 +212,10 @@
     </section>
 
 </section>
-```
 
 </main>
 
-<script src="{% static 'js/auth.js' %}"></script>
-
+<!-- <script src="{% static 'js/auth_slide.js' %}"></script> -->
+<script src="{% static 'js/auth_slide.js' %}"></script>
 </body>
 </html>

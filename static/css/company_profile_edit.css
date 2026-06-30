@@ -1,0 +1,1100 @@
+/* ===========================================
+   COMPANY PROFILE EDIT
+   Part 1
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f5f7fb;
+    color:#333;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+.company-edit-page{
+
+    max-width:1350px;
+    margin:30px auto;
+    padding:20px;
+
+}
+
+.company-card{
+
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    overflow:hidden;
+
+}
+
+/*==================================
+Header
+==================================*/
+
+.company-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 35px;
+
+}
+
+.logo-system{
+
+    font-size:15px;
+    font-weight:700;
+    color:#2f56d2;
+
+}
+
+.header-right{
+
+    display:flex;
+    align-items:center;
+    gap:25px;
+
+}
+
+.notification-btn{
+
+    border:none;
+    background:transparent;
+    font-size:20px;
+    cursor:pointer;
+    color:#7d8aa6;
+
+}
+
+/*==================================
+Switch
+==================================*/
+
+.switch{
+
+    position:relative;
+    width:48px;
+    height:24px;
+
+}
+
+.switch input{
+
+    display:none;
+
+}
+
+.slider{
+
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    background:#d6e4ff;
+    transition:.3s;
+
+}
+
+.slider:before{
+
+    content:"";
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#ff5b37;
+
+    position:absolute;
+    top:3px;
+    left:3px;
+
+    transition:.3s;
+
+}
+
+.switch input:checked + .slider{
+
+    background:#8dc1ff;
+
+}
+
+.switch input:checked + .slider:before{
+
+    left:27px;
+
+}
+
+/*==================================
+Title
+==================================*/
+
+.company-card h1{
+
+    font-size:38px;
+    color:#4169e1;
+    padding:0 35px 25px;
+
+}
+
+/*==================================
+Top Layout
+==================================*/
+
+.company-top{
+
+    display:flex;
+    gap:40px;
+
+    padding:0 35px 30px;
+
+}
+
+/*==================================
+Logo
+==================================*/
+
+.company-logo{
+
+    width:230px;
+
+}
+
+.logo-preview{
+
+    width:170px;
+    height:170px;
+
+    border:2px dashed #d9d9d9;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#f8f8f8;
+
+}
+
+.logo-preview img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+.upload-btn{
+
+    margin-top:18px;
+
+    width:170px;
+    height:45px;
+
+    border-radius:8px;
+
+    border:1px solid #7ea7ff;
+
+    background:white;
+
+    color:#4c78ff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.upload-btn:hover{
+
+    background:#4c78ff;
+    color:white;
+
+}
+
+/*==================================
+Company Info
+==================================*/
+
+.company-info{
+
+    flex:1;
+
+}
+
+.form-group{
+
+    margin-bottom:25px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#4b69d8;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    height:48px;
+
+    border-radius:8px;
+
+    border:1px solid #b8cffd;
+
+    padding:0 15px;
+
+    outline:none;
+
+    transition:.3s;
+
+    background:#fff;
+
+}
+
+.form-group input:focus{
+
+    border-color:#4f7bff;
+
+    box-shadow:0 0 0 3px rgba(79,123,255,.15);
+
+}
+
+.double-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+}
+
+/*==================================
+Overview
+==================================*/
+
+.overview-box{
+
+    background:linear-gradient(#eef6ff,#d9ebff);
+
+    padding:35px;
+
+    border-top:1px solid #b8d2ff;
+
+    border-bottom:1px solid #b8d2ff;
+
+}
+
+.overview-box h2{
+
+    color:#4d74ea;
+
+    margin-bottom:25px;
+
+    font-size:28px;
+
+}
+
+.overview-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+}
+
+.overview-grid .form-group{
+
+    margin-bottom:0;
+
+}
+
+/* ===========================================
+   COMPANY PROFILE EDIT
+   Part 1
+=========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f5f7fb;
+    color:#333;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+.company-edit-page{
+
+    max-width:1350px;
+    margin:30px auto;
+    padding:20px;
+
+}
+
+.company-card{
+
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    overflow:hidden;
+
+}
+
+/*==================================
+Header
+==================================*/
+
+.company-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 35px;
+
+}
+
+.logo-system{
+
+    font-size:15px;
+    font-weight:700;
+    color:#2f56d2;
+
+}
+
+.header-right{
+
+    display:flex;
+    align-items:center;
+    gap:25px;
+
+}
+
+.notification-btn{
+
+    border:none;
+    background:transparent;
+    font-size:20px;
+    cursor:pointer;
+    color:#7d8aa6;
+
+}
+
+/*==================================
+Switch
+==================================*/
+
+.switch{
+
+    position:relative;
+    width:48px;
+    height:24px;
+
+}
+
+.switch input{
+
+    display:none;
+
+}
+
+.slider{
+
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    background:#d6e4ff;
+    transition:.3s;
+
+}
+
+.slider:before{
+
+    content:"";
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#ff5b37;
+
+    position:absolute;
+    top:3px;
+    left:3px;
+
+    transition:.3s;
+
+}
+
+.switch input:checked + .slider{
+
+    background:#8dc1ff;
+
+}
+
+.switch input:checked + .slider:before{
+
+    left:27px;
+
+}
+
+/*==================================
+Title
+==================================*/
+
+.company-card h1{
+
+    font-size:38px;
+    color:#4169e1;
+    padding:0 35px 25px;
+
+}
+
+/*==================================
+Top Layout
+==================================*/
+
+.company-top{
+
+    display:flex;
+    gap:40px;
+
+    padding:0 35px 30px;
+
+}
+
+/*==================================
+Logo
+==================================*/
+
+.company-logo{
+
+    width:230px;
+
+}
+
+.logo-preview{
+
+    width:170px;
+    height:170px;
+
+    border:2px dashed #d9d9d9;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#f8f8f8;
+
+}
+
+.logo-preview img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+.upload-btn{
+
+    margin-top:18px;
+
+    width:170px;
+    height:45px;
+
+    border-radius:8px;
+
+    border:1px solid #7ea7ff;
+
+    background:white;
+
+    color:#4c78ff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.upload-btn:hover{
+
+    background:#4c78ff;
+    color:white;
+
+}
+
+/*==================================
+Company Info
+==================================*/
+
+.company-info{
+
+    flex:1;
+
+}
+
+.form-group{
+
+    margin-bottom:25px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#4b69d8;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    height:48px;
+
+    border-radius:8px;
+
+    border:1px solid #b8cffd;
+
+    padding:0 15px;
+
+    outline:none;
+
+    transition:.3s;
+
+    background:#fff;
+
+}
+
+.form-group input:focus{
+
+    border-color:#4f7bff;
+
+    box-shadow:0 0 0 3px rgba(79,123,255,.15);
+
+}
+
+.double-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+}
+
+/*==================================
+Overview
+==================================*/
+
+.overview-box{
+
+    background:linear-gradient(#eef6ff,#d9ebff);
+
+    padding:35px;
+
+    border-top:1px solid #b8d2ff;
+
+    border-bottom:1px solid #b8d2ff;
+
+}
+
+.overview-box h2{
+
+    color:#4d74ea;
+
+    margin-bottom:25px;
+
+    font-size:28px;
+
+}
+
+.overview-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+}
+
+.overview-grid .form-group{
+
+    margin-bottom:0;
+
+}
+/*==================================
+Tabs
+==================================*/
+
+.company-tabs{
+
+    display:flex;
+
+    border-bottom:2px solid #edf2ff;
+
+    margin-top:35px;
+
+}
+
+.tab-btn{
+
+    flex:1;
+
+    height:65px;
+
+    border:none;
+
+    background:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#5f6b8a;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.tab-btn:hover{
+
+    background:#f4f8ff;
+
+}
+
+.tab-btn.active{
+
+    color:#4169e1;
+
+    border-bottom:4px solid #4169e1;
+
+    background:#f8fbff;
+
+}
+
+/*==================================
+Tab Content
+==================================*/
+
+.tab-content{
+
+    display:none;
+
+    padding:35px;
+
+}
+
+.tab-content.active{
+
+    display:block;
+
+}
+
+/*==================================
+Gallery
+==================================*/
+
+.gallery-wrapper{
+
+    margin-bottom:45px;
+
+}
+
+.gallery-slider{
+
+    display:flex;
+
+    gap:18px;
+
+    overflow:hidden;
+
+}
+
+.gallery-item{
+
+    width:250px;
+
+    height:165px;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    background:#f2f5fb;
+
+    flex-shrink:0;
+
+}
+
+.gallery-item img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.gallery-item.placeholder{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    color:#7c87a3;
+
+    font-size:15px;
+
+    border:2px dashed #d0d8ec;
+
+}
+
+.gallery-dots{
+
+    margin-top:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+}
+
+.dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#d3d8e6;
+
+    transition:.3s;
+
+}
+
+.dot.active{
+
+    background:#4169e1;
+
+}
+
+/*==================================
+Section Card
+==================================*/
+
+.section-card{
+
+    background:white;
+
+    border:1px solid #e5ecfb;
+
+    border-radius:12px;
+
+    padding:30px;
+
+    margin-bottom:35px;
+
+}
+
+.section-card h2{
+
+    color:#4169e1;
+
+    font-size:26px;
+
+    margin-bottom:25px;
+
+}
+
+/*==================================
+Textarea
+==================================*/
+
+.section-card textarea{
+
+    width:100%;
+
+    min-height:220px;
+
+    resize:vertical;
+
+    padding:18px;
+
+    border-radius:10px;
+
+    border:1px solid #cfd9ef;
+
+    outline:none;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    transition:.3s;
+
+}
+
+.section-card textarea:focus{
+
+    border-color:#4c78ff;
+
+    box-shadow:0 0 0 3px rgba(76,120,255,.15);
+
+}
+
+/*==================================
+Skills
+==================================*/
+
+.skill-toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+    gap:20px;
+
+}
+
+.search-box{
+
+    flex:1;
+
+    position:relative;
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#7f8ca9;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    height:46px;
+
+    padding-left:48px;
+
+    border-radius:8px;
+
+    border:1px solid #cfd9ef;
+
+    outline:none;
+
+}
+
+.search-box input:focus{
+
+    border-color:#4c78ff;
+
+}
+
+.small-btn{
+
+    height:46px;
+
+    padding:0 20px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#4169e1;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+.small-btn:hover{
+
+    background:#2e56d3;
+
+}
+
+.skill-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.skill-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    background:#eef4ff;
+
+    color:#4169e1;
+
+    font-size:14px;
+
+}
+
+.remove-skill{
+
+    border:none;
+
+    background:none;
+
+    color:#d33;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    line-height:1;
+
+}
+
+.empty-text{
+
+    color:#888;
+
+    font-style:italic;
+
+}
+
+/*==================================
+Awards
+==================================*/
+
+#awardContainer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.award-row{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.award-row input{
+
+    width:100%;
+
+    height:46px;
+
+    border-radius:8px;
+
+    border:1px solid #d4dcef;
+
+    padding:0 15px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.award-row input:focus{
+
+    border-color:#4169e1;
+
+    box-shadow:0 0 0 3px rgba(65,105,225,.15);
+
+}

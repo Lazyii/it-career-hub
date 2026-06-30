@@ -1,0 +1,888 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Company Review | IT Career Hub
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/company_review.css' %}">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="company-review-page">
+
+    <!-- ========================= -->
+    <!-- Company Header -->
+    <!-- ========================= -->
+    <section class="company-header">
+
+        <div class="company-header-left">
+
+            <div class="company-logo">
+                <img src="{% static 'img/company-logo.png' %}"
+                     alt="Company Logo">
+            </div>
+
+            <div class="company-information">
+
+                <h1 class="company-name">
+                    Tiki
+                </h1>
+
+                <div class="company-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Hà Nội
+                    </span>
+
+                </div>
+
+                <div class="company-tags">
+
+                    <span class="company-tag">
+                        Quantum
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="company-header-right">
+
+            <p>
+
+                Trang web:
+
+                <a href="#">
+                    http://abcdfjj.m/do/kcof
+                </a>
+
+            </p>
+
+            <p>
+
+                Facebook:
+
+                <a href="#">
+                    tiki.hob.com
+                </a>
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Follow Button -->
+    <!-- ========================= -->
+
+    <div class="follow-wrapper">
+
+        <button class="follow-btn">
+
+            Theo dõi
+
+        </button>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Company Overview -->
+    <!-- ========================= -->
+
+    <section class="company-overview">
+
+        <h2>
+            Tổng quan
+        </h2>
+
+        <div class="overview-grid">
+
+            <div class="overview-item">
+
+                <span class="overview-title">
+                    Lĩnh vực công ty:
+                </span>
+
+                <span class="overview-value">
+                    Thương mại điện tử
+                </span>
+
+            </div>
+
+            <div class="overview-item">
+
+                <span class="overview-title">
+                    Nhân viên:
+                </span>
+
+                <span class="overview-value">
+                    1000+
+                </span>
+
+            </div>
+
+            <div class="overview-item">
+
+                <span class="overview-title">
+                    Quốc gia:
+                </span>
+
+                <span class="overview-value">
+                    Việt Nam
+                </span>
+
+            </div>
+
+            <div class="overview-item">
+
+                <span class="overview-title">
+                    Đánh giá:
+                </span>
+
+                <span class="overview-value">
+
+                    4.9
+
+                    <i class="fa-solid fa-star"></i>
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Tabs -->
+    <!-- ========================= -->
+
+    <section class="company-tabs">
+
+        <a href="#"
+           class="tab-item">
+
+            Giới thiệu công ty
+
+        </a>
+
+        <a href="#"
+           class="tab-item">
+
+            Công việc đang tuyển dụng
+
+        </a>
+
+        <a href="#"
+           class="tab-item active">
+
+            Đánh giá
+
+        </a>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Rating Summary -->
+    <!-- ========================= -->
+
+    <section class="rating-summary">
+
+        <div class="rating-left">
+
+            <h2>
+
+                4.9
+
+                <i class="fa-solid fa-star"></i>
+
+            </h2>
+
+            <p>
+
+                12 bình luận
+
+            </p>
+
+        </div>
+
+        <div class="rating-right">
+
+            <!-- 5 sao -->
+
+            <div class="rating-row">
+
+                <span>
+
+                    5
+
+                    <i class="fa-solid fa-star"></i>
+
+                </span>
+
+                <div class="progress">
+
+                    <div class="progress-bar w60">
+
+                        60%
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 4 sao -->
+
+            <div class="rating-row">
+
+                <span>
+
+                    4
+
+                    <i class="fa-solid fa-star"></i>
+
+                </span>
+
+                <div class="progress">
+
+                    <div class="progress-bar w80">
+
+                        80%
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 3 sao -->
+
+            <div class="rating-row">
+
+                <span>
+
+                    3
+
+                    <i class="fa-solid fa-star"></i>
+
+                </span>
+
+                <div class="progress">
+
+                    <div class="progress-bar w50">
+
+                        50%
+
+                    </div>
+
+                </div>
+
+            </div>
+                        <!-- 2 sao -->
+
+            <div class="rating-row">
+
+                <span>
+
+                    2
+
+                    <i class="fa-solid fa-star"></i>
+
+                </span>
+
+                <div class="progress">
+
+                    <div class="progress-bar w20">
+
+                        20%
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 1 sao -->
+
+            <div class="rating-row">
+
+                <span>
+
+                    1
+
+                    <i class="fa-solid fa-star"></i>
+
+                </span>
+
+                <div class="progress">
+
+                    <div class="progress-bar w05">
+
+                        5%
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Write Review -->
+    <!-- ========================= -->
+
+    <section class="write-review">
+
+        <h3>
+
+            Cho chúng mình xin một chút ý kiến từ bạn nhé!
+
+        </h3>
+
+        <div class="review-stars">
+
+            <i class="fa-regular fa-star"></i>
+
+            <i class="fa-regular fa-star"></i>
+
+            <i class="fa-regular fa-star"></i>
+
+            <i class="fa-regular fa-star"></i>
+
+            <i class="fa-regular fa-star"></i>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Comment Form -->
+    <!-- ========================= -->
+
+    <section class="comment-form">
+
+        <h2>
+
+            Bạn muốn bình luận?
+
+        </h2>
+
+        <form action="#">
+
+            <textarea
+                placeholder="Hãy chia sẻ trải nghiệm làm việc của bạn..."
+                rows="8">
+            </textarea>
+
+            <div class="comment-toolbar">
+
+                <div class="comment-time">
+
+                    Bây giờ
+
+                </div>
+
+                <div class="comment-tools">
+
+                    <button
+                        type="button"
+                        class="toolbar-btn">
+
+                        <i class="fa-regular fa-face-smile"></i>
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="toolbar-btn">
+
+                        <i class="fa-regular fa-image"></i>
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="send-btn">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Other Reviews -->
+    <!-- ========================= -->
+
+    <section class="other-reviews">
+
+        <h2>
+
+            Các ý kiến khác
+
+        </h2>
+
+        <div class="review-grid">
+
+            <!-- Card 1 -->
+
+            <div class="review-card">
+
+                <div class="review-user">
+
+                    <img
+                        src="{% static 'img/avatar1.png' %}"
+                        alt="Avatar">
+
+                    <div>
+
+                        <h4>
+
+                            Mike'll make it
+
+                        </h4>
+
+                        <span>
+
+                            Middle Frontend Developer
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p class="review-content">
+
+                    Môi trường làm việc khá tốt,
+                    đồng nghiệp thân thiện và học
+                    hỏi được nhiều kinh nghiệm.
+
+                </p>
+
+                <div class="review-footer">
+
+                    <span>
+
+                        1 ngày trước
+
+                    </span>
+
+                    <div>
+
+                        <button>
+
+                            <i class="fa-regular fa-thumbs-up"></i>
+
+                        </button>
+
+                        <button>
+
+                            <i class="fa-regular fa-thumbs-down"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+                        <!-- Card 2 -->
+
+            <div class="review-card">
+
+                <div class="review-user">
+
+                    <img
+                        src="{% static 'img/avatar2.png' %}"
+                        alt="Avatar">
+
+                    <div>
+
+                        <h4>
+                            Mike'll make it
+                        </h4>
+
+                        <span>
+                            Middle Frontend Developer
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p class="review-content">
+
+                    Chế độ phúc lợi khá tốt,
+                    văn phòng đẹp và có nhiều
+                    cơ hội phát triển.
+
+                </p>
+
+                <div class="review-footer">
+
+                    <span>
+                        1 giờ trước
+                    </span>
+
+                    <div>
+
+                        <button type="button">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                        </button>
+
+                        <button type="button">
+                            <i class="fa-regular fa-thumbs-down"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Card 3 -->
+
+            <div class="review-card">
+
+                <div class="review-user">
+
+                    <img
+                        src="{% static 'img/avatar3.png' %}"
+                        alt="Avatar">
+
+                    <div>
+
+                        <h4>
+                            Mike'll make it
+                        </h4>
+
+                        <span>
+                            Middle Frontend Developer
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p class="review-content">
+
+                    Dự án thực tế, leader hỗ trợ
+                    nhiệt tình và học hỏi được
+                    rất nhiều công nghệ mới.
+
+                </p>
+
+                <div class="review-footer">
+
+                    <span>
+                        4 ngày trước
+                    </span>
+
+                    <div>
+
+                        <button type="button">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                        </button>
+
+                        <button type="button">
+                            <i class="fa-regular fa-thumbs-down"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Card 4 -->
+
+            <div class="review-card">
+
+                <div class="review-user">
+
+                    <img
+                        src="{% static 'img/avatar4.png' %}"
+                        alt="Avatar">
+
+                    <div>
+
+                        <h4>
+                            Mike'll make it
+                        </h4>
+
+                        <span>
+                            Middle Frontend Developer
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p class="review-content">
+
+                    Công ty phù hợp với sinh viên
+                    mới ra trường muốn tích lũy
+                    kinh nghiệm thực tế.
+
+                </p>
+
+                <div class="review-footer">
+
+                    <span>
+                        1 giờ trước
+                    </span>
+
+                    <div>
+
+                        <button type="button">
+                            <i class="fa-regular fa-thumbs-up"></i>
+                        </button>
+
+                        <button type="button">
+                            <i class="fa-regular fa-thumbs-down"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Pagination -->
+    <!-- ========================= -->
+
+    <section class="pagination-wrapper">
+
+        <button class="page-dot active"></button>
+
+        <button class="page-dot"></button>
+
+        <button class="page-dot"></button>
+
+        <button class="page-dot"></button>
+
+        <button class="page-dot"></button>
+
+    </section>
+
+</div>
+<!-- End company-review-page -->
+     <!-- ========================= -->
+    <!-- Footer -->
+    <!-- ========================= -->
+
+    <footer class="company-footer">
+
+        <div class="footer-column">
+
+            <h3>
+
+                IT CAREER HUB
+
+            </h3>
+
+            <p>
+
+                Nền tảng tuyển dụng IT
+                uy tín nhất Việt Nam.
+
+            </p>
+
+            <p>
+
+                © 2025 IT Career Hub
+
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>
+
+                Ứng viên
+
+            </h4>
+
+            <ul>
+
+                <li>
+
+                    <a href="#">
+
+                        Tìm việc làm
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Hồ sơ của tôi
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Đơn ứng tuyển
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Việc đã lưu
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>
+
+                Nhà tuyển dụng
+
+            </h4>
+
+            <ul>
+
+                <li>
+
+                    <a href="#">
+
+                        Đăng tin tuyển dụng
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Quản lý tin đăng
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Xem ứng viên
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>
+
+                Về chúng tôi
+
+            </h4>
+
+            <ul>
+
+                <li>
+
+                    <a href="#">
+
+                        Giới thiệu
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Blog
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Liên hệ
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        Điều khoản
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </footer>
+
+</div>
+<!-- End company-review-page -->
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="{% static 'js/company_review.js' %}"></script>
+
+{% endblock %}
