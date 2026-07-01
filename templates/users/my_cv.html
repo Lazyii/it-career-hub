@@ -1,0 +1,396 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CV của tôi | IT Career Hub</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/my_cv.css' %}?v=20260630-2">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <a href="{% url 'core:home' %}">
+                IT CAREER HUB
+            </a>
+        </div>
+
+        <nav class="navbar">
+
+            <ul>
+
+                <li class="dropdown">
+                    <a href="#">
+                        Công Việc
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">
+                        Công Ty
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <div class="header-right">
+
+            <button class="header-icon">
+
+                <i class="fa-solid fa-bell"></i>
+
+            </button>
+
+            <button class="header-icon">
+
+                <i class="fa-regular fa-message"></i>
+
+            </button>
+
+            <label class="switch">
+
+                <input type="checkbox" id="themeSwitch">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+    </header>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="dashboard-container">
+            <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="profile-card">
+
+            <div class="avatar">
+                {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" alt="Avatar">
+                {% else %}
+                    <span class="avatar-fallback">
+                        {{ user.username|first|upper }}
+                    </span>
+                {% endif %}
+            </div>
+
+            <h3>{{ user.get_full_name|default:user.username }}</h3>
+            <p>{{ user.email }}</p>
+
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li>
+
+                <a href="{% url 'users:dashboard' %}">
+
+                    <i class="fa-solid fa-table-cells-large"></i>
+
+                    <span>Tổng quan</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{% url 'users:my_profile' %}">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>Hồ sơ</span>
+
+                </a>
+
+            </li>
+
+            <li class="active">
+
+                <a href="{% url 'users:my_cv' %}">
+
+                    <i class="fa-regular fa-file-lines"></i>
+
+                    <span>CV của tôi</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{% url 'users:settings' %}">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Cài đặt</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <form method="post" action="{% url 'users:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-link">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Đăng xuất</span>
+                    </button>
+                </form>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= CONTENT ================= -->
+
+    <section class="content">
+
+        <div class="cv-box">
+
+            <div class="cv-header">
+
+                <h1>CV của tôi</h1>
+
+            </div>
+
+            <div class="cv-list">
+                                <!-- CV Item 1 -->
+
+                <div class="cv-item">
+
+                    <div class="cv-info">
+
+                        <i class="fa-regular fa-file-lines"></i>
+
+                        <span>Fullstack_2024.pdf</span>
+
+                    </div>
+
+                    <div class="cv-actions">
+
+                        <button class="icon-btn" title="Chỉnh sửa">
+
+                            <i class="fa-solid fa-pen"></i>
+
+                        </button>
+
+                        <button class="icon-btn delete" title="Xóa">
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- CV Item 2 -->
+
+                <div class="cv-item">
+
+                    <div class="cv-info">
+
+                        <i class="fa-regular fa-file-lines"></i>
+
+                        <span>Fullstack_2024.pdf</span>
+
+                    </div>
+
+                    <div class="cv-actions">
+
+                        <button class="icon-btn" title="Chỉnh sửa">
+
+                            <i class="fa-solid fa-pen"></i>
+
+                        </button>
+
+                        <button class="icon-btn delete" title="Xóa">
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                {% for cv in cvs %}
+                <div class="cv-item">
+
+                    <div class="cv-info">
+
+                        <i class="fa-regular fa-file-lines"></i>
+
+                        <span>{{ cv.file_name }}</span>
+
+                    </div>
+
+                    <div class="cv-actions">
+
+                        <a href="{% url 'edit_cv' cv.id %}" class="icon-btn">
+
+                            <i class="fa-solid fa-pen"></i>
+
+                        </a>
+
+                        <a href="{% url 'delete_cv' cv.id %}" class="icon-btn delete">
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+                
+
+            </div>
+
+            <div class="create-cv">
+
+                <a href="{% url 'users:create_cv' %}" id="createCVBtn">
+                    Tạo CV mới
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+        </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-column">
+
+                <h3>IT CAREER HUB</h3>
+
+                <p>Nền tảng tuyển dụng IT</p>
+
+                <p>Kết nối nhà tuyển dụng và ứng viên.</p>
+
+                <p class="copyright">
+                    © 2026 IT Career Hub
+                </p>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>Ứng viên</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#">Tìm việc làm</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Hồ sơ của tôi</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Đơn ứng tuyển</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Việc đã lưu</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>Nhà tuyển dụng</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#">Đăng tin tuyển dụng</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Quản lý tin đăng</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Xem ứng viên</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>Về chúng tôi</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#">Giới thiệu</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Liên hệ</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Điều khoản</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="{% static 'js/my_cv.js' %}"></script>
+
+</body>
+
+</html>

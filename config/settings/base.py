@@ -1,5 +1,4 @@
 from decouple import config
-
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -30,7 +29,7 @@ INSTALLED_APPS = [
     "django_filters",
 
     # Local apps
-    "apps.users",
+    "apps.users.apps.UsersConfig",
     "apps.companies",
     "apps.jobs",
     "apps.applications",
@@ -65,7 +64,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "config.wsgi.application"
-
 
 DATABASES = {
     "default": {

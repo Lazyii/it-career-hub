@@ -1,0 +1,562 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Việc làm IT | IT Career Hub</title>
+
+    <link rel="stylesheet" href="{% static 'css/job_list.css' %}">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="container header-container">
+
+            <div class="logo">
+                <a href="/">
+                    IT CAREER HUB
+                </a>
+            </div>
+
+            <nav class="navbar">
+
+                <a href="#" class="active">
+                    Công việc
+                </a>
+
+                <a href="#">
+                    Công ty
+                </a>
+
+                <a href="#">
+                    Về chúng tôi
+                </a>
+
+            </nav>
+
+            <div class="header-right">
+
+                <button class="icon-btn notification-btn">
+                    <i class="fa-regular fa-bell"></i>
+                </button>
+
+                <div class="darkmode-switch">
+
+                    <span class="moon">
+                        <i class="fa-regular fa-moon"></i>
+                    </span>
+
+                    <label class="switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                    <span class="sun">
+                        <i class="fa-regular fa-sun"></i>
+                    </span>
+
+                </div>
+
+                <div class="avatar">
+
+                    <img src="{% static 'img/avatar.png' %}" alt="Avatar">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <h1>
+                    Phát triển phần mềm
+                </h1>
+
+                <p>
+                    Vô vàn vị trí hot đang chờ bạn!
+                </p>
+
+            </div>
+
+            <!-- Search -->
+
+            <div class="search-box">
+
+                <div class="search-item">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Địa điểm">
+
+                </div>
+
+                <div class="search-item">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Công việc của bạn">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+        <!-- ================= FILTER ================= -->
+
+    <section class="filter-section">
+
+        <div class="container">
+
+            <h2 class="filter-title">
+                Bộ lọc
+            </h2>
+
+            <div class="filter-group">
+
+                <select id="fieldFilter">
+                    <option>Lĩnh vực</option>
+                    <option>Frontend</option>
+                    <option>Backend</option>
+                    <option>Fullstack</option>
+                    <option>Mobile</option>
+                </select>
+
+                <select id="typeFilter">
+                    <option>Hình thức làm việc</option>
+                    <option>Fulltime</option>
+                    <option>Parttime</option>
+                    <option>Remote</option>
+                    <option>Hybrid</option>
+                </select>
+
+                <select id="levelFilter">
+                    <option>Cấp bậc</option>
+                    <option>Intern</option>
+                    <option>Fresher</option>
+                    <option>Junior</option>
+                    <option>Middle</option>
+                    <option>Senior</option>
+                </select>
+
+                <select id="salaryFilter">
+                    <option>Mức lương</option>
+                    <option>Dưới 10 triệu</option>
+                    <option>10 - 20 triệu</option>
+                    <option>20 - 30 triệu</option>
+                    <option>Trên 30 triệu</option>
+                </select>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= JOB LIST ================= -->
+
+    <section class="job-list">
+
+        <div class="container">
+
+            <!-- Card 1 -->
+
+            <div class="job-card">
+
+                <div class="company-logo">
+
+                    <img src="{% static 'img/company-default.png' %}" alt="Company">
+
+                </div>
+
+                <div class="job-info">
+
+                    <h3>
+                        Senior ReactJS Developer
+                    </h3>
+
+                    <h4>
+                        Tiki Corporation
+                    </h4>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Hà Nội
+                    </p>
+
+                    <p class="salary">
+                        Lương: 2.000 - 3.000 USD
+                    </p>
+
+                    <p class="deadline">
+                        Một ngày trước · Hạn ứng tuyển 16/10/2026
+                    </p>
+
+                    <div class="skill-group">
+
+                        <span class="skill-tag">
+                            ReactJS
+                        </span>
+
+                        <span class="skill-tag">
+                            Python
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Card 2 -->
+
+            <div class="job-card">
+
+                <div class="company-logo">
+
+                    <img src="{% static 'img/company-default.png' %}" alt="Company">
+
+                </div>
+
+                <div class="job-info">
+
+                    <h3>
+                        Senior ReactJS Developer
+                    </h3>
+
+                    <h4>
+                        Tiki Corporation
+                    </h4>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Hà Nội
+                    </p>
+
+                    <p class="salary">
+                        Lương: 2.000 - 3.000 USD
+                    </p>
+
+                    <p class="deadline">
+                        Một ngày trước · Hạn ứng tuyển 16/10/2026
+                    </p>
+
+                    <div class="skill-group">
+
+                        <span class="skill-tag">
+                            ReactJS
+                        </span>
+
+                        <span class="skill-tag">
+                            Python
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Card 3 -->
+
+            <div class="job-card">
+
+                <div class="company-logo">
+
+                    <img src="{% static 'img/company-default.png' %}" alt="Company">
+
+                </div>
+
+                <div class="job-info">
+
+                    <h3>
+                        Senior ReactJS Developer
+                    </h3>
+
+                    <h4>
+                        Tiki Corporation
+                    </h4>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Hà Nội
+                    </p>
+
+                    <p class="salary">
+                        Lương: 2.000 - 3.000 USD
+                    </p>
+
+                    <p class="deadline">
+                        Một ngày trước · Hạn ứng tuyển 16/10/2026
+                    </p>
+
+                    <div class="skill-group">
+
+                        <span class="skill-tag">
+                            ReactJS
+                        </span>
+
+                        <span class="skill-tag">
+                            Python
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+                        <!-- Card 4 -->
+
+            <div class="job-card">
+
+                <div class="company-logo">
+                    <img src="{% static 'img/company-default.png' %}" alt="Company">
+                </div>
+
+                <div class="job-info">
+
+                    <h3>Senior ReactJS Developer</h3>
+
+                    <h4>Tiki Corporation</h4>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Hà Nội
+                    </p>
+
+                    <p class="salary">
+                        Lương: 2.000 - 3.000 USD
+                    </p>
+
+                    <p class="deadline">
+                        Một ngày trước · Hạn ứng tuyển 16/10/2026
+                    </p>
+
+                    <div class="skill-group">
+
+                        <span class="skill-tag">
+                            ReactJS
+                        </span>
+
+                        <span class="skill-tag">
+                            Python
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Card 5 -->
+
+            <div class="job-card">
+
+                <div class="company-logo">
+                    <img src="{% static 'img/company-default.png' %}" alt="Company">
+                </div>
+
+                <div class="job-info">
+
+                    <h3>Senior ReactJS Developer</h3>
+
+                    <h4>Tiki Corporation</h4>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Hà Nội
+                    </p>
+
+                    <p class="salary">
+                        Lương: 2.000 - 3.000 USD
+                    </p>
+
+                    <p class="deadline">
+                        Một ngày trước · Hạn ứng tuyển 16/10/2026
+                    </p>
+
+                    <div class="skill-group">
+
+                        <span class="skill-tag">
+                            ReactJS
+                        </span>
+
+                        <span class="skill-tag">
+                            Python
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Card 6 -->
+
+            <div class="job-card">
+
+                <div class="company-logo">
+                    <img src="{% static 'img/company-default.png' %}" alt="Company">
+                </div>
+
+                <div class="job-info">
+
+                    <h3>Senior ReactJS Developer</h3>
+
+                    <h4>Tiki Corporation</h4>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Hà Nội
+                    </p>
+
+                    <p class="salary">
+                        Lương: 2.000 - 3.000 USD
+                    </p>
+
+                    <p class="deadline">
+                        Một ngày trước · Hạn ứng tuyển 16/10/2026
+                    </p>
+
+                    <div class="skill-group">
+
+                        <span class="skill-tag">
+                            ReactJS
+                        </span>
+
+                        <span class="skill-tag">
+                            Python
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-container">
+
+            <div class="footer-col">
+
+                <h3>IT CAREER HUB</h3>
+
+                <p>
+                    Nền tảng tuyển dụng IT hàng đầu Việt Nam.
+                </p>
+
+                <p>
+                    © 2026 IT Career Hub
+                </p>
+
+            </div>
+
+            <div class="footer-col">
+
+                <h4>Ứng viên</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#">Việc làm IT</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Hồ sơ của tôi</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Đơn ứng tuyển</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-col">
+
+                <h4>Nhà tuyển dụng</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#">Đăng tuyển</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Quản lý tin đăng</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Quản lý ứng viên</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-col">
+
+                <h4>Về chúng tôi</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#">Giới thiệu</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Liên hệ</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Điều khoản</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="{% static 'js/job_list.js' %}"></script>
+
+</body>
+
+</html>
+

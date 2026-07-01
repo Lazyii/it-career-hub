@@ -1,0 +1,1289 @@
+/* ========================================
+   RECRUITER COMPANY PROFILE
+   Part 1
+======================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+    background:#f4f6fb;
+    color:#333;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+.company-profile-page{
+    width:100%;
+    min-height:100vh;
+    background:#f4f6fb;
+}
+
+/* ===========================
+        HEADER
+=========================== */
+
+.company-profile-header{
+
+    width:100%;
+    height:70px;
+
+    background:#ffffff;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 35px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+    position:sticky;
+    top:0;
+    z-index:999;
+
+}
+
+.header-left{
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+}
+
+.menu-btn{
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#edf3ff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.menu-btn:hover{
+
+    background:#d9e7ff;
+
+}
+
+.menu-btn i{
+
+    font-size:18px;
+
+    color:#2d6cdf;
+
+}
+
+.brand-name{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:#2457c5;
+
+}
+
+/* ===========================
+        RIGHT HEADER
+=========================== */
+
+.header-right{
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+}
+
+.notification-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#edf3ff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.notification-btn:hover{
+
+    background:#d9e7ff;
+
+}
+
+.notification-btn i{
+
+    color:#2457c5;
+
+    font-size:18px;
+
+}
+
+/* ===========================
+        TOGGLE
+=========================== */
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:56px;
+
+    height:30px;
+
+}
+
+.switch input{
+
+    opacity:0;
+
+    width:0;
+
+    height:0;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    cursor:pointer;
+
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    background:#d9d9d9;
+
+    transition:.4s;
+
+}
+
+.slider:before{
+
+    position:absolute;
+
+    content:"";
+
+    width:22px;
+
+    height:22px;
+
+    left:4px;
+
+    bottom:4px;
+
+    background:#ffffff;
+
+    transition:.4s;
+
+}
+
+input:checked + .slider{
+
+    background:#2d6cdf;
+
+}
+
+input:checked + .slider:before{
+
+    transform:translateX(26px);
+
+}
+
+.slider.round{
+
+    border-radius:34px;
+
+}
+
+.slider.round:before{
+
+    border-radius:50%;
+
+}
+
+/* ===========================
+        COMPANY CARD
+=========================== */
+
+.company-card{
+
+    max-width:1180px;
+
+    margin:35px auto 20px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:35px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+}
+
+/* ===========================
+          LOGO
+=========================== */
+
+.company-logo{
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    border:1px solid #e4e4e4;
+
+    flex-shrink:0;
+
+}
+
+.company-logo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/* ===========================
+      COMPANY INFO
+=========================== */
+
+.company-information{
+
+    flex:1;
+
+}
+
+.company-information h1{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#222;
+
+    margin-bottom:15px;
+
+}
+
+.company-location{
+
+    font-size:15px;
+
+    color:#666;
+
+    margin-bottom:25px;
+
+}
+
+.company-location i{
+
+    color:#2d6cdf;
+
+    margin-right:8px;
+
+}
+
+.company-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.btn-outline{
+
+    border:2px solid #2d6cdf;
+
+    background:#ffffff;
+
+    color:#2d6cdf;
+
+    padding:11px 30px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-outline:hover{
+
+    background:#2d6cdf;
+
+    color:#ffffff;
+
+}
+
+/* ===========================
+      CONTACT
+=========================== */
+
+.company-contact{
+
+    width:260px;
+
+}
+
+.company-contact p{
+
+    margin-bottom:18px;
+
+    font-size:15px;
+
+    color:#555;
+
+    line-height:1.6;
+
+}
+
+.company-contact a{
+
+    color:#2d6cdf;
+
+    word-break:break-all;
+
+}
+
+.company-contact a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+      FOLLOW BUTTON
+=========================== */
+
+.follow-wrapper{
+
+    max-width:1180px;
+
+    margin:0 auto 25px;
+
+    text-align:right;
+
+}
+
+.follow-btn{
+
+    background:#2d6cdf;
+
+    color:#ffffff;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:12px 35px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.follow-btn:hover{
+
+    background:#194db4;
+
+}
+
+/* ===========================
+        OVERVIEW
+=========================== */
+
+.overview-box{
+
+    max-width:1180px;
+
+    margin:0 auto 35px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:30px 35px;
+
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+
+}
+
+.overview-box h2{
+
+    font-size:26px;
+
+    margin-bottom:30px;
+
+    color:#222;
+
+}
+
+.overview-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.overview-item{
+
+    padding:18px;
+
+    background:#f8faff;
+
+    border-radius:12px;
+
+    border:1px solid #edf0f5;
+
+}
+
+.overview-item span{
+
+    display:block;
+
+    color:#666;
+
+    font-size:14px;
+
+    margin-bottom:8px;
+
+}
+
+.overview-item strong{
+
+    color:#2d6cdf;
+
+    font-size:17px;
+
+    font-weight:700;
+
+}
+
+/* ========================================
+   RECRUITER COMPANY PROFILE
+   Part 2
+======================================== */
+
+
+/* ===========================
+        COMPANY TABS
+=========================== */
+
+.company-tabs{
+
+    max-width:1180px;
+
+    margin:0 auto 30px;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.tab-btn{
+
+    flex:1;
+
+    padding:16px 20px;
+
+    background:#ffffff;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#666;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.tab-btn:hover{
+
+    background:#f5f8ff;
+
+    color:#2d6cdf;
+
+}
+
+.tab-btn.active{
+
+    background:#2d6cdf;
+
+    color:#ffffff;
+
+    border-color:#2d6cdf;
+
+}
+
+
+/* ===========================
+      COMPANY GALLERY
+=========================== */
+
+.company-gallery{
+
+    max-width:1180px;
+
+    margin:0 auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.gallery-wrapper{
+
+    height:320px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    background:#ffffff;
+
+    border:1px solid #ececec;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+}
+
+.gallery-wrapper img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.gallery-wrapper:hover img{
+
+    transform:scale(1.04);
+
+}
+
+.gallery-placeholder{
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#999;
+
+    background:#f4f6fb;
+
+}
+
+
+/* ===========================
+      GALLERY PAGINATION
+=========================== */
+
+.gallery-pagination{
+
+    max-width:1180px;
+
+    margin:25px auto 40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#d0d0d0;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.dot.active{
+
+    background:#2d6cdf;
+
+}
+
+.gallery-next{
+
+    margin-left:20px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#2d6cdf;
+
+    color:#ffffff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.gallery-next:hover{
+
+    background:#184cb8;
+
+}
+
+
+/* ===========================
+      PROFILE SECTION
+=========================== */
+
+.profile-section{
+
+    max-width:1180px;
+
+    margin:0 auto 35px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+}
+
+.profile-section h2{
+
+    font-size:28px;
+
+    color:#222;
+
+    margin-bottom:25px;
+
+    padding-bottom:15px;
+
+    border-bottom:2px solid #edf2ff;
+
+}
+
+
+/* ===========================
+      CONTENT
+=========================== */
+
+.section-content{
+
+    color:#555;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+}
+
+.section-content p{
+
+    margin-bottom:18px;
+
+}
+
+
+/* ===========================
+      SKILLS
+=========================== */
+
+.skill-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:30px;
+
+}
+
+.skill-tag{
+
+    background:#edf4ff;
+
+    color:#2d6cdf;
+
+    border:1px solid #cddfff;
+
+    border-radius:30px;
+
+    padding:10px 20px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.skill-tag:hover{
+
+    background:#2d6cdf;
+
+    color:#ffffff;
+
+}
+
+
+/* ===========================
+      ABOUT COMPANY
+=========================== */
+
+#about{
+
+    scroll-margin-top:100px;
+
+}
+
+
+/* ===========================
+      ANIMATION
+=========================== */
+
+.profile-section{
+
+    animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* ========================================
+   RECRUITER COMPANY PROFILE
+   Part 3
+======================================== */
+
+
+/* ===========================
+      CERTIFICATES
+=========================== */
+
+.certificate-item{
+
+    background:#f8faff;
+
+    border:1px solid #e6edf8;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    transition:.3s;
+
+}
+
+.certificate-item:hover{
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+    transform:translateY(-2px);
+
+}
+
+.certificate-title{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#2d6cdf;
+
+    margin-bottom:15px;
+
+}
+
+.certificate-content{
+
+    color:#555;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+
+/* ===========================
+      EDIT PROFILE BUTTON
+=========================== */
+
+.edit-profile-wrapper{
+
+    max-width:1180px;
+
+    margin:45px auto;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.edit-profile-btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-width:180px;
+
+    height:50px;
+
+    background:#2d6cdf;
+
+    color:#ffffff;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    box-shadow:0 8px 18px rgba(45,108,223,.25);
+
+}
+
+.edit-profile-btn:hover{
+
+    background:#1d56ca;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 22px rgba(45,108,223,.35);
+
+}
+
+
+/* ===========================
+            FOOTER
+=========================== */
+
+.company-footer{
+
+    margin-top:70px;
+
+    background:#1e2a44;
+
+    color:#ffffff;
+
+    padding:60px 8%;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:50px;
+
+}
+
+.footer-column h4{
+
+    font-size:18px;
+
+    margin-bottom:20px;
+
+    color:#ffffff;
+
+}
+
+.footer-column p{
+
+    color:#d8dbe3;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+    margin-bottom:20px;
+
+}
+
+.footer-column span{
+
+    color:#9ea8bb;
+
+    font-size:14px;
+
+}
+
+.footer-column ul{
+
+    list-style:none;
+
+}
+
+.footer-column li{
+
+    margin-bottom:12px;
+
+}
+
+.footer-column a{
+
+    color:#d8dbe3;
+
+    transition:.3s;
+
+}
+
+.footer-column a:hover{
+
+    color:#ffffff;
+
+    padding-left:6px;
+
+}
+
+
+/* ===========================
+        RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+    .company-card{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+    }
+
+    .company-contact{
+
+        width:100%;
+
+    }
+
+    .company-actions{
+
+        justify-content:center;
+
+    }
+
+    .overview-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .company-gallery{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .company-tabs{
+
+        flex-direction:column;
+
+    }
+
+    .company-footer{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    .company-profile-header{
+
+        padding:0 20px;
+
+    }
+
+    .brand-name{
+
+        font-size:20px;
+
+    }
+
+    .company-card{
+
+        padding:25px;
+
+        margin:20px 15px;
+
+    }
+
+    .overview-box{
+
+        margin:0 15px 25px;
+
+    }
+
+    .profile-section{
+
+        margin:0 15px 25px;
+
+    }
+
+    .company-tabs{
+
+        margin:0 15px 25px;
+
+    }
+
+    .company-gallery{
+
+        margin:0 15px;
+
+    }
+
+    .follow-wrapper{
+
+        margin:0 15px 25px;
+
+    }
+
+    .edit-profile-wrapper{
+
+        margin:35px 15px;
+
+        justify-content:center;
+
+    }
+
+}
+
+
+@media(max-width:576px){
+
+    .company-logo{
+
+        width:120px;
+
+        height:120px;
+
+    }
+
+    .company-information h1{
+
+        font-size:26px;
+
+    }
+
+    .overview-box h2,
+
+    .profile-section h2{
+
+        font-size:22px;
+
+    }
+
+    .gallery-wrapper{
+
+        height:220px;
+
+    }
+
+    .company-footer{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        gap:35px;
+
+    }
+
+}
+
+
+/* ===========================
+        SMOOTH SCROLL
+=========================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+/* ===========================
+        SELECTION
+=========================== */
+
+::selection{
+
+    background:#2d6cdf;
+
+    color:#ffffff;
+
+}
+
+
+/* ===========================
+        SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#eef2f8;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2d6cdf;
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#184cb8;
+
+}

@@ -1,0 +1,708 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Trang chủ Nhà tuyển dụng | IT Career Hub{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{% static 'css/recruiter_home.css' %}?v=2">
+{% endblock %}
+{% block navbar %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block content %}
+
+<!-- ========================= -->
+<!-- Header -->
+<!-- ========================= -->
+
+<header class="header">
+
+    <div class="container">
+
+        <div class="logo">
+
+            <a href="{% url 'core:home' %}">
+                IT CAREER HUB
+            </a>
+
+        </div>
+
+        <div class="header-right">
+
+            <button class="notification-btn">
+
+                🔔
+
+                {% if unread_notifications > 0 %}
+                    <span class="badge">
+                        {{ unread_notifications }}
+                    </span>
+                {% endif %}
+
+            </button>
+
+            <div class="profile-dropdown">
+
+                <button class="profile-btn">
+
+                    {% if user.avatar %}
+                        <img src="{{ user.avatar.url }}" alt="Avatar">
+                    {% else %}
+                        <span class="avatar-placeholder"></span>
+                    {% endif %}
+                </button>
+
+                <div class="dropdown-content">
+                    <div class="account-summary">
+                        <span class="account-avatar"></span>
+
+                        <div>
+                            <strong>
+                                {{ user.get_full_name|default:user.username }}
+                            </strong>
+                            <small>{{ user.email }}</small>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'core:recruiter_dashboard' %}">
+                        <i class="fa-solid fa-table-columns"></i>
+                        Tổng quan
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-solid fa-user"></i>
+                        Hồ sơ
+                    </a>
+
+                    <a href="{% url 'core:recruiter_company_profile' %}">
+                        <i class="fa-solid fa-building"></i>
+                        Hồ sơ công ty
+                    </a>
+
+                    <a href="{% url 'jobs:create' %}">
+                        <i class="fa-regular fa-file-lines"></i>
+                        Đăng tin tuyển dụng
+                    </a>
+
+                    <a href="{% url 'users:settings' %}">
+                        <i class="fa-solid fa-gear"></i>
+                        Cài đặt
+                    </a>
+
+                    <a href="{% url 'users:logout' %}">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Đăng xuất
+                    </a>
+                </div>
+            </div>  
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ========================= -->
+<!-- Hero -->
+<!-- ========================= -->
+
+<section class="hero">
+    <div class="container">
+
+    <p class="hero-subtitle">
+        Nền tảng tìm việc làm IT tốt nhất tại Việt Nam
+    </p>
+
+    <h1>
+        Cầu nối giữa ứng<br>
+        viên và công ty
+    </h1>
+
+    <p class="hero-description">
+        Hơn {{ total_jobs }} công việc ở {{ total_companies }}
+        công ty công nghệ – cập nhật mỗi ngày
+    </p>
+
+    <form action="{% url 'jobs:list' %}"
+          method="get"
+          class="search-box">
+
+        <div class="search-input location-input">
+            <i class="fa-solid fa-location-dot"></i>
+
+            <input type="text"
+                   name="location"
+                   placeholder="Địa điểm">
+        </div>
+
+        <div class="search-input keyword-input">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="text"
+                   name="keyword"
+                   placeholder="Ứng viên cần tìm theo vị trí">
+        </div>
+
+    </form>
+
+    <div class="popular-skills">
+        <span>Gợi ý cho bạn:</span>
+        <a href="?skill=Java">Java</a>
+        <a href="?skill=Python">Python</a>
+        <a href="?skill=CSharp">C#</a>
+    </div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Jobs Section -->
+<!-- ========================= -->
+
+<section class="latest-jobs">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+
+                Các tin đã đăng mới nhất
+
+            </h2>
+
+            <a href="{% url 'jobs:my_jobs' %}">
+
+                Xem tất cả →
+
+            </a>
+
+        </div>
+
+        <div class="job-grid">
+            {% for job in latest_jobs %}
+
+<div class="job-card">
+
+    <div class="job-company-logo">
+
+        {% if job.company.logo %}
+
+            <img
+                src="{{ job.company.logo.url }}"
+                alt="{{ job.company.name }}">
+
+        {% else %}
+
+            <img
+                src="{% static 'images/company-default.png' %}"
+                alt="Company">
+
+        {% endif %}
+
+    </div>
+
+    <h3 class="job-title">
+
+        <a href="{% url 'jobs:detail' job.slug %}">
+
+            {{ job.title }}
+
+        </a>
+
+    </h3>
+
+    <p class="company-name">
+
+        {{ job.company.name }}
+
+    </p>
+
+    <div class="job-meta">
+
+        <span>
+
+            📍 {{ job.location }}
+
+        </span>
+
+        <span>
+
+            💰 {{ job.salary_display }}
+
+        </span>
+
+    </div>
+
+    <div class="job-skills">
+
+        {% for skill in job.skills.all %}
+
+            <span>
+
+                {{ skill.name }}
+
+            </span>
+
+        {% empty %}
+
+            <span>
+
+                Chưa cập nhật
+
+            </span>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="job-footer">
+
+        <small>
+
+            {{ job.created_at|timesince }} trước
+
+        </small>
+
+        <a
+            href="{% url 'jobs:detail' job.slug %}"
+            class="btn-view">
+
+            Xem tin
+
+        </a>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="empty-box">
+
+    <h3>
+
+        Chưa có tin tuyển dụng
+
+    </h3>
+
+    <p>
+
+        Hãy đăng tin đầu tiên của bạn.
+
+    </p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Featured Candidates -->
+<!-- ========================= -->
+
+<section class="featured-candidates">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+
+                Ứng viên nổi bật
+
+            </h2>
+
+            <a href="#">
+
+                Xem tất cả →
+
+            </a>
+
+        </div>
+
+        <div class="candidate-grid">
+
+{% for candidate in featured_candidates %}
+
+<div class="candidate-card">
+
+    <div class="candidate-avatar">
+
+        {% if candidate.avatar %}
+
+            <img
+                src="{{ candidate.avatar.url }}"
+                alt="{{ candidate.full_name }}">
+
+        {% else %}
+
+            <img
+                src="{% static 'images/default-avatar.png' %}"
+                alt="Avatar">
+
+        {% endif %}
+
+    </div>
+
+    <h3>
+
+        {{ candidate.full_name }}
+
+    </h3>
+
+    <p class="candidate-position">
+
+        {{ candidate.position|default:"Ứng viên IT" }}
+
+    </p>
+
+    <div class="candidate-tags">
+
+        {% for skill in candidate.skills.all|slice:":3" %}
+
+            <span>
+
+                {{ skill.name }}
+
+            </span>
+
+        {% empty %}
+
+            <span>
+
+                Chưa cập nhật
+
+            </span>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="candidate-info">
+
+        <span>
+
+            {{ candidate.experience_years }} năm KN
+
+        </span>
+
+        <span>
+
+            {{ candidate.location }}
+
+        </span>
+
+    </div>
+
+    <a
+        href="#"
+        class="btn-profile">
+
+        Xem hồ sơ
+
+    </a>
+
+</div>
+
+{% empty %}
+
+<div class="empty-box">
+
+    <h3>
+
+        Chưa có ứng viên nổi bật.
+
+    </h3>
+
+</div>
+
+{% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Quick Statistics -->
+<!-- ========================= -->
+
+<section class="statistics">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Thống kê nhanh</h2>
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>{{ total_jobs }}</h3>
+                <p>Tin đang hoạt động</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-user-group"></i>
+                <h3>{{ total_candidates }}</h3>
+                <p>Tổng ứng viên hiện tại</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-eye"></i>
+                <h3>{{ total_views|default:0 }}</h3>
+                <p>Lượt xem tin</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>{{ expired_jobs|default:0 }}</h3>
+                <p>Tin sắp hết hạn</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========================= -->
+<!-- CTA -->
+<!-- ========================= -->
+
+<section class="cta">
+    <div class="container">
+        <div class="cta-buttons">
+
+            <a href="{% url 'jobs:create' %}"
+               class="btn-primary">
+                Đăng tin tuyển dụng mới
+            </a>
+
+            <a href="#"
+               class="btn-outline">
+                Xem tất cả các ứng viên
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========================= -->
+<!-- Testimonials -->
+<!-- ========================= -->
+
+<section class="testimonials">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+
+                Trải nghiệm từ những người đi trước
+
+            </h2>
+
+        </div>
+
+        <div class="testimonial-slider">
+
+            {% for review in recruiter_reviews %}
+
+            <div class="testimonial-item">
+
+                <div class="testimonial-header">
+
+                    {% if review.avatar %}
+
+                    <img
+                        src="{{ review.avatar.url }}"
+                        alt="{{ review.name }}">
+
+                    {% else %}
+
+                    <img
+                        src="{% static 'images/default-avatar.png' %}"
+                        alt="Avatar">
+
+                    {% endif %}
+
+                    <div>
+
+                        <h4>
+
+                            {{ review.name }}
+
+                        </h4>
+
+                        <small>
+
+                            {{ review.company }}
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <p>
+
+                    "{{ review.content }}"
+
+                </p>
+
+            </div>
+
+            {% empty %}
+
+            <div class="testimonial-item">
+
+                <p>
+
+                    Chưa có đánh giá nào.
+
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- Footer -->
+<!-- ========================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>
+
+                    IT CAREER HUB
+
+                </h3>
+
+                <p>
+
+                    Kết nối doanh nghiệp với nhân lực CNTT chất lượng.
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Ứng viên
+
+                </h4>
+
+                <ul>
+
+                    <li>
+
+                        <a href="{% url 'jobs:create' %}">
+                            Đăng tin
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="{% url 'jobs:my_jobs' %}">
+                            Quản lý tin
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Nhà tuyển dụng
+
+                </h4>
+
+                <ul>
+
+                    <li>
+
+                        <a href="#">
+                            Hồ sơ
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#">
+                            Việc làm
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h4>
+
+                    Về chúng tôi
+
+                </h4>
+
+                <ul>
+
+                    <li>Email: support@itcareerhub.vn</li>
+
+                    <li>Hotline: 0123 456 789</li>
+
+                    <li>Hà Nội, Việt Nam</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            © 2026 IT Career Hub.
+
+        </div>
+
+    </div>
+
+</footer>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="{% static 'js/recruiter_home.js' %}"></script>
+
+<script>
+{% endblock %}

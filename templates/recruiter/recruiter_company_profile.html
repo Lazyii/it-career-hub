@@ -1,0 +1,703 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Hồ sơ công ty | IT Career Hub{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/recruiter_company_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="company-profile-page">
+
+    <!-- ================= HEADER ================= -->
+    <div class="company-profile-header">
+
+        <div class="header-left">
+
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="brand-name">
+                IT CAREER HUB
+            </div>
+
+        </div>
+
+        <div class="header-right">
+
+            <button class="notification-btn">
+                <i class="fas fa-bell"></i>
+            </button>
+
+            <!-- Toggle -->
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="profileMode">
+
+                <span class="slider round"></span>
+
+            </label>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= COMPANY CARD ================= -->
+
+    <section class="company-card">
+
+        <!-- Logo -->
+
+        <div class="company-logo">
+
+            {% if company.logo %}
+
+                <img
+                    src="{{ company.logo.url }}"
+                    alt="{{ company.name }}">
+
+            {% else %}
+
+                <img
+                    src="{% static 'img/default_company.png' %}"
+                    alt="Company Logo">
+
+            {% endif %}
+
+        </div>
+
+
+
+        <!-- Information -->
+
+        <div class="company-information">
+
+            <h1>
+                {{ company.name }}
+            </h1>
+
+            <p class="company-location">
+
+                <i class="fas fa-map-marker-alt"></i>
+
+                {{ company.address }}
+
+            </p>
+
+            <div class="company-actions">
+
+                <button
+                    class="btn-outline">
+
+                    Quan tâm
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Website -->
+
+        <div class="company-contact">
+
+            <p>
+
+                Trang web:
+
+                {% if company.website %}
+
+                    <a
+                        href="{{ company.website }}"
+                        target="_blank">
+
+                        {{ company.website }}
+
+                    </a>
+
+                {% else %}
+
+                    Đang cập nhật
+
+                {% endif %}
+
+            </p>
+
+            <p>
+
+                Facebook:
+
+                {% if company.facebook %}
+
+                    <a
+                        href="{{ company.facebook }}"
+                        target="_blank">
+
+                        {{ company.facebook }}
+
+                    </a>
+
+                {% else %}
+
+                    Đang cập nhật
+
+                {% endif %}
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Theo dõi -->
+
+    <div class="follow-wrapper">
+
+        <button class="follow-btn">
+
+            Theo dõi
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ================= OVERVIEW ================= -->
+
+    <section class="overview-box">
+
+        <h2>Tổng quan</h2>
+
+        <div class="overview-grid">
+
+            <div class="overview-item">
+
+                <span>Lĩnh vực công ty:</span>
+
+                <strong>
+
+                    {{ company.industry }}
+
+                </strong>
+
+            </div>
+
+            <div class="overview-item">
+
+                <span>Nhân viên:</span>
+
+                <strong>
+
+                    {{ company.company_size }}
+
+                </strong>
+
+            </div>
+
+            <div class="overview-item">
+
+                <span>Quốc gia:</span>
+
+                <strong>
+
+                    {{ company.country }}
+
+                </strong>
+
+            </div>
+
+            <div class="overview-item">
+
+                <span>Đánh giá:</span>
+
+                <strong>
+
+                    {{ company.rating }}/5
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+        <!-- ================= COMPANY TABS ================= -->
+
+    <section class="company-tabs">
+
+        <button class="tab-btn active"
+                data-tab="about">
+
+            Giới thiệu công ty
+
+        </button>
+
+        <button class="tab-btn"
+                data-tab="jobs">
+
+            Công việc đang tuyển dụng
+
+        </button>
+
+        <button class="tab-btn"
+                data-tab="review">
+
+            Đánh giá
+
+        </button>
+
+    </section>
+
+
+
+    <!-- ================= COMPANY GALLERY ================= -->
+
+    <section class="company-gallery">
+
+        <div class="gallery-wrapper">
+
+            {% if company.gallery_1 %}
+
+                <img src="{{ company.gallery_1.url }}"
+                     alt="Company Image">
+
+            {% else %}
+
+                <div class="gallery-placeholder">
+
+                    Ảnh công ty
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        <div class="gallery-wrapper">
+
+            {% if company.gallery_2 %}
+
+                <img src="{{ company.gallery_2.url }}"
+                     alt="Company Image">
+
+            {% else %}
+
+                <div class="gallery-placeholder">
+
+                    Ảnh công ty
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SLIDER DOT ================= -->
+
+    <div class="gallery-pagination">
+
+        <span class="dot active"></span>
+
+        <span class="dot"></span>
+
+        <span class="dot"></span>
+
+        <span class="dot"></span>
+
+        <span class="dot"></span>
+
+        <button class="gallery-next">
+
+            <i class="fas fa-chevron-right"></i>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ================= ABOUT COMPANY ================= -->
+
+    <section
+        id="about"
+        class="profile-section">
+
+        <h2>
+
+            Giới thiệu công ty
+
+        </h2>
+
+        <div class="section-content">
+
+            {% if company.description %}
+
+                {{ company.description|linebreaks }}
+
+            {% else %}
+
+                <p>
+
+                    Công ty chưa cập nhật thông tin giới thiệu.
+
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SPECIALIZATION ================= -->
+
+    <section class="profile-section">
+
+        <h2>
+
+            Chuyên môn
+
+        </h2>
+
+        <div class="skill-list">
+
+            {% if company.skills.all %}
+
+                {% for skill in company.skills.all %}
+
+                    <span class="skill-tag">
+
+                        {{ skill.name }}
+
+                    </span>
+
+                {% empty %}
+
+                    <span class="skill-tag">
+
+                        Chưa cập nhật
+
+                    </span>
+
+                {% endfor %}
+
+            {% else %}
+
+                <span class="skill-tag">
+
+                    ReactJS
+
+                </span>
+
+                <span class="skill-tag">
+
+                    Python
+
+                </span>
+
+            {% endif %}
+
+        </div>
+
+        <div class="section-content">
+
+            {% if company.specialization %}
+
+                {{ company.specialization|linebreaks }}
+
+            {% else %}
+
+                <p>
+
+                    Công ty chưa cập nhật mô tả chuyên môn.
+
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+        <!-- ================= AWARDS & CERTIFICATES ================= -->
+
+    <section class="profile-section">
+
+        <h2>
+
+            Giải thưởng / Giấy chứng nhận
+
+        </h2>
+
+        {% if company.certificates.all %}
+
+            {% for certificate in company.certificates.all %}
+
+                <div class="certificate-item">
+
+                    <div class="certificate-title">
+
+                        {{ forloop.counter }}.
+                        {{ certificate.title }}
+
+                    </div>
+
+                    <div class="certificate-content">
+
+                        {{ certificate.description|linebreaks }}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="certificate-item">
+
+                <div class="certificate-title">
+
+                    1. Chứng nhận ABC
+
+                </div>
+
+                <div class="certificate-content">
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ipsum aperiam adipisci quasi ipsum modi optio irure.
+                    Excepteur lorem tempor qui repudiandae sunt rem mollit
+                    placeat tempor consectetur tenetur tempor ad magni eaque
+                    quisquam.
+
+                </div>
+
+            </div>
+
+            <div class="certificate-item">
+
+                <div class="certificate-title">
+
+                    2. Chứng nhận XYZ
+
+                </div>
+
+                <div class="certificate-content">
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ipsum aperiam adipisci quasi ipsum modi optio irure.
+                    Excepteur lorem tempor qui repudiandae sunt rem mollit
+                    placeat tempor consectetur tenetur tempor ad magni eaque
+                    quisquam.
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+    </section>
+
+
+
+    <!-- ================= COMPANY BENEFITS ================= -->
+
+    <section class="profile-section">
+
+        <h2>
+
+            Cty chúng tôi có gì?
+
+        </h2>
+
+        <div class="section-content">
+
+            {% if company.benefits %}
+
+                {{ company.benefits|linebreaks }}
+
+            {% else %}
+
+                <p>
+
+                    Công ty mang đến môi trường làm việc năng động,
+                    lộ trình phát triển nghề nghiệp rõ ràng, chế độ
+                    phúc lợi hấp dẫn và cơ hội làm việc với các dự án
+                    công nghệ hiện đại.
+
+                </p>
+
+                <br>
+
+                <p>
+
+                    Nhân viên được hỗ trợ đào tạo chuyên môn,
+                    tham gia các hoạt động nội bộ, du lịch hằng năm
+                    cùng nhiều chính sách đãi ngộ khác.
+
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= EDIT PROFILE BUTTON ================= -->
+
+    <div class="edit-profile-wrapper">
+
+        <a href="#"
+           class="edit-profile-btn">
+
+            Sửa hồ sơ
+
+        </>
+
+    </div>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="company-footer">
+
+        <div class="footer-column">
+
+            <h4>
+
+                IT CAREER HUB
+
+            </h4>
+
+            <p>
+
+                Nền tảng tuyển dụng IT
+                <br>
+                trên toàn Việt Nam.
+
+            </p>
+
+            <span>
+
+                © 2026 IT Career Hub
+
+            </span>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>
+
+                Ứng viên
+
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#">Tìm việc làm</a>
+                </li>
+
+                <li>
+                    <a href="#">Hồ sơ của tôi</a>
+                </li>
+
+                <li>
+                    <a href="#">Đơn ứng tuyển</a>
+                </li>
+
+                <li>
+                    <a href="#">Việc đã lưu</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>
+
+                Nhà tuyển dụng
+
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#">Đăng tin tuyển dụng</a>
+                </li>
+
+                <li>
+                    <a href="#">Quản lý tin đăng</a>
+                </li>
+
+                <li>
+                    <a href="#">Xem ứng viên</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>
+
+                Về chúng tôi
+
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#">Giới thiệu</a>
+                </li>
+
+                <li>
+                    <a href="#">Blog</a>
+                </li>
+
+                <li>
+                    <a href="#">Liên hệ</a>
+                </li>
+
+                <li>
+                    <a href="#">Điều khoản</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </footer>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="{% static 'js/recruiter_company_profile.js' %}"></script>
+
+{% endblock %}

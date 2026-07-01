@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng tuyển</title>
+</head>
+<body>
+    <h1>Ứng tuyển cho {{ job.title }}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Nộp đơn</button>
+    </form>
+</body>
+</html>
+
+

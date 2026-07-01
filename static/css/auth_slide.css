@@ -1,0 +1,477 @@
+:root{
+--primary:#5274f4;
+--primary-hover:#4166f1;
+--white:#ffffff;
+--text:#1f2937;
+--text-light:#6b7280;
+--border:#dbe1ea;
+--input-bg:#f8fafc;
+--shadow:0 18px 45px rgba(82,116,244,.18);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+min-height:100vh;
+font-family:
+"Segoe UI",
+Tahoma,
+Geneva,
+Verdana,
+sans-serif;
+
+background:
+    radial-gradient(
+        circle at top left,
+        rgba(82,116,244,.18),
+        transparent 35%
+    ),
+    linear-gradient(
+        135deg,
+        #f6f8fa,
+        #eaf0f8
+    );
+
+}
+
+/* ========================= */
+/* WRAPPER */
+/* ========================= */
+
+.auth-wrapper{
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:30px;
+
+}
+
+/* ========================= */
+/* CARD */
+/* ========================= */
+
+.auth-container{
+position:relative;
+
+width:1000px;
+max-width:100%;
+
+min-height:650px;
+
+overflow:hidden;
+
+background:var(--white);
+
+border-radius:24px;
+
+box-shadow:var(--shadow);
+
+}
+
+/* ========================= */
+/* FORM */
+/* ========================= */
+
+.form-container{
+position:absolute;
+
+top:0;
+height:100%;
+width:50%;
+
+transition:all .65s ease-in-out;
+
+}
+
+.form-container form{
+height:100%;
+
+padding:0 55px;
+
+display:flex;
+flex-direction:column;
+
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+background:var(--white);
+
+}
+
+.form-container h1{
+color:var(--primary);
+
+font-size:34px;
+
+margin-bottom:10px;
+
+}
+
+.subtitle{
+color:var(--text-light);
+
+font-size:15px;
+
+margin-bottom:22px;
+
+}
+
+/* ========================= */
+/* INPUT */
+/* ========================= */
+
+.form-container input,
+.form-container select{
+width:100%;
+
+height:48px;
+
+margin:7px 0;
+
+padding:0 15px;
+
+border:1px solid var(--border);
+
+border-radius:12px;
+
+background:var(--input-bg);
+
+outline:none;
+
+font-size:14px;
+
+transition:.25s;
+
+}
+
+.form-container input:focus,
+.form-container select:focus{
+border-color:var(--primary);
+
+background:#fff;
+
+box-shadow:
+    0 0 0 4px
+    rgba(82,116,244,.08);
+
+}
+
+.form-container select:hover{
+border-color:var(--primary);
+}
+
+/* ========================= */
+/* ROLE SELECT */
+/* ========================= */
+
+.role-box{
+width:100%;
+position:relative;
+margin-bottom:6px;
+}
+
+.role-box select{
+appearance:none;
+cursor:pointer;
+}
+
+.role-box::after{
+content:"";
+
+position:absolute;
+
+right:16px;
+top:22px;
+
+border-left:6px solid transparent;
+border-right:6px solid transparent;
+border-top:8px solid var(--primary);
+
+pointer-events:none;
+
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+button{
+margin-top:18px;
+
+min-height:48px;
+
+padding:12px 40px;
+
+border:none;
+
+border-radius:999px;
+
+background:var(--primary);
+
+color:#fff;
+
+font-size:15px;
+font-weight:700;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+button:hover{
+background:var(--primary-hover);
+transform:translateY(-2px);
+}
+
+.forgot-link{
+margin-top:15px;
+
+text-decoration:none;
+
+color:var(--text-light);
+
+font-size:14px;
+
+}
+
+.forgot-link:hover{
+color:var(--primary);
+}
+
+/* ========================= */
+/* LOGIN */
+/* ========================= */
+
+.sign-in-container{
+left:0;
+z-index:2;
+}
+
+/* ========================= */
+/* REGISTER */
+/* ========================= */
+
+.sign-up-container{
+left:0;
+
+opacity:0;
+
+z-index:1;
+
+}
+
+/* ========================= */
+/* ANIMATION */
+/* ========================= */
+
+.auth-container.right-panel-active
+.sign-in-container{
+transform:translateX(100%);
+}
+
+.auth-container.right-panel-active
+.sign-up-container{
+transform:translateX(100%);
+opacity:1;
+z-index:5;
+}
+
+/* ========================= */
+/* OVERLAY */
+/* ========================= */
+
+.overlay-container{
+position:absolute;
+
+top:0;
+left:50%;
+
+width:50%;
+height:100%;
+
+overflow:hidden;
+
+transition:transform .65s ease-in-out;
+
+z-index:100;
+
+}
+
+.auth-container.right-panel-active
+.overlay-container{
+transform:translateX(-100%);
+}
+
+.overlay{
+position:relative;
+
+left:-100%;
+
+width:200%;
+height:100%;
+
+background:
+    linear-gradient(
+        180deg,
+        #fefeff 0%,
+        #f3f5fe 8%,
+        #e5eafd 20%,
+        #d7dffc 32%,
+        #cad5fb 44%,
+        #b7c5fa 56%,
+        #a1b4f8 68%,
+        #879ff5 80%,
+        #6c89f3 92%,
+        #597af1 100%
+    );
+
+color:#fff;
+
+transform:translateX(0);
+
+transition:transform .65s ease-in-out;
+
+}
+
+.auth-container.right-panel-active
+.overlay{
+transform:translateX(50%);
+}
+
+/* ========================= */
+/* OVERLAY PANEL */
+/* ========================= */
+
+.overlay-panel{
+position:absolute;
+
+top:0;
+
+width:50%;
+height:100%;
+
+padding:0 50px;
+
+display:flex;
+flex-direction:column;
+
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+transition:transform .65s ease-in-out;
+
+}
+
+.overlay-panel h2{
+color:#ffffff;
+
+font-size:36px;
+
+margin-bottom:18px;
+
+}
+
+.overlay-panel p{
+max-width:360px;
+
+line-height:1.7;
+
+margin-bottom:24px;
+
+}
+
+.overlay-left{
+transform:translateX(-20%);
+}
+
+.overlay-right{
+right:0;
+}
+
+.auth-container.right-panel-active
+.overlay-left{
+transform:translateX(0);
+}
+
+.auth-container.right-panel-active
+.overlay-right{
+transform:translateX(20%);
+}
+
+/* ========================= */
+/* GHOST BUTTON */
+/* ========================= */
+
+button.ghost{
+background:#ffffff;
+color:var(--primary);
+min-width:140px;
+}
+
+button.ghost:hover{
+background:#f5f7ff;
+color:var(--primary-hover);
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:768px){
+
+
+.auth-wrapper{
+    padding:15px;
+}
+
+.auth-container{
+    min-height:auto;
+    height:auto;
+}
+
+.form-container{
+    width:100%;
+    position:relative;
+    height:auto;
+}
+
+.sign-up-container{
+    display:none;
+    opacity:1;
+}
+
+.auth-container.right-panel-active
+.sign-up-container{
+    display:block;
+}
+
+.auth-container.right-panel-active
+.sign-in-container{
+    display:none;
+}
+
+.overlay-container{
+    display:none;
+}
+
+.form-container form{
+    padding:40px 25px;
+}
+
+.form-container h1{
+    font-size:28px;
+}
+
+}

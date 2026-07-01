@@ -1,0 +1,736 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Trang chủ | IT Career Hub{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/candidate_home.css' %}?v=2">
+{% endblock %}
+{% block navbar %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block content %}
+<header class="candidate-header">
+    <div class="candidate-header-inner">
+
+        <a href="{% url 'core:candidate_home' %}"
+           class="candidate-logo">
+            IT CAREER HUB
+        </a>
+
+        <nav class="candidate-navigation">
+            <a href="{% url 'jobs:list' %}">
+                Công việc⌄
+            </a>
+
+            <a href="{% url 'companies:list' %}">
+                Công ty⌄
+            </a>
+        </nav>
+
+        <div class="candidate-header-actions">
+
+            <span class="header-more">...</span>
+
+            <button type="button"
+                    class="candidate-notification">
+                <i class="fa-solid fa-bell"></i>
+            </button>
+
+            <div class="candidate-profile-wrapper">
+
+                <button type="button"
+                        id="candidateProfileToggle"
+                        class="candidate-profile-toggle"
+                        aria-label="Mở menu tài khoản">
+
+                    <span class="candidate-red-avatar"></span>
+                    <i class="fa-solid fa-caret-down"></i>
+
+                </button>
+
+                <div id="candidateProfileMenu"
+                     class="candidate-profile-menu">
+
+                    <div class="candidate-account">
+                        <span class="candidate-account-avatar"></span>
+
+                        <div>
+                            <strong>
+                                {{ user.get_full_name|default:user.username }}
+                            </strong>
+                            <small>{{ user.email }}</small>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'users:dashboard' %}">
+                        <i class="fa-solid fa-table-columns"></i>
+                        Tổng quan
+                    </a>
+
+                    <a href="{% url 'users:my_profile' %}">
+                        <i class="fa-solid fa-user"></i>
+                        Hồ sơ
+                    </a>
+
+                    <a href="{% url 'users:my_cv' %}">
+                        <i class="fa-regular fa-file-lines"></i>
+                        CV của tôi
+                    </a>
+
+                    <a href="{% url 'users:settings' %}">
+                        <i class="fa-solid fa-gear"></i>
+                        Cài đặt
+                    </a>
+
+                    <form method="post"
+                          action="{% url 'users:logout' %}"
+                          class="candidate-logout-form">
+                        {% csrf_token %}
+
+                        <button type="submit">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            Đăng xuất
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ================= HERO ================= -->
+<section class="hero-section">
+
+    <div class="hero-container">
+
+        <div class="hero-content">
+
+            <p class="hero-subtitle">
+                Nền tảng tìm việc làm IT uy tín nhất tại Việt Nam
+            </p>
+
+            <h1 class="hero-title">
+                Tìm công việc IT <br>
+                phù hợp với bạn
+            </h1>
+
+            <p class="hero-description">
+                Hơn 2000 công việc ở 2000 công ty công nghệ -
+                cập nhật mới mỗi ngày
+            </p>
+
+            <!-- Search -->
+            <form class="hero-search">
+
+                <!-- Location -->
+                <div class="search-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <input
+                        type="text"
+                        name="location"
+                        placeholder="Địa điểm">
+
+                </div>
+
+                <!-- Keyword -->
+                <div class="search-keyword">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        name="keyword"
+                        placeholder="Công việc cần tìm">
+
+                </div>
+
+            </form>
+
+            <!-- Suggest -->
+            <div class="hero-tags">
+
+                <span>Gợi ý cho bạn :</span>
+
+                <a href="#">Java</a>
+
+                <a href="#">Python</a>
+
+                <a href="#">C#</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURED JOB ================= -->
+
+<section class="featured-job">
+
+    <div class="section-header">
+
+        <h2>Việc làm nổi bật</h2>
+
+        <a href="{% url 'jobs:list' %}">
+            Xem tất cả >
+        </a>
+
+    </div>
+
+    <div class="job-grid">
+
+        <!-- CARD 1 -->
+        <div class="job-card">
+
+            <div class="job-logo">
+
+                <img src="{% static 'img/company/company-placeholder.png' %}"
+                     alt="Company">
+
+            </div>
+
+            <h3>
+                Senior ReactJS Developer
+            </h3>
+
+            <p class="company-name">
+                Tiki Corporation
+            </p>
+
+            <div class="job-tags">
+
+                <span>Hà Nội</span>
+
+                <span>Hybrid</span>
+
+                <span>Senior</span>
+
+            </div>
+
+            <p class="salary">
+
+                Lương:
+                <strong>2,000 - 3000 USD</strong>
+
+            </p>
+
+            <div class="job-footer">
+
+                <span>2 ngày trước</span>
+
+                <button>
+                    Ứng tuyển
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="job-card">
+
+            <div class="job-logo">
+
+                <img src="{% static 'img/company/company-placeholder.png' %}"
+                     alt="Company">
+
+            </div>
+
+            <h3>
+                Senior ReactJS Developer
+            </h3>
+
+            <p class="company-name">
+                Tiki Corporation
+            </p>
+
+            <div class="job-tags">
+
+                <span>Hà Nội</span>
+
+                <span>Hybrid</span>
+
+                <span>Senior</span>
+
+            </div>
+
+            <p class="salary">
+
+                Lương:
+                <strong>2,000 - 3000 USD</strong>
+
+            </p>
+
+            <div class="job-footer">
+
+                <span>2 ngày trước</span>
+
+                <button>
+                    Ứng tuyển
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="job-card">
+
+            <div class="job-logo">
+
+                <img src="{% static 'img/company/company-placeholder.png' %}"
+                     alt="Company">
+
+            </div>
+
+            <h3>
+                Senior ReactJS Developer
+            </h3>
+
+            <p class="company-name">
+                Tiki Corporation
+            </p>
+
+            <div class="job-tags">
+
+                <span>Hà Nội</span>
+
+                <span>Hybrid</span>
+
+                <span>Senior</span>
+
+            </div>
+
+            <p class="salary">
+
+                Lương:
+                <strong>2,000 - 3000 USD</strong>
+
+            </p>
+
+            <div class="job-footer">
+
+                <span>2 ngày trước</span>
+
+                <button>
+                    Ứng tuyển
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= COMPANY SECTION ================= -->
+
+<section class="company-section">
+
+    <div class="section-header">
+
+        <h2>Công ty đang tuyển dụng</h2>
+
+        <a href="{% url 'companies:list' %}">
+            Xem tất cả >
+        </a>
+
+    </div>
+
+    <div class="company-grid">
+
+        <!-- Company 1 -->
+
+        <div class="company-card">
+
+            <div class="company-logo">
+
+                <img
+                    src="{% static 'img/company/company-placeholder.png' %}"
+                    alt="VNG">
+
+            </div>
+
+            <h3>VNG</h3>
+
+            <p>12 việc làm</p>
+
+        </div>
+
+        <!-- Company 2 -->
+
+        <div class="company-card">
+
+            <div class="company-logo">
+
+                <img
+                    src="{% static 'img/company/company-placeholder.png' %}"
+                    alt="Viettel">
+
+            </div>
+
+            <h3>Viettel</h3>
+
+            <p>3 việc làm</p>
+
+        </div>
+
+        <!-- Company 3 -->
+
+        <div class="company-card">
+
+            <div class="company-logo">
+
+                <img
+                    src="{% static 'img/company/company-placeholder.png' %}"
+                    alt="Vinaphone">
+
+            </div>
+
+            <h3>Vinaphone</h3>
+
+            <p>3 việc làm</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CATEGORY ================= -->
+
+<section class="category-section">
+
+    <div class="section-header">
+
+        <h2>Khám phá thêm lĩnh vực</h2>
+
+        <a href="{% url 'jobs:list' %}">
+            Xem tất cả >
+        </a>
+
+    </div>
+
+    <div class="category-grid">
+
+        <a href="#" class="category-item">
+            Testing
+        </a>
+
+        <a href="#" class="category-item">
+            Frontend
+        </a>
+
+        <a href="#" class="category-item">
+            Backend
+        </a>
+
+        <a href="#" class="category-item">
+            Full Stack
+        </a>
+
+        <a href="#" class="category-item">
+            Mobile
+        </a>
+
+        <a href="#" class="category-item">
+            DevOps
+        </a>
+
+        <a href="#" class="category-item">
+            AI Engineer
+        </a>
+
+        <a href="#" class="category-item">
+            UI / UX
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CREATE CV ================= -->
+
+<section class="create-cv-section">
+
+    <div class="create-cv-content">
+
+        <div class="create-cv-left">
+
+            <h2>Bạn là ứng viên?</h2>
+
+            <p>
+                Tìm việc miễn phí với hơn
+                2000 công việc đang chờ bạn
+            </p>
+
+        </div>
+
+        <div class="create-cv-right">
+
+            <a
+                href="{% url 'users:my_cv' %}"
+                class="create-cv-btn">
+
+                Tạo CV
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= TESTIMONIAL ================= -->
+
+<section class="testimonial-section">
+
+    <div class="section-header">
+
+        <h2>Trải nghiệm từ những người đi trước</h2>
+
+    </div>
+
+    <div class="testimonial-slider">
+
+        <!-- Review 1 -->
+
+        <div class="testimonial-card">
+
+            <div class="testimonial-top">
+
+                <div class="testimonial-avatar">
+
+                    <img
+                        src="{% static 'img/avatar/avatar-default.png' %}"
+                        alt="Avatar">
+
+                </div>
+
+                <div class="testimonial-info">
+
+                    <h3>Mike'll make it</h3>
+
+                    <span>Middle Frontend Developer</span>
+
+                </div>
+
+            </div>
+
+            <p class="testimonial-content">
+
+                IT Career Hub giúp mình tìm được công việc
+                đúng chuyên môn chỉ sau vài tuần.
+                Giao diện dễ sử dụng và nhiều doanh nghiệp uy tín.
+
+            </p>
+
+            <div class="testimonial-bottom">
+
+                <span>1 ngày trước</span>
+
+                <div class="review-action">
+
+                    <button class="like-btn">
+
+                        <i class="fa-regular fa-thumbs-up"></i>
+
+                    </button>
+
+                    <button class="dislike-btn">
+
+                        <i class="fa-regular fa-thumbs-down"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Review 2 -->
+
+        <div class="testimonial-card">
+
+            <div class="testimonial-top">
+
+                <div class="testimonial-avatar">
+
+                    <img
+                        src="{% static 'img/avatar/avatar-default.png' %}"
+                        alt="Avatar">
+
+                </div>
+
+                <div class="testimonial-info">
+
+                    <h3>Mike'll make it</h3>
+
+                    <span>Middle Frontend Developer</span>
+
+                </div>
+
+            </div>
+
+            <p class="testimonial-content">
+
+                Mình rất thích phần tìm kiếm việc làm.
+                Bộ lọc rõ ràng, tốc độ nhanh và giao diện hiện đại.
+
+            </p>
+
+            <div class="testimonial-bottom">
+
+                <span>1 ngày trước</span>
+
+                <div class="review-action">
+
+                    <button class="like-btn">
+
+                        <i class="fa-regular fa-thumbs-up"></i>
+
+                    </button>
+
+                    <button class="dislike-btn">
+
+                        <i class="fa-regular fa-thumbs-down"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Slider Indicator -->
+
+    <div class="slider-pagination">
+
+        <button class="slider-arrow">
+
+            <i class="fa-solid fa-angle-left"></i>
+
+        </button>
+
+        <span class="dot active"></span>
+
+        <span class="dot"></span>
+
+        <span class="dot"></span>
+
+        <span class="dot"></span>
+
+        <button class="slider-arrow">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Logo -->
+
+        <div class="footer-column">
+
+            <h2>IT CAREER HUB</h2>
+
+            <p>
+
+                Nền tảng tuyển dụng IT
+                xem nhất Việt Nam.
+
+            </p>
+
+            <p>
+
+                © 2025 IT Career Hub
+
+            </p>
+
+        </div>
+
+        <!-- Candidate -->
+
+        <div class="footer-column">
+
+            <h3>Ứng viên</h3>
+
+            <a href="#">Tìm việc làm</a>
+
+            <a href="#">Hồ sơ của tôi</a>
+
+            <a href="#">Đơn ứng tuyển</a>
+
+            <a href="#">Việc đã lưu</a>
+
+        </div>
+
+        <!-- Recruiter -->
+
+        <div class="footer-column">
+
+            <h3>Nhà tuyển dụng</h3>
+
+            <a href="#">Đăng tin tuyển dụng</a>
+
+            <a href="#">Quản lý tin đăng</a>
+
+            <a href="#">Xem ứng viên</a>
+
+        </div>
+
+        <!-- About -->
+
+        <div class="footer-column">
+
+            <h3>Về chúng tôi</h3>
+
+            <a href="#">Giới thiệu</a>
+
+            <a href="#">Blog</a>
+
+            <a href="#">Liên hệ</a>
+
+            <a href="#">Điều khoản</a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="{% static 'js/candidate_home.js' %}"></script>
+
+{% endblock %}
+

@@ -1,0 +1,428 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Danh sách công ty | IT Career Hub{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/company_list.css' %}">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="company-hero">
+
+    <div class="hero-container">
+
+        <h1>Công ty đang tuyển dụng</h1>
+
+        <p>Vô vàn vị trí hot đang chờ bạn!</p>
+
+        <!-- Search -->
+
+        <div class="search-area">
+
+            <div class="location-box">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <select>
+
+                    <option>Địa điểm</option>
+                    <option>Hà Nội</option>
+                    <option>Hồ Chí Minh</option>
+                    <option>Đà Nẵng</option>
+
+                </select>
+
+            </div>
+
+            <div class="keyword-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    placeholder="Công việc cần tìm">
+
+            </div>
+
+        </div>
+
+        <!-- Filter -->
+
+        <div class="filter-wrapper">
+
+            <h3>Bộ lọc</h3>
+
+            <div class="filter-group">
+
+                <select>
+
+                    <option>Lĩnh vực</option>
+
+                    <option>Software</option>
+
+                    <option>AI</option>
+
+                    <option>Data</option>
+
+                    <option>Game</option>
+
+                </select>
+
+                <select>
+
+                    <option>Địa điểm</option>
+
+                    <option>Hà Nội</option>
+
+                    <option>HCM</option>
+
+                    <option>Đà Nẵng</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= COMPANY LIST ================= -->
+
+<section class="company-section">
+
+    <div class="company-container">
+                <!-- Company Card 1 -->
+
+        <div class="company-card">
+
+            <div class="company-logo">
+
+                <img src="{% static 'img/companies/tiki.png' %}" alt="Tiki">
+
+            </div>
+
+            <div class="company-content">
+
+                <h2>
+                    <a href="#">Tiki Corporation</a>
+                </h2>
+
+                <p class="company-address">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Tòa nhà A, phố B, Tỉnh Hà Nội
+                </p>
+
+                <p class="job-count">
+                    12 việc làm
+                </p>
+
+                <div class="company-tags">
+
+                    <span>Fullstack</span>
+
+                    <span>Backend</span>
+
+                    <span>Data Analyst</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Company Card 2 -->
+
+        <div class="company-card">
+
+            <div class="company-logo">
+
+                <img src="{% static 'img/companies/tiki.png' %}" alt="Tiki">
+
+            </div>
+
+            <div class="company-content">
+
+                <h2>
+                    <a href="#">Tiki Corporation</a>
+                </h2>
+
+                <p class="company-address">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Tòa nhà A, phố B, Tỉnh Hà Nội
+                </p>
+
+                <p class="job-count">
+                    12 việc làm
+                </p>
+
+                <div class="company-tags">
+
+                    <span>Fullstack</span>
+
+                    <span>Backend</span>
+
+                    <span>Data Analyst</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Company Card 3 -->
+
+        <div class="company-card">
+
+            <div class="company-logo">
+
+                <img src="{% static 'img/companies/tiki.png' %}" alt="Tiki">
+
+            </div>
+
+            <div class="company-content">
+
+                <h2>
+                    <a href="#">Tiki Corporation</a>
+                </h2>
+
+                <p class="company-address">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Tòa nhà A, phố B, Tỉnh Hà Nội
+                </p>
+
+                <p class="job-count">
+                    12 việc làm
+                </p>
+
+                <div class="company-tags">
+
+                    <span>Fullstack</span>
+
+                    <span>Backend</span>
+
+                    <span>Data Analyst</span>
+
+                </div>
+
+            </div>
+
+        </div>
+                <!-- Company Card 4 -->
+
+        <div class="company-card">
+
+            <div class="company-logo">
+
+                <img src="{% static 'img/companies/tiki.png' %}" alt="Tiki">
+
+            </div>
+
+            <div class="company-content">
+
+                <h2>
+                    <a href="#">Tiki Corporation</a>
+                </h2>
+
+                <p class="company-address">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Tòa nhà A, phố B, Tỉnh Hà Nội
+                </p>
+
+                <p class="job-count">
+                    12 việc làm
+                </p>
+
+                <div class="company-tags">
+
+                    <span>Fullstack</span>
+
+                    <span>Backend</span>
+
+                    <span>Data Analyst</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Company Card 5 -->
+
+        <div class="company-card">
+
+            <div class="company-logo">
+
+                <img src="{% static 'img/companies/tiki.png' %}" alt="Tiki">
+
+            </div>
+
+            <div class="company-content">
+
+                <h2>
+                    <a href="#">Tiki Corporation</a>
+                </h2>
+
+                <p class="company-address">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Tòa nhà A, phố B, Tỉnh Hà Nội
+                </p>
+
+                <p class="job-count">
+                    12 việc làm
+                </p>
+
+                <div class="company-tags">
+
+                    <span>Fullstack</span>
+
+                    <span>Backend</span>
+
+                    <span>Data Analyst</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Company Card 6 -->
+
+        <div class="company-card">
+
+            <div class="company-logo">
+
+                <img src="{% static 'img/companies/tiki.png' %}" alt="Tiki">
+
+            </div>
+
+            <div class="company-content">
+
+                <h2>
+                    <a href="#">Tiki Corporation</a>
+                </h2>
+
+                <p class="company-address">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Tòa nhà A, phố B, Tỉnh Hà Nội
+                </p>
+
+                <p class="job-count">
+                    12 việc làm
+                </p>
+
+                <div class="company-tags">
+
+                    <span>Fullstack</span>
+
+                    <span>Backend</span>
+
+                    <span>Data Analyst</span>
+
+                </div>
+
+            </div>
+
+        </div>
+            </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>IT CAREER HUB</h3>
+
+            <p>
+                Nền tảng tuyển dụng IT<br>
+                xem nhiều nhất Việt Nam.
+            </p>
+
+            <small>
+                © 2025 IT Career Hub
+            </small>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>Ứng viên</h4>
+
+            <ul>
+
+                <li><a href="#">Tìm việc làm</a></li>
+
+                <li><a href="#">Hồ sơ của tôi</a></li>
+
+                <li><a href="#">Đơn ứng tuyển</a></li>
+
+                <li><a href="#">Việc đã lưu</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>Nhà tuyển dụng</h4>
+
+            <ul>
+
+                <li><a href="#">Đăng tin tuyển dụng</a></li>
+
+                <li><a href="#">Quản lý tin đăng</a></li>
+
+                <li><a href="#">Xem ứng viên</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>Về chúng tôi</h4>
+
+            <ul>
+
+                <li><a href="#">Giới thiệu</a></li>
+
+                <li><a href="#">Blog</a></li>
+
+                <li><a href="#">Liên hệ</a></li>
+
+                <li><a href="#">Điều khoản</a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</footer>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/company_list.js' %}"></script>
+{% endblock %}
+

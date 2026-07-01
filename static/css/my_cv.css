@@ -1,0 +1,1211 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f5f6fa;
+    color:#333;
+    overflow-x:hidden;
+}
+
+/* ==========================
+   VARIABLES
+========================== */
+
+:root{
+
+    --primary:#0F5C91;
+
+    --primary-dark:#084D78;
+
+    --background:#F5F7FB;
+
+    --white:#ffffff;
+
+    --border:#E2E8F0;
+
+    --text:#222;
+
+    --text-light:#666;
+
+    --shadow:0 8px 20px rgba(0,0,0,.08);
+
+    --radius:14px;
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:72px;
+
+    background:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 50px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+    z-index:1000;
+
+}
+
+.logo a{
+
+    text-decoration:none;
+
+    color:var(--primary);
+
+    font-size:26px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+.navbar ul{
+
+    list-style:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:45px;
+
+}
+
+.navbar a{
+
+    color:#333;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.navbar a:hover{
+
+    color:var(--primary);
+
+}
+
+.navbar i{
+
+    margin-left:8px;
+
+    font-size:13px;
+
+}
+
+/* ==========================
+   HEADER RIGHT
+========================== */
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.header-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#F2F4F8;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.header-icon i{
+
+    font-size:18px;
+
+    color:#444;
+
+}
+
+.header-icon:hover{
+
+    background:var(--primary);
+
+}
+
+.header-icon:hover i{
+
+    color:#fff;
+
+}
+
+/* ==========================
+   DARK MODE SWITCH
+========================== */
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:52px;
+
+    height:28px;
+
+}
+
+.switch input{
+
+    display:none;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    cursor:pointer;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    background:#ddd;
+
+    transition:.4s;
+
+    border-radius:30px;
+
+}
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:22px;
+
+    height:22px;
+
+    left:3px;
+
+    top:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transition:.4s;
+
+}
+
+input:checked + .slider{
+
+    background:var(--primary);
+
+}
+
+input:checked + .slider::before{
+
+    transform:translateX(24px);
+
+}
+
+/* ==========================
+   MAIN LAYOUT
+========================== */
+
+.dashboard-container{
+
+    display:flex;
+
+    margin-top:72px;
+
+    min-height:calc(100vh - 72px);
+
+    background:var(--background);
+
+}
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+
+    width:280px;
+
+    background:#fff;
+
+    border-right:1px solid var(--border);
+
+    padding:35px 25px;
+
+    min-height:calc(100vh - 72px);
+
+    box-shadow:2px 0 10px rgba(0,0,0,.03);
+
+}
+
+/* ==========================
+   PROFILE CARD
+========================== */
+
+.profile-card{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.avatar{
+
+    width:110px;
+
+    height:110px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:5px solid #EEF3F8;
+
+    box-shadow:var(--shadow);
+
+}
+
+.avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.profile-card h3{
+
+    margin-top:18px;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#222;
+
+}
+
+.profile-card p{
+
+    margin-top:8px;
+
+    font-size:14px;
+
+    color:#777;
+
+    word-break:break-word;
+
+}
+
+/* ==========================
+   SIDEBAR MENU
+========================== */
+
+.sidebar-menu{
+
+    list-style:none;
+
+}
+
+.sidebar-menu li{
+
+    margin-bottom:12px;
+
+}
+
+.sidebar-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#555;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.sidebar-menu a i{
+
+    width:22px;
+
+    text-align:center;
+
+    font-size:18px;
+
+}
+
+.sidebar-menu a:hover{
+
+    background:#EEF6FD;
+
+    color:var(--primary);
+
+}
+
+.sidebar-menu li.active a{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    box-shadow:0 8px 18px rgba(15,92,145,.25);
+
+}
+
+/* ==========================
+   CONTENT
+========================== */
+
+.content{
+
+    flex:1;
+
+    padding:40px;
+
+    overflow:hidden;
+
+}
+
+/* ==========================
+   CV BOX
+========================== */
+
+.cv-box{
+
+    width:100%;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    padding:35px;
+
+    min-height:720px;
+
+}
+
+.cv-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.cv-header h1{
+
+    font-size:30px;
+
+    color:#222;
+
+    font-weight:700;
+
+}
+
+/* ==========================
+   CV LIST
+========================== */
+
+.cv-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    max-height:480px;
+
+    overflow-y:auto;
+
+    padding-right:10px;
+
+}
+
+.cv-list::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.cv-list::-webkit-scrollbar-thumb{
+
+    background:#cfcfcf;
+
+    border-radius:20px;
+
+}
+
+.cv-list::-webkit-scrollbar-track{
+
+    background:#f2f2f2;
+
+}
+/* ==========================
+   CV ITEM
+========================== */
+
+.cv-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#F8FAFC;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    padding:18px 22px;
+
+    transition:.3s ease;
+
+}
+
+.cv-item:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.cv-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.cv-info i{
+
+    font-size:26px;
+
+    color:var(--primary);
+
+}
+
+.cv-info span{
+
+    font-size:17px;
+
+    font-weight:500;
+
+    color:#333;
+
+}
+
+/* ==========================
+   ACTION BUTTONS
+========================== */
+
+.cv-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.icon-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#EEF3F8;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.icon-btn i{
+
+    font-size:16px;
+
+    color:#555;
+
+}
+
+.icon-btn:hover{
+
+    background:var(--primary);
+
+}
+
+.icon-btn:hover i{
+
+    color:#fff;
+
+}
+
+.icon-btn.delete:hover{
+
+    background:#E53935;
+
+}
+
+/* ==========================
+   CREATE CV BUTTON
+========================== */
+
+.create-cv{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+#createCVBtn{
+
+    width:220px;
+
+    height:54px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#createCVBtn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+.footer{
+
+    background:#0F5C91;
+
+    color:#fff;
+
+    margin-top:40px;
+
+    padding:55px 70px;
+
+}
+
+.footer-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:50px;
+
+}
+
+.footer-column h3,
+.footer-column h4{
+
+    margin-bottom:18px;
+
+    font-size:20px;
+
+}
+
+.footer-column p{
+
+    margin-bottom:10px;
+
+    color:#E7EEF5;
+
+    line-height:1.7;
+
+}
+
+.footer-column ul{
+
+    list-style:none;
+
+}
+
+.footer-column ul li{
+
+    margin-bottom:12px;
+
+}
+
+.footer-column ul li a{
+
+    color:#E7EEF5;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.footer-column ul li a:hover{
+
+    color:#fff;
+
+    padding-left:6px;
+
+}
+
+.copyright{
+
+    margin-top:25px;
+
+    font-size:14px;
+
+    opacity:.8;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:1100px){
+
+    .dashboard-container{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        min-height:auto;
+
+        border-right:none;
+
+        border-bottom:1px solid var(--border);
+
+    }
+
+    .content{
+
+        padding:25px;
+
+    }
+
+    .footer-container{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .header{
+
+        padding:0 20px;
+
+    }
+
+    .navbar{
+
+        display:none;
+
+    }
+
+    .content{
+
+        padding:18px;
+
+    }
+
+    .cv-box{
+
+        padding:22px;
+
+    }
+
+    .cv-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
+    }
+
+    .cv-actions{
+
+        width:100%;
+
+        justify-content:flex-end;
+
+    }
+
+    .footer{
+
+        padding:40px 25px;
+
+    }
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .profile-card h3{
+
+        font-size:20px;
+
+    }
+
+    .cv-header h1{
+
+        font-size:24px;
+
+    }
+
+    .cv-info span{
+
+        font-size:15px;
+
+    }
+
+    #createCVBtn{
+
+        width:100%;
+
+    }
+
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark-mode{
+
+    background:#1B1E24;
+
+    color:#E5E5E5;
+
+}
+
+body.dark-mode .header,
+body.dark-mode .sidebar,
+body.dark-mode .cv-box{
+
+    background:#252932;
+
+    color:#E5E5E5;
+
+}
+
+body.dark-mode .cv-item{
+
+    background:#2E3440;
+
+    border-color:#404552;
+
+}
+
+body.dark-mode .footer{
+
+    background:#111827;
+
+}
+
+body.dark-mode .navbar a,
+body.dark-mode .sidebar-menu a,
+body.dark-mode .profile-card h3,
+body.dark-mode .cv-info span,
+body.dark-mode .cv-header h1{
+
+    color:#F1F5F9;
+
+}
+
+body.dark-mode .header-icon{
+
+    background:#353C48;
+
+}
+
+body.dark-mode .icon-btn{
+
+    background:#3A4250;
+
+}
+
+body.dark-mode .icon-btn i{
+
+    color:#F8FAFC;
+
+}
+
+/* ===== UI MY CV THEO THIẾT KẾ ===== */
+
+body {
+    background: #fff;
+}
+
+/* Header */
+.header {
+    position: sticky;
+    height: 70px;
+    padding: 0 35px;
+    border-bottom: 1px solid #dfe8ff;
+    box-shadow: none;
+}
+
+.logo a {
+    font-size: 20px;
+    color: #2f66f6;
+}
+
+.header-icon {
+    width: 36px;
+    height: 36px;
+    background: #fff;
+}
+
+.header-icon i {
+    color: #5f7bc7;
+}
+
+.slider {
+    background: #8fb6ff;
+}
+
+.slider::before {
+    background: #ff5b21;
+}
+
+/* Bố cục chính */
+.dashboard-container {
+    width: min(1400px, calc(100% - 70px));
+    margin: 30px auto 0;
+    min-height: 760px;
+    align-items: flex-start;
+    gap: 30px;
+    background: #fff;
+}
+
+/* Sidebar dạng card */
+.sidebar {
+    width: 250px;
+    min-height: auto;
+    flex: 0 0 250px;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #2f66f6;
+    border-radius: 8px;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.profile-card {
+    padding: 28px 18px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #dce8ff;
+}
+
+.avatar {
+    width: 75px;
+    height: 75px;
+    border: 3px solid #ff6a00;
+    box-shadow: none;
+}
+
+.avatar-fallback {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: #ff5b21;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.profile-card h3 {
+    margin-top: 14px;
+    color: #2f66f6;
+    font-size: 17px;
+}
+
+.profile-card p {
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+/* Menu sidebar */
+.sidebar-menu li {
+    margin-bottom: 0;
+}
+
+.sidebar-menu a,
+.logout-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 22px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #5270a5;
+    font: inherit;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.sidebar-menu li.active a {
+    color: #2f66f6;
+    background: #edf4ff;
+    box-shadow: none;
+}
+
+.sidebar-menu a:hover,
+.logout-link:hover {
+    color: #2f66f6;
+    background: #edf4ff;
+}
+
+/* Nội dung CV */
+.content {
+    flex: 1;
+    padding: 0;
+    overflow: visible;
+}
+
+.cv-box {
+    width: 100%;
+    min-height: 510px;
+    padding: 40px 50px;
+    border: 1px solid #2f66f6;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.cv-header {
+    margin-bottom: 30px;
+}
+
+.cv-header h1 {
+    color: #3952a4;
+    font-size: 30px;
+}
+
+/* Danh sách CV chỉ có đường phân cách */
+.cv-list {
+    gap: 0;
+    padding-right: 18px;
+}
+
+.cv-item {
+    padding: 24px 15px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #b9ccff;
+    border-radius: 0;
+}
+
+.cv-item:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.cv-info {
+    gap: 10px;
+}
+
+.cv-info i {
+    color: #222;
+    font-size: 15px;
+}
+
+.cv-info span {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    text-decoration: none;
+}
+
+.icon-btn i {
+    color: #111;
+    font-size: 14px;
+}
+
+/* Nút tạo CV */
+.create-cv {
+    margin-top: 35px;
+}
+
+#createCVBtn {
+    width: auto;
+    height: auto;
+    padding: 12px 30px;
+    color: #2f66f6;
+    background: linear-gradient(to right, #fff, #b9dcff);
+    border: 1px solid #2f66f6;
+    border-radius: 6px;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* Footer sáng giống mẫu */
+.footer {
+    margin-top: 60px;
+    padding: 50px 0;
+    color: #4d6288;
+    background: #b9d8ff;
+}
+
+.footer-container {
+    width: min(1400px, calc(100% - 70px));
+    margin: auto;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.footer-column h3,
+.footer-column h4 {
+    color: #2f66f6;
+}
+
+.footer-column p,
+.footer-column ul li a {
+    color: #4d6288;
+}

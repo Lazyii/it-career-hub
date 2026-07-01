@@ -1,0 +1,530 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hồ sơ | IT Career Hub</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/my_profile.css' %}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="top-header">
+
+        <div class="header-left">
+
+            <a href="#" class="logo">
+                IT CAREER HUB
+            </a>
+
+            <nav class="main-menu">
+
+                <a href="{% url 'jobs:list' %}">
+                    Công việc
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+
+                <a href="#">
+                    Công ty
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <div class="header-right">
+
+            <button class="header-icon">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+
+            <button class="header-icon">
+                <i class="fa-regular fa-comment"></i>
+            </button>
+
+            <label class="switch">
+
+                <input type="checkbox" id="themeSwitch">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+    </header>
+
+    <!-- ================ MAIN ================= -->
+
+    <main class="page-container">
+
+        <!-- ============ SIDEBAR ============== -->
+
+        <aside class="sidebar">
+
+            <div class="profile-card">
+
+                <div class="avatar">
+
+                    <img src="{% static 'img/avatar-default.png' %}"
+                        alt="Avatar">
+
+                </div>
+
+                <h3>Nhung Nguyen</h3>
+
+                <p>nhungnguyen@gmail.com</p>
+
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <a href="{% url 'users:dashboard' %}">
+                    <i class="fa-solid fa-table-cells-large"></i>
+                    <span>Tổng quan</span>
+                </a>
+
+                <a href="{% url 'users:my_profile' %}" class="active">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Hồ sơ</span>
+                </a>
+
+                <a href="{% url 'users:my_cv' %}">
+                    <i class="fa-regular fa-file-lines"></i>
+                    <span>CV của tôi</span>
+                </a>
+
+                <a href="{% url 'users:settings' %}">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Cài đặt</span>
+                </a>
+
+                <form method="post" action="{% url 'users:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span>Đăng xuất</span>
+                    </button>
+                </form>
+
+            </nav>
+
+            <div class="sidebar-version">
+
+                <small>v1.0.0</small>
+
+            </div>
+
+        </aside>
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+            <div class="content-header">
+
+                <h1>Hồ sơ</h1>
+
+                <button class="save-btn">
+
+                    Lưu hồ sơ
+
+                </button>
+
+            </div>
+
+            <!-- ================= PROFILE ================= -->
+
+            <div class="profile-box">
+
+                <div class="profile-avatar">
+
+                    <img src="{% static 'img/avatar-default.png' %}"
+                        alt="Avatar">
+
+                </div>
+
+                <form id="profileForm">
+
+                    <div class="form-grid">
+
+                        <!-- Họ tên -->
+
+                        <div class="form-group">
+
+                            <label>Họ và tên:</label>
+
+                            <input
+                                type="text"
+                                name="fullname">
+
+                        </div>
+
+                        <!-- Điện thoại -->
+
+                        <div class="form-group">
+
+                            <label>Số điện thoại:</label>
+
+                            <input
+                                type="text"
+                                name="phone">
+
+                        </div>
+
+                        <!-- Email -->
+
+                        <div class="form-group">
+
+                            <label>Email:</label>
+
+                            <input
+                                type="email"
+                                name="email">
+
+                        </div>
+
+                        <!-- Công việc -->
+
+                        <div class="form-group">
+
+                            <label>Công việc mong muốn:</label>
+
+                            <input
+                                type="text"
+                                name="position">
+
+                        </div>
+
+                        <!-- Địa điểm -->
+
+                        <div class="form-group">
+
+                            <label>Địa điểm:</label>
+
+                            <input
+                                type="text"
+                                name="location">
+
+                        </div>
+
+                        <!-- Lương -->
+
+                        <div class="form-group">
+
+                            <label>Mức lương:</label>
+
+                            <input
+                                type="text"
+                                name="salary">
+
+                        </div>
+
+                    </div>
+
+                    <!-- Giới thiệu -->
+                    <div class="form-group full-width">
+
+                        <label>Giới thiệu bản thân:</label>
+
+                        <textarea
+                            rows="5"
+                            name="about"></textarea>
+
+                    </div>
+                                        <!-- ================= KỸ NĂNG ================= -->
+
+                    <div class="section-box">
+
+                        <div class="section-header">
+
+                            <h3>Kỹ năng</h3>
+
+                            <button
+                                type="button"
+                                class="add-btn">
+
+                                Thêm kỹ năng
+
+                            </button>
+
+                        </div>
+
+                        <div id="skillContainer">
+
+                            <div class="skill-item">
+
+                                <input
+                                    type="text"
+                                    placeholder="Ví dụ: HTML, CSS, JavaScript">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ================= KINH NGHIỆM ================= -->
+
+                    <div class="section-box">
+
+                        <h3>Kinh nghiệm làm việc</h3>
+
+                        <div id="experienceContainer">
+
+                            <div class="experience-item">
+
+                                <div class="experience-grid">
+
+                                    <!-- Công việc -->
+
+                                    <div class="form-group large">
+
+                                        <label>Công việc đã làm</label>
+
+                                        <input
+                                            type="text">
+
+                                    </div>
+
+                                    <!-- Từ -->
+
+                                    <div class="form-group small">
+
+                                        <label>Từ năm</label>
+
+                                        <input
+                                            type="text">
+
+                                    </div>
+
+                                    <!-- Đến -->
+
+                                    <div class="form-group small">
+
+                                        <label>Đến năm</label>
+
+                                        <input
+                                            type="text">
+
+                                    </div>
+
+                                </div>
+
+                                <!-- Công ty -->
+
+                                <div class="form-group">
+
+                                    <label>Tên công ty</label>
+
+                                    <input
+                                        type="text">
+
+                                </div>
+
+                                <!-- Mô tả -->
+
+                                <div class="form-group">
+
+                                    <label>Mô tả</label>
+
+                                    <textarea
+                                        rows="4"></textarea>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                                        <!-- ================= HỌC VẤN ================= -->
+
+                    <div class="section-box">
+
+                        <h3>Học vấn</h3>
+
+                        <div id="educationContainer">
+
+                            <div class="education-item">
+
+                                <div class="education-grid">
+
+                                    <!-- Tên ngành -->
+
+                                    <div class="form-group large">
+
+                                        <label>Tên ngành</label>
+
+                                        <input
+                                            type="text">
+
+                                    </div>
+
+                                    <!-- Từ -->
+
+                                    <div class="form-group small">
+
+                                        <label>Từ năm</label>
+
+                                        <input
+                                            type="text">
+
+                                    </div>
+
+                                    <!-- Đến -->
+
+                                    <div class="form-group small">
+
+                                        <label>Đến năm</label>
+
+                                        <input
+                                            type="text">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>Tên trường</label>
+
+                                    <input
+                                        type="text">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ================= LIÊN KẾT ================= -->
+
+                    <div class="section-box">
+
+                        <h3>Liên kết</h3>
+
+                        <div id="linkContainer">
+
+                            <div class="link-item">
+
+                                <div class="form-group">
+
+                                    <label>Tên liên kết</label>
+
+                                    <input
+                                        type="text"
+                                        placeholder="Github / Portfolio / LinkedIn">
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label>Link</label>
+
+                                    <input
+                                        type="url"
+                                        placeholder="https://">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-column">
+
+                <h2>IT CAREER HUB</h2>
+
+                <p>
+                    Nền tảng tuyển dụng IT<br>
+                    xịn nhất Việt Nam.
+                </p>
+
+                <small>
+                    © 2025 IT Career Hub
+                </small>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>Ứng viên</h4>
+
+                <a href="#">Tìm việc làm</a>
+
+                <a href="#">Hồ sơ cá nhân</a>
+
+                <a href="#">Đơn ứng tuyển</a>
+
+                <a href="#">Việc đã lưu</a>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>Nhà tuyển dụng</h4>
+
+                <a href="#">Đăng tin tuyển dụng</a>
+
+                <a href="#">Quản lý tin đăng</a>
+
+                <a href="#">Xem ứng viên</a>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>Về chúng tôi</h4>
+
+                <a href="#">Giới thiệu</a>
+
+                <a href="#">Blog</a>
+
+                <a href="#">Liên hệ</a>
+
+                <a href="#">Điều khoản</a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Javascript -->
+
+    <script src="{% static 'js/my_profile.js' %}"></script>
+
+</body>
+
+</html>

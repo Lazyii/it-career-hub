@@ -1,0 +1,675 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Overview | IT Career Hub</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/company_overview.css' %}">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        <a href="#">IT CAREER HUB</a>
+    </div>
+
+    <nav class="navbar">
+
+        <div class="nav-item">
+            <a href="#">
+                Công việc
+                <i class="fa-solid fa-angle-down"></i>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a href="#">
+                Công ty
+                <i class="fa-solid fa-angle-down"></i>
+            </a>
+        </div>
+
+    </nav>
+
+    <div class="header-right">
+
+        <button class="icon-btn">
+            <i class="fa-solid fa-bell"></i>
+        </button>
+
+        <button class="icon-btn">
+            <i class="fa-regular fa-message"></i>
+        </button>
+
+        <div class="profile-dropdown">
+
+            <img src="{% static 'images/avatar/default_avatar.png' %}"
+                 alt="Avatar">
+
+            <i class="fa-solid fa-angle-down"></i>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ================= COMPANY BANNER ================= -->
+
+<section class="company-banner">
+
+    <div class="banner-overlay">
+
+        <div class="company-left">
+
+            <div class="company-logo">
+
+                <img src="{% static 'images/company/company-logo.png' %}"
+                     alt="Company Logo">
+
+            </div>
+
+            <div class="company-info">
+
+                <h1>Tiki</h1>
+
+                <p class="location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Hà Nội
+
+                </p>
+
+                <button class="favorite-btn">
+                    Quan tâm
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="company-right">
+
+            <p>
+
+                Trang web :
+
+                <a href="#">
+                    http.abcdfj.má/cốk
+                </a>
+
+            </p>
+
+            <p>
+
+                <a href="#">
+                    facebook - tiki.lab.com
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="follow-area">
+
+        <button class="follow-btn">
+            Theo dõi
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================= OVERVIEW ================= -->
+
+<section class="overview">
+
+    <h2>Tổng quan</h2>
+
+    <div class="overview-grid">
+
+        <div class="overview-item">
+
+            <span>Lĩnh vực công ty:</span>
+
+            <strong>Thương mại</strong>
+
+        </div>
+
+        <div class="overview-item">
+
+            <span>Nhân viên:</span>
+
+            <strong>300 - 500 người</strong>
+
+        </div>
+
+        <div class="overview-item">
+
+            <span>Quốc gia:</span>
+
+            <strong>Vietnam</strong>
+
+        </div>
+
+        <div class="overview-item">
+
+            <span>Đánh giá:</span>
+
+            <strong>4.9 / 5</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTENT ================= -->
+
+<div class="company-container">
+        <!-- ================= TABS ================= -->
+
+    <div class="company-tabs">
+
+        <button class="tab-btn active"
+                data-tab="overview">
+            Giới thiệu công ty
+        </button>
+
+        <button class="tab-btn"
+                data-tab="jobs">
+            Công việc đang tuyển dụng
+        </button>
+
+        <button class="tab-btn"
+                data-tab="reviews">
+            Đánh giá
+        </button>
+
+    </div>
+
+    <!-- ================= TAB CONTENT ================= -->
+
+    <div class="tab-content active"
+         id="overview">
+
+        <!-- ================= COMPANY GALLERY ================= -->
+
+        <section class="company-gallery">
+
+            <div class="gallery-wrapper">
+
+                <button class="gallery-arrow left">
+
+                    <i class="fa-solid fa-angle-left"></i>
+
+                </button>
+
+                <div class="gallery-track">
+
+                    <div class="gallery-item">
+
+                        <img src="{% static 'images/company/company1.jpg' %}"
+                             alt="Company Image">
+
+                    </div>
+
+                    <div class="gallery-item">
+
+                        <img src="{% static 'images/company/company2.jpg' %}"
+                             alt="Company Image">
+
+                    </div>
+
+                    <div class="gallery-item">
+
+                        <img src="{% static 'images/company/company3.jpg' %}"
+                             alt="Company Image">
+
+                    </div>
+
+                    <div class="gallery-item">
+
+                        <img src="{% static 'images/company/company4.jpg' %}"
+                             alt="Company Image">
+
+                    </div>
+
+                </div>
+
+                <button class="gallery-arrow right">
+
+                    <i class="fa-solid fa-angle-right"></i>
+
+                </button>
+
+            </div>
+
+            <!-- Dots -->
+
+            <div class="gallery-dots">
+
+                <span class="dot active"></span>
+
+                <span class="dot"></span>
+
+                <span class="dot"></span>
+
+                <span class="dot"></span>
+
+            </div>
+
+        </section>
+
+        <!-- ================= COMPANY INTRODUCTION ================= -->
+
+        <section class="content-card">
+
+            <h2>
+                Giới thiệu công ty
+            </h2>
+
+            <p>
+
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Ipsum aperiam adipisci quasi ipsum modi optio irure.
+                Excepteur lorem tempor qui repudiandae sunt rem mollit
+                placeat tempor consectetur tenetur tempor ad magni eaque
+                quisquam.
+
+            </p>
+
+            <p>
+
+                Consequuntur culpa tenetur ad amet est similique
+                consequuntur proident enim aperiam fuga quisquam
+                maxime irure placeat facere. Eos magni aliquam sunt
+                doloribus doloremque aperiam nesciunt.
+
+            </p>
+
+            <p>
+
+                Doloremque totam quia similique at architecto aspernatur
+                maxime commodo magna maiores aliqua accusamus dicta
+                labore. Pariatur ipsum sed nisi earum consectetur ea
+                quibusdam porro eaque tempora sit culpa neque modi
+                nesciunt nulla.
+
+            </p>
+
+        </section>
+
+        <!-- ================= CERTIFICATE ================= -->
+
+        <section class="content-card">
+
+            <h2>
+
+                Giải thưởng / Giấy chứng nhận
+
+            </h2>
+
+            <div class="certificate">
+
+                <div class="certificate-title">
+
+                    1. Chứng nhận ABC
+
+                </div>
+
+                <p>
+
+                    Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit.
+                    Ipsum aperiam adipisci quasi
+                    ipsum modi optio irure.
+
+                </p>
+
+            </div>
+
+            <div class="certificate">
+
+                <div class="certificate-title">
+
+                    2. Chứng nhận ABC
+
+                </div>
+
+                <p>
+
+                    Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit.
+                    Ipsum aperiam adipisci quasi
+                    ipsum modi optio irure.
+
+                </p>
+
+            </div>
+
+        </section>
+                <!-- ================= COMPANY BENEFITS ================= -->
+
+        <section class="content-card">
+
+            <h2>
+
+                Cty chúng tôi có gì?
+
+            </h2>
+
+            <p>
+
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Ipsum aperiam adipisci quasi ipsum modi optio irure.
+                Excepteur lorem tempor qui repudiandae sunt rem mollit
+                placeat tempor consectetur tenetur ad amet est similique
+                consequuntur proident enim aperiam fuga quisquam maxime
+                irure placeat facere.
+
+            </p>
+
+            <p>
+
+                Eos magni aliquam sunt doloribus doloremque aperiam
+                nesciunt. Doloremque totam quia similique at architecto
+                aspernatur maxime commodo magna maiores aliqua accusamus
+                dicta labore. Pariatur ipsum sed nisi earum consectetur
+                ea quibusdam porro eaque tempora sit culpa neque modi
+                nesciunt nulla. Id rerum dicta veniam nisi tempor sed sequi.
+
+            </p>
+
+        </section>
+
+        <!-- ================= SPECIALIZATION ================= -->
+
+        <section class="content-card">
+
+            <h2>
+
+                Chuyên môn
+
+            </h2>
+
+            <p>
+
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Ipsum aperiam adipisci quasi ipsum modi optio irure.
+                Excepteur lorem tempor qui repudiandae sunt rem mollit
+                placeat tempor consectetur tenetur ad amet est similique
+                consequuntur proident enim aperiam fuga quisquam maxime
+                irure placeat facere.
+
+            </p>
+
+            <p>
+
+                Eos magni aliquam sunt doloribus doloremque aperiam
+                nesciunt.
+
+            </p>
+
+            <p>
+
+                Doloremque totam quia similique at architecto aspernatur
+                maxime commodo magna maiores aliqua accusamus dicta
+                labore. Pariatur ipsum sed nisi earum consectetur ea
+                quibusdam porro eaque tempora sit culpa neque modi
+                nesciunt nulla.
+
+            </p>
+
+        </section>
+
+    </div>
+
+    <!-- ================= JOB TAB ================= -->
+
+    <div class="tab-content"
+         id="jobs">
+
+        <div class="empty-state">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            <h3>
+
+                Công việc đang tuyển dụng
+
+            </h3>
+
+            <p>
+
+                Hiện tại công ty đang có 12 vị trí tuyển dụng.
+
+            </p>
+
+            <a href="#"
+               class="view-job-btn">
+
+                Xem danh sách việc làm
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- ================= REVIEW TAB ================= -->
+
+    <div class="tab-content"
+         id="reviews">
+
+        <div class="review-summary">
+
+            <h2>
+
+                Đánh giá công ty
+
+            </h2>
+
+            <div class="rating-score">
+
+                <span class="score">
+
+                    4.9
+
+                </span>
+
+                <div class="stars">
+
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+
+                </div>
+
+                <span>
+
+                    (235 đánh giá)
+
+                </span>
+
+            </div>
+
+            <div class="review-item">
+
+                <h4>
+
+                    Nguyễn Văn A
+
+                </h4>
+
+                <span>
+
+                    Frontend Developer
+
+                </span>
+
+                <p>
+
+                    Môi trường làm việc rất tốt,
+                    đồng nghiệp thân thiện,
+                    nhiều cơ hội học hỏi và phát triển.
+
+                </p>
+
+            </div>
+
+            <div class="review-item">
+
+                <h4>
+
+                    Trần Thị B
+
+                </h4>
+
+                <span>
+
+                    Backend Developer
+
+                </span>
+
+                <p>
+
+                    Chế độ phúc lợi khá tốt,
+                    văn phòng đẹp,
+                    công việc ổn định.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>IT CAREER HUB</h3>
+
+            <p>
+                Nền tảng tuyển dụng IT
+                <br>
+                xem nhất Việt Nam.
+            </p>
+
+            <p class="copyright">
+                © 2025 IT Career Hub
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>Ứng viên</h4>
+
+            <ul>
+
+                <li>
+                    <a href="#">Tìm việc làm</a>
+                </li>
+
+                <li>
+                    <a href="#">Hồ sơ của tôi</a>
+                </li>
+
+                <li>
+                    <a href="#">Đơn ứng tuyển</a>
+                </li>
+
+                <li>
+                    <a href="#">Việc đã lưu</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>Nhà tuyển dụng</h4>
+
+            <ul>
+
+                <li>
+                    <a href="#">Đăng tin tuyển dụng</a>
+                </li>
+
+                <li>
+                    <a href="#">Quản lý tin đăng</a>
+                </li>
+
+                <li>
+                    <a href="#">Xem ứng viên</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h4>Về chúng tôi</h4>
+
+            <ul>
+
+                <li>
+                    <a href="#">Giới thiệu</a>
+                </li>
+
+                <li>
+                    <a href="#">Blog</a>
+                </li>
+
+                <li>
+                    <a href="#">Liên hệ</a>
+                </li>
+
+                <li>
+                    <a href="#">Điều khoản</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="{% static 'js/company_overview.js' %}"></script>
+
+</body>
+</html>
+
